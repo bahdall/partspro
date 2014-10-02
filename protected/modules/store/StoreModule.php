@@ -8,7 +8,7 @@ class StoreModule extends BaseModule
 	{
 		$this->setImport(array(
 			'store.models.*',
-			'store.components.*'
+			'store.components.*',
 		));
 	}
 }
