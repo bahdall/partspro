@@ -40,11 +40,34 @@ CREATE TABLE IF NOT EXISTS `ActionLog` (
   KEY `event` (`event`),
   KEY `datetime` (`datetime`),
   KEY `model_name` (`model_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.ActionLog: 0 rows
+-- Дамп данных таблицы partspro.ActionLog: 22 rows
 DELETE FROM `ActionLog`;
 /*!40000 ALTER TABLE `ActionLog` DISABLE KEYS */;
+INSERT INTO `ActionLog` (`id`, `username`, `event`, `model_name`, `model_title`, `datetime`) VALUES
+	(1, 'admin', 1, 'SSystemLanguage', 'Казахский', '2014-09-30 13:45:48'),
+	(2, 'admin', 2, 'Page', 'О компании', '2014-10-02 11:58:43'),
+	(3, 'admin', 1, 'Page', 'Все услуги', '2014-10-02 12:00:55'),
+	(4, 'admin', 1, 'Page', 'Вакансии', '2014-10-02 12:02:30'),
+	(5, 'admin', 2, 'SSystemLanguage', 'Рус', '2014-10-02 14:35:41'),
+	(6, 'admin', 2, 'SSystemLanguage', 'Eng', '2014-10-02 14:35:51'),
+	(7, 'admin', 2, 'SSystemLanguage', 'Kz', '2014-10-02 14:36:06'),
+	(8, 'admin', 1, 'StoreCategory', 'Автозапчасти', '2014-10-03 13:50:48'),
+	(9, 'admin', 1, 'StoreCategory', 'Грузовые авто', '2014-10-03 13:51:34'),
+	(10, 'admin', 1, 'StoreCategory', 'Легковые авто', '2014-10-03 13:52:52'),
+	(11, 'admin', 1, 'StoreCategory', 'Заказать деталь', '2014-10-03 14:00:15'),
+	(12, 'admin', 1, 'StoreAttribute', 'mark', '2014-10-03 14:06:49'),
+	(13, 'admin', 1, 'StoreAttribute', 'year_create', '2014-10-03 14:09:08'),
+	(14, 'admin', 1, 'StoreAttribute', 'type_cuzov', '2014-10-03 14:11:40'),
+	(15, 'admin', 1, 'StoreAttribute', 'kpp_type', '2014-10-03 14:12:42'),
+	(16, 'admin', 1, 'StoreAttribute', 'state', '2014-10-03 14:14:46'),
+	(17, 'admin', 1, 'StoreAttribute', 'odometer', '2014-10-03 14:15:33'),
+	(18, 'admin', 1, 'StoreProductType', 'Автомобили', '2014-10-03 14:16:29'),
+	(19, 'admin', 1, 'StoreProduct', 'test', '2014-10-03 16:43:03'),
+	(20, 'admin', 2, 'StoreProduct', 'Samsung Galaxy Tab 10.1 P7500 16Gb', '2014-10-03 16:45:21'),
+	(21, 'admin', 3, 'StoreProduct', 'test', '2014-10-03 16:49:37'),
+	(22, 'admin', 1, 'StoreProduct', 'test', '2014-10-03 16:51:37');
 /*!40000 ALTER TABLE `ActionLog` ENABLE KEYS */;
 
 
@@ -115,9 +138,12 @@ CREATE TABLE IF NOT EXISTS `AuthItemChild` (
   KEY `child` (`child`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.AuthItemChild: 0 rows
+-- Дамп данных таблицы partspro.AuthItemChild: 2 rows
 DELETE FROM `AuthItemChild`;
 /*!40000 ALTER TABLE `AuthItemChild` DISABLE KEYS */;
+INSERT INTO `AuthItemChild` (`parent`, `child`) VALUES
+	('Authenticated', 'Feedback.*'),
+	('Guest', 'Feedback.*');
 /*!40000 ALTER TABLE `AuthItemChild` ENABLE KEYS */;
 
 
@@ -360,19 +386,21 @@ CREATE TABLE IF NOT EXISTS `Page` (
   KEY `updated` (`updated`),
   KEY `publish_date` (`publish_date`),
   KEY `status` (`status`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.Page: 7 rows
+-- Дамп данных таблицы partspro.Page: 9 rows
 DELETE FROM `Page`;
 /*!40000 ALTER TABLE `Page` DISABLE KEYS */;
 INSERT INTO `Page` (`id`, `user_id`, `category_id`, `url`, `created`, `updated`, `publish_date`, `status`, `layout`, `view`) VALUES
-	(8, 1, NULL, 'help', '2012-06-10 22:35:51', '2012-07-07 11:47:09', '2012-06-10 22:35:29', 'published', '', ''),
+	(8, 1, NULL, 'about', '2012-06-10 22:35:51', '2014-10-02 11:58:43', '2012-06-10 22:35:29', 'published', '', ''),
 	(9, 1, NULL, 'how-to-create-order', '2012-06-10 22:36:50', '2012-07-07 11:45:53', '2012-06-10 22:36:27', 'published', '', ''),
 	(10, 1, NULL, 'garantiya', '2012-06-10 22:37:06', '2012-07-07 11:45:38', '2012-06-10 22:36:50', 'published', '', ''),
 	(11, 1, NULL, 'dostavka-i-oplata', '2012-06-10 22:37:18', '2012-07-07 11:41:49', '2012-06-10 22:37:07', 'published', '', ''),
 	(12, 1, 7, 'samsung-pitaetsya-izbezhat-zapreta-na-galaxy-nexus-v-shtatah-pri-pomoshi-patcha', '2012-07-07 12:08:50', '2012-07-07 12:09:33', '2012-07-07 12:06:19', 'published', '', ''),
 	(13, 1, 7, 'za-85-mesyacev-android-40-popal-na-11-ustroistv', '2012-07-07 12:19:44', '2013-06-04 23:20:21', '2012-07-07 12:14:48', 'published', '', ''),
-	(14, 1, 7, 'google-prezentoval-svoi-ochki-dopolnennoi-realnosti', '2012-07-07 12:26:11', '2012-07-07 12:26:11', '2012-07-07 12:25:48', 'published', '', '');
+	(14, 1, 7, 'google-prezentoval-svoi-ochki-dopolnennoi-realnosti', '2012-07-07 12:26:11', '2012-07-07 12:26:11', '2012-07-07 12:25:48', 'published', '', ''),
+	(15, 1, NULL, 'services', '2014-10-02 12:00:55', '2014-10-02 12:00:55', '2014-10-02 11:59:51', 'published', '', ''),
+	(16, 1, NULL, 'vakansii', '2014-10-02 12:02:30', '2014-10-02 12:02:30', '2014-10-02 12:02:13', 'published', '', '');
 /*!40000 ALTER TABLE `Page` ENABLE KEYS */;
 
 
@@ -417,9 +445,9 @@ CREATE TABLE IF NOT EXISTS `PageCategoryTranslate` (
   PRIMARY KEY (`id`),
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.PageCategoryTranslate: 6 rows
+-- Дамп данных таблицы partspro.PageCategoryTranslate: 8 rows
 DELETE FROM `PageCategoryTranslate`;
 /*!40000 ALTER TABLE `PageCategoryTranslate` DISABLE KEYS */;
 INSERT INTO `PageCategoryTranslate` (`id`, `object_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keywords`) VALUES
@@ -428,7 +456,9 @@ INSERT INTO `PageCategoryTranslate` (`id`, `object_id`, `language_id`, `name`, `
 	(15, 11, 1, 'sdfsdf', '', '', '', ''),
 	(16, 11, 9, 'sdfsdf', '', '', '', ''),
 	(17, 12, 1, 'Тесстовя2', '', '', '', ''),
-	(18, 12, 9, 'Тесстовя2', '', '', '', '');
+	(18, 12, 9, 'Тесстовя2', '', '', '', ''),
+	(19, 7, 10, 'Новости', '', '', '', ''),
+	(20, 12, 10, 'Тесстовя2', '', '', '', '');
 /*!40000 ALTER TABLE `PageCategoryTranslate` ENABLE KEYS */;
 
 
@@ -446,14 +476,14 @@ CREATE TABLE IF NOT EXISTS `PageTranslate` (
   PRIMARY KEY (`id`),
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.PageTranslate: 14 rows
+-- Дамп данных таблицы partspro.PageTranslate: 27 rows
 DELETE FROM `PageTranslate`;
 /*!40000 ALTER TABLE `PageTranslate` DISABLE KEYS */;
 INSERT INTO `PageTranslate` (`id`, `object_id`, `language_id`, `title`, `short_description`, `full_description`, `meta_title`, `meta_keywords`, `meta_description`) VALUES
 	(22, 11, 9, 'Доставка и оплата', '', '', '', '', ''),
-	(15, 8, 1, 'Помощь', 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).', '', '', '', ''),
+	(15, 8, 1, 'О компании', 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).', '', '', '', ''),
 	(16, 8, 9, 'Помощь', '', '', '', '', ''),
 	(17, 9, 1, 'Как сделать заказ', '<p>Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь. Если вам нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь из более чем 200 латинских слов, а также набор моделей предложений. В результате сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет повторяющихся абзацей или "невозможных" слов.</p>', '', '', '', ''),
 	(18, 9, 9, 'Как сделать заказ', '', '', '', '', ''),
@@ -465,7 +495,20 @@ INSERT INTO `PageTranslate` (`id`, `object_id`, `language_id`, `title`, `short_d
 	(24, 12, 9, 'Samsung пытается избежать запрета на Galaxy Nexus в Штатах при помощи патча', 'Текущую ситуацию с судебным противостоянием Apple и Samsung в Штатах (ссылка по теме) можно описать строчкой их двух слов: всё плохо. В смысле всё плохо для Samsung — южнокорейская корпорация так и не сумела отбиться от назначенного судом предварительного запрета на американские продажи планшетников Galaxy Tab 10.1 и, главное, новейших смартфонов Galaxy Nexus. Расклад намечается хуже некуда: по некоторым выкладкам, потенциальный ущерб от подобного запрета может достигнуть 180 млн. долларов, две трети из которых придутся на непроданные Galaxy Nexus.', '', '', '', ''),
 	(26, 13, 9, 'За 8,5 месяцев Android 4.0 попал на 11% устройств', 'В свое время платформа Android 2.x распространялась активнее, чем Android 4.0 Ice Cream Sandwich, а ведь уже появилась новая мобильная ОС от Google — Android 4.1 Jelly Bean. За 8,5 месяцев своего существования Android ICS попал на 10,9% устройств, а лидировать на рынке продолжает Android 2,3 Gingerbread.', '', '', '', ''),
 	(27, 14, 1, 'Google презентовал свои очки дополненной реальности‎', 'Компания Google приступит к продаже очков дополненной реальности, который разрабатываются в рамках проекта Google Project Glass, пишет блог All Things Digital. ', 'Очки будут стоить 1,5 тысячи долларов, и поставки стартуют в начале 2013 года. Устройство, однако, будет предназначено только для разработчиков. Оформить предварительный заказ на него смогут исключительно посетители конференции I/O, открывшейся 27 июня в Сан-Франциско. ', '', '', ''),
-	(28, 14, 9, 'Google презентовал свои очки дополненной реальности‎', 'Компания Google приступит к продаже очков дополненной реальности, который разрабатываются в рамках проекта Google Project Glass, пишет блог All Things Digital. ', 'Очки будут стоить 1,5 тысячи долларов, и поставки стартуют в начале 2013 года. Устройство, однако, будет предназначено только для разработчиков. Оформить предварительный заказ на него смогут исключительно посетители конференции I/O, открывшейся 27 июня в Сан-Франциско. ', '', '', '');
+	(28, 14, 9, 'Google презентовал свои очки дополненной реальности‎', 'Компания Google приступит к продаже очков дополненной реальности, который разрабатываются в рамках проекта Google Project Glass, пишет блог All Things Digital. ', 'Очки будут стоить 1,5 тысячи долларов, и поставки стартуют в начале 2013 года. Устройство, однако, будет предназначено только для разработчиков. Оформить предварительный заказ на него смогут исключительно посетители конференции I/O, открывшейся 27 июня в Сан-Франциско. ', '', '', ''),
+	(29, 14, 10, 'Google презентовал свои очки дополненной реальности‎', 'Компания Google приступит к продаже очков дополненной реальности, который разрабатываются в рамках проекта Google Project Glass, пишет блог All Things Digital. ', 'Очки будут стоить 1,5 тысячи долларов, и поставки стартуют в начале 2013 года. Устройство, однако, будет предназначено только для разработчиков. Оформить предварительный заказ на него смогут исключительно посетители конференции I/O, открывшейся 27 июня в Сан-Франциско. ', '', '', ''),
+	(30, 13, 10, 'За 8,5 месяцев Android 4.0 попал на 11% устройств', 'В свое время платформа Android 2.x распространялась активнее, чем Android 4.0 Ice Cream Sandwich, а ведь уже появилась новая мобильная ОС от Google — Android 4.1 Jelly Bean. За 8,5 месяцев своего существования Android ICS попал на 10,9% устройств, а лидировать на рынке продолжает Android 2,3 Gingerbread.', '', '', '', ''),
+	(31, 12, 10, 'Samsung пытается избежать запрета на Galaxy Nexus', 'Текущую ситуацию с судебным противостоянием Apple и Samsung в Штатах (ссылка по теме) можно описать строчкой их двух слов: всё плохо. ', 'В смысле всё плохо для Samsung — южнокорейская корпорация так и не сумела отбиться от назначенного судом предварительного запрета на американские продажи планшетников Galaxy Tab 10.1 и, главное, новейших смартфонов Galaxy Nexus. Расклад намечается хуже некуда: по некоторым выкладкам, потенциальный ущерб от подобного запрета может достигнуть 180 млн. долларов, две трети из которых придутся на непроданные Galaxy Nexus.', '', '', ''),
+	(32, 11, 10, 'Доставка и оплата', '<p>Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).</p>', '', '', '', ''),
+	(33, 10, 10, 'Гарантия', '<p>Многие думают, что Lorem Ipsum - взятый с потолка псевдо-латинский набор слов, но это не совсем так. Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur", и занялся его поисками в классической латинской литературе.</p>\r\n<p>В результате он нашёл неоспоримый первоисточник Lorem Ipsum в разделах 1.10.32 и 1.10.33 книги "de Finibus Bonorum et Malorum" ("О пределах добра и зла"), написанной Цицероном в 45 году н.э. Этот трактат по теории этики был очень популярен в эпоху Возрождения. Первая строка Lorem Ipsum, "Lorem ipsum dolor sit amet..", происходит от одной из строк в разделе 1.10.32 Классический текст Lorem Ipsum, используемый с XVI века, приведён ниже. Также даны разделы 1.10.32 и 1.10.33 "de Finibus Bonorum et Malorum" Цицерона и их английский перевод, сделанный H. Rackham, 1914 год.</p>', '', '', '', ''),
+	(34, 9, 10, 'Как сделать заказ', '<p>Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь. Если вам нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь из более чем 200 латинских слов, а также набор моделей предложений. В результате сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет повторяющихся абзацей или "невозможных" слов.</p>', '', '', '', ''),
+	(35, 8, 10, 'Помощь', 'Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).', '', '', '', ''),
+	(36, 15, 1, 'Все услуги', 'Все услуги', 'Все услуги', '', '', ''),
+	(37, 15, 9, 'Все услуги', 'Все услуги', 'Все услуги', '', '', ''),
+	(38, 15, 10, 'Все услуги', 'Все услуги', 'Все услуги', '', '', ''),
+	(39, 16, 1, 'Вакансии', 'Вакансии', 'Вакансии', '', '', ''),
+	(40, 16, 9, 'Вакансии', 'Вакансии', 'Вакансии', '', '', ''),
+	(41, 16, 10, 'Вакансии', 'Вакансии', 'Вакансии', '', '', '');
 /*!40000 ALTER TABLE `PageTranslate` ENABLE KEYS */;
 
 
@@ -502,9 +545,9 @@ CREATE TABLE IF NOT EXISTS `StoreAttribute` (
   KEY `use_in_variants` (`use_in_variants`),
   KEY `use_in_compare` (`use_in_compare`),
   KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreAttribute: 19 rows
+-- Дамп данных таблицы partspro.StoreAttribute: 25 rows
 DELETE FROM `StoreAttribute`;
 /*!40000 ALTER TABLE `StoreAttribute` DISABLE KEYS */;
 INSERT INTO `StoreAttribute` (`id`, `name`, `type`, `display_on_front`, `use_in_filter`, `use_in_variants`, `use_in_compare`, `select_many`, `position`, `required`) VALUES
@@ -526,7 +569,13 @@ INSERT INTO `StoreAttribute` (`id`, `name`, `type`, `display_on_front`, `use_in_
 	(16, 'phone_camera', 3, 1, NULL, NULL, 1, NULL, 0, NULL),
 	(17, 'tablet_screen_size', 3, 1, NULL, NULL, 1, NULL, 0, NULL),
 	(18, 'memmory_size', 3, 1, NULL, NULL, 1, NULL, 0, NULL),
-	(19, 'weight', 3, 1, NULL, NULL, 1, NULL, 0, NULL);
+	(19, 'weight', 3, 1, NULL, NULL, 1, NULL, 0, NULL),
+	(20, 'mark', 3, 1, 1, 1, 1, 0, 0, 1),
+	(21, 'year_create', 1, 1, 1, 1, 1, 0, 0, 0),
+	(22, 'type_cuzov', 3, 1, 1, 1, 1, 0, 0, 0),
+	(23, 'kpp_type', 3, 1, 1, 1, 1, 0, 0, 1),
+	(24, 'state', 3, 1, 1, 1, 1, 0, 0, 1),
+	(25, 'odometer', 1, 1, 1, 1, 1, 0, 0, 0);
 /*!40000 ALTER TABLE `StoreAttribute` ENABLE KEYS */;
 
 
@@ -538,9 +587,9 @@ CREATE TABLE IF NOT EXISTS `StoreAttributeOption` (
   PRIMARY KEY (`id`),
   KEY `attribute_id` (`attribute_id`),
   KEY `position` (`position`)
-) ENGINE=MyISAM AUTO_INCREMENT=161 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=170 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreAttributeOption: 75 rows
+-- Дамп данных таблицы partspro.StoreAttributeOption: 84 rows
 DELETE FROM `StoreAttributeOption`;
 /*!40000 ALTER TABLE `StoreAttributeOption` DISABLE KEYS */;
 INSERT INTO `StoreAttributeOption` (`id`, `attribute_id`, `position`) VALUES
@@ -618,7 +667,16 @@ INSERT INTO `StoreAttributeOption` (`id`, `attribute_id`, `position`) VALUES
 	(157, 17, NULL),
 	(158, 6, NULL),
 	(159, 19, NULL),
-	(160, 19, NULL);
+	(160, 19, NULL),
+	(161, 20, 0),
+	(162, 20, 1),
+	(163, 22, 0),
+	(164, 22, 1),
+	(165, 22, 2),
+	(166, 23, 0),
+	(167, 23, 1),
+	(168, 24, 0),
+	(169, 24, 1);
 /*!40000 ALTER TABLE `StoreAttributeOption` ENABLE KEYS */;
 
 
@@ -631,9 +689,9 @@ CREATE TABLE IF NOT EXISTS `StoreAttributeOptionTranslate` (
   PRIMARY KEY (`id`),
   KEY `language_id` (`language_id`),
   KEY `object_id` (`object_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=321 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=348 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreAttributeOptionTranslate: 150 rows
+-- Дамп данных таблицы partspro.StoreAttributeOptionTranslate: 177 rows
 DELETE FROM `StoreAttributeOptionTranslate`;
 /*!40000 ALTER TABLE `StoreAttributeOptionTranslate` DISABLE KEYS */;
 INSERT INTO `StoreAttributeOptionTranslate` (`id`, `language_id`, `object_id`, `value`) VALUES
@@ -786,7 +844,34 @@ INSERT INTO `StoreAttributeOptionTranslate` (`id`, `language_id`, `object_id`, `
 	(317, 1, 159, '586 г'),
 	(318, 9, 159, '586 г'),
 	(319, 1, 160, '565 г'),
-	(320, 9, 160, '565 г');
+	(320, 9, 160, '565 г'),
+	(321, 1, 161, 'BMW'),
+	(322, 9, 161, 'BMW'),
+	(323, 10, 161, 'BMW'),
+	(324, 1, 162, 'Opel'),
+	(325, 9, 162, 'Opel'),
+	(326, 10, 162, 'Opel'),
+	(327, 1, 163, 'Внедорожник'),
+	(328, 9, 163, 'Внедорожник'),
+	(329, 10, 163, 'Внедорожник'),
+	(330, 1, 164, 'Кроссовер'),
+	(331, 9, 164, 'Кроссовер'),
+	(332, 10, 164, 'Кроссовер'),
+	(333, 1, 165, 'Минивэн'),
+	(334, 9, 165, 'Минивэн'),
+	(335, 10, 165, 'Минивэн'),
+	(336, 1, 166, 'автомат'),
+	(337, 9, 166, 'автомат'),
+	(338, 10, 166, 'автомат'),
+	(339, 1, 167, 'механическая'),
+	(340, 9, 167, 'механическая'),
+	(341, 10, 167, 'механическая'),
+	(342, 1, 168, 'Новое'),
+	(343, 9, 168, 'Новое'),
+	(344, 10, 168, 'Новое'),
+	(345, 1, 169, 'Б.у'),
+	(346, 9, 169, 'Б.у'),
+	(347, 10, 169, 'Б.у');
 /*!40000 ALTER TABLE `StoreAttributeOptionTranslate` ENABLE KEYS */;
 
 
@@ -799,9 +884,9 @@ CREATE TABLE IF NOT EXISTS `StoreAttributeTranslate` (
   PRIMARY KEY (`id`),
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=116 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreAttributeTranslate: 38 rows
+-- Дамп данных таблицы partspro.StoreAttributeTranslate: 75 rows
 DELETE FROM `StoreAttributeTranslate`;
 /*!40000 ALTER TABLE `StoreAttributeTranslate` DISABLE KEYS */;
 INSERT INTO `StoreAttributeTranslate` (`id`, `object_id`, `language_id`, `title`) VALUES
@@ -842,7 +927,44 @@ INSERT INTO `StoreAttributeTranslate` (`id`, `object_id`, `language_id`, `title`
 	(75, 18, 1, 'Объем памяти'),
 	(76, 18, 9, 'Объем памяти'),
 	(77, 19, 1, 'Вес'),
-	(78, 19, 9, 'Вес');
+	(78, 19, 9, 'Вес'),
+	(79, 9, 10, 'Тип'),
+	(80, 19, 10, 'Вес'),
+	(81, 10, 10, 'Диагональ'),
+	(82, 1, 10, 'Тип процессора'),
+	(83, 11, 10, 'Разрешение'),
+	(84, 2, 10, 'Частота процессора'),
+	(85, 12, 10, 'Угол обзора'),
+	(86, 3, 10, 'Объем памяти'),
+	(87, 13, 10, 'Платформа'),
+	(88, 4, 10, 'Тип памяти'),
+	(89, 14, 10, 'Вес'),
+	(90, 5, 10, 'Диагональ'),
+	(91, 15, 10, 'Диагональ'),
+	(92, 6, 10, 'Разрешение'),
+	(93, 16, 10, 'Камера'),
+	(94, 7, 10, 'Суммарная мощность'),
+	(95, 17, 10, 'Диагональ'),
+	(96, 8, 10, 'Материал'),
+	(97, 18, 10, 'Объем памяти'),
+	(98, 20, 1, 'Марка'),
+	(99, 20, 9, 'Марка'),
+	(100, 20, 10, 'Марка'),
+	(101, 21, 1, 'Год выпуска'),
+	(102, 21, 9, 'Год выпуска'),
+	(103, 21, 10, 'Год выпуска'),
+	(104, 22, 1, 'Тип кузова'),
+	(105, 22, 9, 'Тип кузова'),
+	(106, 22, 10, 'Тип кузова'),
+	(107, 23, 1, 'Тип КПП'),
+	(108, 23, 9, 'Тип КПП'),
+	(109, 23, 10, 'Тип КПП'),
+	(110, 24, 1, 'Состояние'),
+	(111, 24, 9, 'Состояние'),
+	(112, 24, 10, 'Состояние'),
+	(113, 25, 1, 'Пробег (тысяч км.)'),
+	(114, 25, 9, 'Пробег (тысяч км.)'),
+	(115, 25, 10, 'Пробег (тысяч км.)');
 /*!40000 ALTER TABLE `StoreAttributeTranslate` ENABLE KEYS */;
 
 
@@ -863,13 +985,13 @@ CREATE TABLE IF NOT EXISTS `StoreCategory` (
   KEY `level` (`level`),
   KEY `url` (`url`),
   KEY `full_path` (`full_path`)
-) ENGINE=MyISAM AUTO_INCREMENT=238 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=242 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreCategory: 9 rows
+-- Дамп данных таблицы partspro.StoreCategory: 13 rows
 DELETE FROM `StoreCategory`;
 /*!40000 ALTER TABLE `StoreCategory` DISABLE KEYS */;
 INSERT INTO `StoreCategory` (`id`, `lft`, `rgt`, `level`, `url`, `full_path`, `layout`, `view`, `description`) VALUES
-	(1, 1, 26, 1, 'root', '', '', '', NULL),
+	(1, 1, 34, 1, 'root', '', '', '', NULL),
 	(230, 10, 15, 2, 'noutbuki', 'noutbuki', '', '', NULL),
 	(231, 11, 12, 3, 'byudzhetnii', 'noutbuki/byudzhetnii', '', '', NULL),
 	(232, 13, 14, 3, 'igrovoi', 'noutbuki/igrovoi', '', '', NULL),
@@ -877,7 +999,11 @@ INSERT INTO `StoreCategory` (`id`, `lft`, `rgt`, `level`, `url`, `full_path`, `l
 	(234, 17, 18, 3, 'kompyuternaya-akustika', 'kompyuteri/kompyuternaya-akustika', '', '', NULL),
 	(235, 22, 23, 2, 'monitori', 'monitori', '', '', NULL),
 	(236, 24, 25, 2, 'telefoni', 'telefoni', '', '', NULL),
-	(237, 19, 20, 3, 'plansheti', 'kompyuteri/plansheti', '', '', NULL);
+	(237, 19, 20, 3, 'plansheti', 'kompyuteri/plansheti', '', '', NULL),
+	(238, 26, 27, 2, 'avto-parts', 'avto-parts', '', '', ''),
+	(239, 28, 29, 2, 'lorries', 'lorries', '', '', ''),
+	(240, 30, 31, 2, 'cars', 'cars', '', '', ''),
+	(241, 32, 33, 2, 'order-item', 'order-item', '', '', '');
 /*!40000 ALTER TABLE `StoreCategory` ENABLE KEYS */;
 
 
@@ -895,9 +1021,9 @@ CREATE TABLE IF NOT EXISTS `StoreCategoryTranslate` (
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreCategoryTranslate: 22 rows
+-- Дамп данных таблицы partspro.StoreCategoryTranslate: 43 rows
 DELETE FROM `StoreCategoryTranslate`;
 /*!40000 ALTER TABLE `StoreCategoryTranslate` DISABLE KEYS */;
 INSERT INTO `StoreCategoryTranslate` (`id`, `object_id`, `language_id`, `name`, `meta_title`, `meta_keywords`, `meta_description`, `description`) VALUES
@@ -922,7 +1048,28 @@ INSERT INTO `StoreCategoryTranslate` (`id`, `object_id`, `language_id`, `name`, 
 	(57, 236, 1, 'Телефоны', NULL, NULL, NULL, NULL),
 	(58, 236, 9, 'Телефоны', NULL, NULL, NULL, NULL),
 	(59, 237, 1, 'Планшеты', NULL, NULL, NULL, NULL),
-	(60, 237, 9, 'Планшеты', NULL, NULL, NULL, NULL);
+	(60, 237, 9, 'Планшеты', NULL, NULL, NULL, NULL),
+	(61, 1, 10, 'root', '', '', '', NULL),
+	(62, 230, 10, 'Ноутбуки', NULL, NULL, NULL, NULL),
+	(63, 231, 10, 'Бюджетный', NULL, NULL, NULL, NULL),
+	(64, 232, 10, 'Игровой', NULL, NULL, NULL, NULL),
+	(65, 233, 10, 'Компьютеры', NULL, NULL, NULL, NULL),
+	(66, 234, 10, 'Компьютерная акустика', NULL, NULL, NULL, NULL),
+	(67, 235, 10, 'Мониторы', NULL, NULL, NULL, NULL),
+	(68, 236, 10, 'Телефоны', NULL, NULL, NULL, NULL),
+	(69, 237, 10, 'Планшеты', NULL, NULL, NULL, NULL),
+	(70, 238, 1, 'Автозапчасти', '', '', '', ''),
+	(71, 238, 9, 'Автозапчасти', '', '', '', ''),
+	(72, 238, 10, 'Автозапчасти', '', '', '', ''),
+	(73, 239, 1, 'Грузовые авто', '', '', '', ''),
+	(74, 239, 9, 'Грузовые авто', '', '', '', ''),
+	(75, 239, 10, 'Грузовые авто', '', '', '', ''),
+	(76, 240, 1, 'Легковые авто', '', '', '', ''),
+	(77, 240, 9, 'Легковые авто', '', '', '', ''),
+	(78, 240, 10, 'Легковые авто', '', '', '', ''),
+	(79, 241, 1, 'Заказать деталь', '', '', '', ''),
+	(80, 241, 9, 'Заказать деталь', '', '', '', ''),
+	(81, 241, 10, 'Заказать деталь', '', '', '', '');
 /*!40000 ALTER TABLE `StoreCategoryTranslate` ENABLE KEYS */;
 
 
@@ -978,9 +1125,9 @@ CREATE TABLE IF NOT EXISTS `StoreDeliveryMethodTranslate` (
   PRIMARY KEY (`id`),
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreDeliveryMethodTranslate: 6 rows
+-- Дамп данных таблицы partspro.StoreDeliveryMethodTranslate: 9 rows
 DELETE FROM `StoreDeliveryMethodTranslate`;
 /*!40000 ALTER TABLE `StoreDeliveryMethodTranslate` DISABLE KEYS */;
 INSERT INTO `StoreDeliveryMethodTranslate` (`id`, `object_id`, `language_id`, `name`, `description`) VALUES
@@ -989,7 +1136,10 @@ INSERT INTO `StoreDeliveryMethodTranslate` (`id`, `object_id`, `language_id`, `n
 	(3, 15, 1, 'Самовывоз', ''),
 	(4, 15, 9, 'Самовывоз', ''),
 	(5, 16, 1, 'Адресная доставка по стране', ''),
-	(6, 16, 9, 'Адресная доставка по стране', '');
+	(6, 16, 9, 'Адресная доставка по стране', ''),
+	(7, 14, 10, 'Курьером', ''),
+	(8, 15, 10, 'Самовывоз', ''),
+	(9, 16, 10, 'Адресная доставка по стране', '');
 /*!40000 ALTER TABLE `StoreDeliveryMethodTranslate` ENABLE KEYS */;
 
 
@@ -1075,9 +1225,9 @@ CREATE TABLE IF NOT EXISTS `StoreManufacturerTranslate` (
   PRIMARY KEY (`id`),
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreManufacturerTranslate: 36 rows
+-- Дамп данных таблицы partspro.StoreManufacturerTranslate: 54 rows
 DELETE FROM `StoreManufacturerTranslate`;
 /*!40000 ALTER TABLE `StoreManufacturerTranslate` DISABLE KEYS */;
 INSERT INTO `StoreManufacturerTranslate` (`id`, `object_id`, `language_id`, `name`, `description`, `meta_title`, `meta_keywords`, `meta_description`) VALUES
@@ -1116,7 +1266,25 @@ INSERT INTO `StoreManufacturerTranslate` (`id`, `object_id`, `language_id`, `nam
 	(55, 17, 1, 'Nokia', NULL, NULL, NULL, NULL),
 	(56, 17, 9, 'Nokia', NULL, NULL, NULL, NULL),
 	(57, 18, 1, 'BlackBerry', NULL, NULL, NULL, NULL),
-	(58, 18, 9, 'BlackBerry', NULL, NULL, NULL, NULL);
+	(58, 18, 9, 'BlackBerry', NULL, NULL, NULL, NULL),
+	(59, 1, 10, 'Lenovo', NULL, NULL, NULL, NULL),
+	(60, 2, 10, 'Asus', NULL, NULL, NULL, NULL),
+	(61, 3, 10, 'Dell', NULL, NULL, NULL, NULL),
+	(62, 4, 10, 'Fujitsu', NULL, NULL, NULL, NULL),
+	(63, 5, 10, 'HP', NULL, NULL, NULL, NULL),
+	(64, 6, 10, 'Apple', NULL, NULL, NULL, NULL),
+	(65, 7, 10, 'Sony', NULL, NULL, NULL, NULL),
+	(66, 8, 10, 'Acer', NULL, NULL, NULL, NULL),
+	(67, 9, 10, 'Logitech', NULL, NULL, NULL, NULL),
+	(68, 10, 10, 'Microlab', NULL, NULL, NULL, NULL),
+	(69, 11, 10, 'Edifier', NULL, NULL, NULL, NULL),
+	(70, 12, 10, 'Sven', NULL, NULL, NULL, NULL),
+	(71, 13, 10, 'LG', NULL, NULL, NULL, NULL),
+	(72, 14, 10, 'Samsung', NULL, NULL, NULL, NULL),
+	(73, 15, 10, 'Philips', NULL, NULL, NULL, NULL),
+	(74, 16, 10, 'HTC', NULL, NULL, NULL, NULL),
+	(75, 17, 10, 'Nokia', NULL, NULL, NULL, NULL),
+	(76, 18, 10, 'BlackBerry', NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `StoreManufacturerTranslate` ENABLE KEYS */;
 
 
@@ -1207,9 +1375,9 @@ CREATE TABLE IF NOT EXISTS `StoreProduct` (
   KEY `updated` (`updated`),
   KEY `added_to_cart_count` (`added_to_cart_count`),
   KEY `views_count` (`views_count`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProduct: 44 rows
+-- Дамп данных таблицы partspro.StoreProduct: 45 rows
 DELETE FROM `StoreProduct`;
 /*!40000 ALTER TABLE `StoreProduct` DISABLE KEYS */;
 INSERT INTO `StoreProduct` (`id`, `manufacturer_id`, `type_id`, `use_configurations`, `url`, `price`, `max_price`, `is_active`, `layout`, `view`, `sku`, `quantity`, `availability`, `auto_decrease_quantity`, `views_count`, `created`, `updated`, `added_to_cart_count`, `votes`, `rating`, `discount`, `video`) VALUES
@@ -1256,7 +1424,8 @@ INSERT INTO `StoreProduct` (`id`, `manufacturer_id`, `type_id`, `use_configurati
 	(41, 14, 6, 0, 'samsung-galaxy-tab-70-plus-p6200-16gb', 350.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL),
 	(42, 8, 6, 0, 'acer-iconia-tab-a100-8gb', 365.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL),
 	(43, 2, 6, 0, 'asus-transformer-pad-prime-201-64gb', 495.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:59', '2014-09-29 16:06:59', NULL, NULL, NULL, NULL, NULL),
-	(44, 14, 6, 0, 'samsung-galaxy-tab-101-p7500-16gb', 475.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:59', '2014-09-29 16:06:59', NULL, NULL, NULL, NULL, NULL);
+	(44, 14, 6, 0, 'samsung-galaxy-tab-101-p7500-16gb', 475.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-09-29 16:06:59', '2014-10-03 16:45:21', NULL, NULL, NULL, '', NULL),
+	(46, NULL, 7, 0, 'test', 10000.00, 0.00, 1, '', '', '', 10, 1, 1, NULL, '2014-10-03 16:51:37', '2014-10-03 16:51:37', NULL, NULL, NULL, '', NULL);
 /*!40000 ALTER TABLE `StoreProduct` ENABLE KEYS */;
 
 
@@ -1270,7 +1439,7 @@ CREATE TABLE IF NOT EXISTS `StoreProductAttributeEAV` (
   KEY `value` (`value`(50))
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductAttributeEAV: 183 rows
+-- Дамп данных таблицы partspro.StoreProductAttributeEAV: 188 rows
 DELETE FROM `StoreProductAttributeEAV`;
 /*!40000 ALTER TABLE `StoreProductAttributeEAV` DISABLE KEYS */;
 INSERT INTO `StoreProductAttributeEAV` (`entity`, `attribute`, `value`) VALUES
@@ -1453,10 +1622,15 @@ INSERT INTO `StoreProductAttributeEAV` (`entity`, `attribute`, `value`) VALUES
 	(43, 'screen_dimension', '158'),
 	(43, 'memmory_size', '151'),
 	(43, 'weight', '159'),
-	(44, 'tablet_screen_size', '157'),
-	(44, 'screen_dimension', '158'),
+	(44, 'weight', '160'),
 	(44, 'memmory_size', '149'),
-	(44, 'weight', '160');
+	(44, 'tablet_screen_size', '157'),
+	(46, 'state', '168'),
+	(46, 'kpp_type', '166'),
+	(46, 'type_cuzov', '165'),
+	(46, 'year_create', '2000'),
+	(46, 'mark', '161'),
+	(46, 'odometer', '10');
 /*!40000 ALTER TABLE `StoreProductAttributeEAV` ENABLE KEYS */;
 
 
@@ -1470,9 +1644,9 @@ CREATE TABLE IF NOT EXISTS `StoreProductCategoryRef` (
   KEY `category` (`category`),
   KEY `product` (`product`),
   KEY `is_main` (`is_main`)
-) ENGINE=MyISAM AUTO_INCREMENT=232 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=234 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductCategoryRef: 70 rows
+-- Дамп данных таблицы partspro.StoreProductCategoryRef: 71 rows
 DELETE FROM `StoreProductCategoryRef`;
 /*!40000 ALTER TABLE `StoreProductCategoryRef` DISABLE KEYS */;
 INSERT INTO `StoreProductCategoryRef` (`id`, `product`, `category`, `is_main`) VALUES
@@ -1545,7 +1719,8 @@ INSERT INTO `StoreProductCategoryRef` (`id`, `product`, `category`, `is_main`) V
 	(228, 43, 237, 1),
 	(229, 43, 233, 0),
 	(230, 44, 237, 1),
-	(231, 44, 233, 0);
+	(231, 44, 233, 0),
+	(233, 46, 240, 1);
 /*!40000 ALTER TABLE `StoreProductCategoryRef` ENABLE KEYS */;
 
 
@@ -1585,9 +1760,9 @@ CREATE TABLE IF NOT EXISTS `StoreProductImage` (
   `date_uploaded` datetime DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=184 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=186 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductImage: 44 rows
+-- Дамп данных таблицы partspro.StoreProductImage: 45 rows
 DELETE FROM `StoreProductImage`;
 /*!40000 ALTER TABLE `StoreProductImage` DISABLE KEYS */;
 INSERT INTO `StoreProductImage` (`id`, `product_id`, `name`, `is_main`, `uploaded_by`, `date_uploaded`, `title`) VALUES
@@ -1634,7 +1809,8 @@ INSERT INTO `StoreProductImage` (`id`, `product_id`, `name`, `is_main`, `uploade
 	(180, 41, '41_-180341756.jpg', 1, NULL, '2014-09-29 16:06:58', NULL),
 	(181, 42, '42_54009422.jpg', 1, NULL, '2014-09-29 16:06:58', NULL),
 	(182, 43, '43_-2049254809.jpg', 1, NULL, '2014-09-29 16:06:59', NULL),
-	(183, 44, '44_-213766250.jpg', 1, NULL, '2014-09-29 16:06:59', NULL);
+	(183, 44, '44_-213766250.jpg', 1, NULL, '2014-09-29 16:06:59', ''),
+	(185, 46, '46_-1409636915.png', 1, 1, '2014-10-03 16:51:37', NULL);
 /*!40000 ALTER TABLE `StoreProductImage` ENABLE KEYS */;
 
 
@@ -1652,9 +1828,9 @@ CREATE TABLE IF NOT EXISTS `StoreProductTranslate` (
   PRIMARY KEY (`id`),
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=353 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=403 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductTranslate: 88 rows
+-- Дамп данных таблицы partspro.StoreProductTranslate: 135 rows
 DELETE FROM `StoreProductTranslate`;
 /*!40000 ALTER TABLE `StoreProductTranslate` DISABLE KEYS */;
 INSERT INTO `StoreProductTranslate` (`id`, `object_id`, `language_id`, `name`, `short_description`, `full_description`, `meta_title`, `meta_keywords`, `meta_description`) VALUES
@@ -1744,8 +1920,55 @@ INSERT INTO `StoreProductTranslate` (`id`, `object_id`, `language_id`, `name`, `
 	(348, 42, 9, 'Acer Iconia Tab A100 8Gb', 'экран 7", 1024x600, емкостный, мультитач, Android 3.2, встроенная память 8 Гб, microSDHC, Wi-Fi, Bluetooth, GPS, гироскоп, две фотокамеры, HDMI, подключение к компьютеру по USB, вес 410 г', NULL, NULL, NULL, NULL),
 	(349, 43, 1, 'Asus Transformer Pad Prime 201 64Gb', 'экран 10.1", 1280x800, емкостный, мультитач, Android 4.0, встроенная память 64 Гб, microSD, Wi-Fi, Bluetooth, гироскоп, две фотокамеры, micro HDMI, подключение к компьютеру по USB, вес 586 г', NULL, NULL, NULL, NULL),
 	(350, 43, 9, 'Asus Transformer Pad Prime 201 64Gb', 'экран 10.1", 1280x800, емкостный, мультитач, Android 4.0, встроенная память 64 Гб, microSD, Wi-Fi, Bluetooth, гироскоп, две фотокамеры, micro HDMI, подключение к компьютеру по USB, вес 586 г', NULL, NULL, NULL, NULL),
-	(351, 44, 1, 'Samsung Galaxy Tab 10.1 P7500 16Gb', 'экран 10.1", 1280x800, емкостный, мультитач, Android 3.1, встроенная память 16 Гб, Wi-Fi, Bluetooth, 3G, GPS, гироскоп, две фотокамеры, подключение к компьютеру по USB, вес 565 г', NULL, NULL, NULL, NULL),
-	(352, 44, 9, 'Samsung Galaxy Tab 10.1 P7500 16Gb', 'экран 10.1", 1280x800, емкостный, мультитач, Android 3.1, встроенная память 16 Гб, Wi-Fi, Bluetooth, 3G, GPS, гироскоп, две фотокамеры, подключение к компьютеру по USB, вес 565 г', NULL, NULL, NULL, NULL);
+	(351, 44, 1, 'Samsung Galaxy Tab 10.1 P7500 16Gb', 'экран 10.1", 1280x800, емкостный, мультитач, Android 3.1, встроенная память 16 Гб, Wi-Fi, Bluetooth, 3G, GPS, гироскоп, две фотокамеры, подключение к компьютеру по USB, вес 565 г', '', '', '', ''),
+	(352, 44, 9, 'Samsung Galaxy Tab 10.1 P7500 16Gb', 'экран 10.1", 1280x800, емкостный, мультитач, Android 3.1, встроенная память 16 Гб, Wi-Fi, Bluetooth, 3G, GPS, гироскоп, две фотокамеры, подключение к компьютеру по USB, вес 565 г', NULL, NULL, NULL, NULL),
+	(353, 1, 10, 'Lenovo B570', 'Celeron / Pentium, 1500-2200 МГц, 2048-4096 Мб, 320-500 Гб, 15.6 дюйм, Intel GMA HD, DVD-RW, Wi-Fi, Bluetooth (опционально), 2.35 кг', NULL, NULL, NULL, NULL),
+	(354, 2, 10, 'Lenovo G570', 'Celeron / Pentium, 1500-2200 МГц, 2048-4096 Мб, 320-500 Гб, 15.6 дюйм, ATI Radeon HD 6370M, DVD-RW, Wi-Fi, Bluetooth (опционально), 2.43 кг', NULL, NULL, NULL, NULL),
+	(355, 3, 10, 'ASUS K53U', 'C-60 / E-240 / E-450, 1000-1650 МГц, 2048-4096 Мб, 320-500 Гб, 15.6 дюйм, DVD-RW, Wi-Fi, Bluetooth (опционально), 2.6 кг', NULL, NULL, NULL, NULL),
+	(356, 4, 10, 'ASUS X54C', 'Celeron / Pentium, 1500-2200 МГц, 2048-4096 Мб, 320-500 Гб, 15.6 дюйм, Intel HD Graphics 3000, DVD-RW, Wi-Fi, Bluetooth, 2.6 кг', NULL, NULL, NULL, NULL),
+	(357, 5, 10, 'DELL INSPIRON N5050', 'Celeron, 1500-1700 МГц, 2048 Мб, 320-500 Гб, 15.6 дюйм, Intel HD Graphics 3000, DVD-RW, Wi-Fi, Bluetooth (опционально), 2.37 кг', NULL, NULL, NULL, NULL),
+	(358, 6, 10, 'Fujitsu LIFEBOOK AH531', 'Celeron / Pentium, 1500-2200 МГц, 2048 Мб, 320 Гб, 15.6 дюйм, Intel HD Graphics 3000, DVD-RW, Wi-Fi, Bluetooth, 2.5 кг', NULL, NULL, NULL, NULL),
+	(359, 7, 10, 'HP EliteBook 8560w', 'Core i7, 2500 МГц, 8192 Мб, 750 Гб, 15.6 дюйм, NVIDIA Quadro 2000M, BD-RE, Wi-Fi, Bluetooth, 3 кг', NULL, NULL, NULL, NULL),
+	(360, 8, 10, 'DELL ALIENWARE M17x', 'Core i7, 2200-2400 МГц, 8192-16384 Мб, 750-1500 Гб, 17 дюйм, AMD Radeon HD 6990M, BD-RE / Blu-Ray / DVD-RW, Wi-Fi, Bluetooth, 5.3 кг', NULL, NULL, NULL, NULL),
+	(361, 9, 10, 'Apple MacBook Pro 15 Late 2011', 'Core i7, 2200-2400 МГц, 4096 Мб, 500-750 Гб, 15.4 дюйм, ATI Radeon HD 6750M / ATI Radeon HD 6770М, DVD-RW, Wi-Fi, Bluetooth, 2.54 кг', NULL, NULL, NULL, NULL),
+	(362, 10, 10, 'Lenovo THINKPAD W520', 'Core i7 / Core i7 Extreme, 2000-2700 МГц, 4096-8192 Мб, 160-580 Гб, 15.6 дюйм, NVIDIA Quadro 2000M, DVD-RW, Wi-Fi, Bluetooth, 2.45 кг', NULL, NULL, NULL, NULL),
+	(363, 11, 10, 'Sony VAIO VPC-F13S8R', 'Core i5, 2660 МГц, 4096 Мб, 640 Гб, 16.4 дюйм, NVIDIA GeForce GT 425M, Blu-Ray, Wi-Fi, Bluetooth, 3.1 кг', NULL, NULL, NULL, NULL),
+	(364, 12, 10, 'Acer ASPIRE 5943G-7748G75TWiss', 'Core i7, 1730 МГц, 8192 Мб, 750 Гб, 15.6 дюйм, ATI Mobility Radeon HD 5850, BD-RE, Wi-Fi, Bluetooth, 3.3 кг', NULL, NULL, NULL, NULL),
+	(365, 13, 10, 'Logitech X-530', 'число каналов: 5.1, мощность 71.20 Вт, 40-20000 Гц, материал колонок: пластик, материал сабвуфера: MDF, разъем для наушников, магнитное экранирование', NULL, NULL, NULL, NULL),
+	(366, 14, 10, 'Microlab M-860', 'число каналов: 5.1, мощность 62 Вт, 30-20000 Гц, материал колонок: пластик, материал сабвуфера: MDF, магнитное экранирование, пульт ДУ', NULL, NULL, NULL, NULL),
+	(367, 15, 10, 'Edifier M3700', 'число каналов: 5.1, мощность 80 Вт, 45-20000 Гц, материал колонок: MDF, материал сабвуфера: MDF, магнитное экранирование, пульт ДУ', NULL, NULL, NULL, NULL),
+	(368, 16, 10, 'Logitech Z-313', 'число каналов: 2.1, мощность 25 Вт, 48-20000 Гц, материал колонок: пластик, материал сабвуфера: MDF', NULL, NULL, NULL, NULL),
+	(369, 17, 10, 'Sven SPS-820', 'число каналов: 2.1, мощность 38 Вт, 50-20000 Гц, материал колонок: MDF, материал сабвуфера: MDF, магнитное экранирование', NULL, NULL, NULL, NULL),
+	(370, 18, 10, 'Edifier M1385', 'число каналов: 2.1, мощность 28 Вт, материал сабвуфера: MDF, разъем для наушников, магнитное экранирование, радио', NULL, NULL, NULL, NULL),
+	(371, 19, 10, 'Edifier X600', 'число каналов: 2.1, мощность 30 Вт, 48-20000 Гц, материал колонок: MDF, материал сабвуфера: MDF, магнитное экранирование', NULL, NULL, NULL, NULL),
+	(372, 20, 10, 'Microlab FC 362', 'число каналов: 2.1, мощность 54 Вт, 35-20000 Гц, материал сабвуфера: MDF, разъем для наушников', NULL, NULL, NULL, NULL),
+	(373, 21, 10, 'DELL U2412M', 'ЖК (TFT E-IPS) 24", широкоформатный, 1920x1200, LED-подсветка, 300 кд/м2, 1000:1, 8 мс, 178°/178°, USB-концентратор, DVI, DisplayPort, VGA', NULL, NULL, NULL, NULL),
+	(374, 22, 10, 'DELL U2312HM', 'ЖК (TFT IPS) 23", широкоформатный, 1920x1080, LED-подсветка, 300 кд/м2, 1000:1, 8 мс, 178°/178°, USB-концентратор, DVI, DisplayPort, VGA', NULL, NULL, NULL, NULL),
+	(375, 23, 10, 'LG Flatron M2250D', 'ЖК (TFT TN) 21.5", широкоформатный, 1920x1080, LED-подсветка, 250 кд/м2, 5 мс, 170°/160°, стереоколонки, ТВ-тюнер, HDMI, VGA, композитный вход, компонентный вход, SCART', NULL, NULL, NULL, NULL),
+	(376, 24, 10, 'LG Flatron IPS226V', 'ЖК (TFT E-IPS) 21.5", широкоформатный, 1920x1080, LED-подсветка, 250 кд/м2, 1000:1, 5 мс, 178°/178°, DVI, HDMI, VGA', NULL, NULL, NULL, NULL),
+	(377, 25, 10, 'Samsung SyncMaster S22A350N', 'ЖК (TFT TN) 21.5", широкоформатный, 1920x1080, LED-подсветка, 250 кд/м2, 1000:1, 5 мс, 170°/160°, VGA', NULL, NULL, NULL, NULL),
+	(378, 26, 10, 'Philips 237E3QPHSU', 'ЖК (TFT IPS) 23", широкоформатный, 1920x1080, LED-подсветка, 250 кд/м2, 1000:1, 5 мс, 178°/178°, HDMI x2, VGA', NULL, NULL, NULL, NULL),
+	(379, 27, 10, 'Philips 227E3LSU', 'ЖК (TFT TN) 21.5", широкоформатный, 1920x1080, LED-подсветка, 250 кд/м2, 1000:1, 5 мс, DVI, VGA', NULL, NULL, NULL, NULL),
+	(380, 28, 10, 'HP ZR2740w', 'ЖК (TFT IPS) 27", широкоформатный, 2560x1440, LED-подсветка, 380 кд/м2, 1000:1, 12 мс, 178°/178°, USB-концентратор, DVI, DisplayPort', NULL, NULL, NULL, NULL),
+	(381, 29, 10, 'HP ZR2440w', 'ЖК (TFT IPS) 24", широкоформатный, 1920x1200, LED-подсветка, 350 кд/м2, 1000:1, 6 мс, 178°/178°, USB-концентратор, DVI, HDMI, DisplayPort', NULL, NULL, NULL, NULL),
+	(382, 30, 10, 'Samsung Galaxy Ace II', 'GSM, 3G, смартфон, Android 2.3, вес 118 г, ШхВхТ: 62.3x118.3x10.5 мм, экран 3.8", 480x800, FM-радио, Bluetooth, Wi-Fi, GPS, ГЛОНАСС, фотокамера 5 МП, память 4 Гб, слот microSD (TransFlash), аккумулятор 1500 мАч', NULL, NULL, NULL, NULL),
+	(383, 31, 10, 'HTC One XL', 'GSM, 3G, смартфон, Android 4.0, вес 129 г, ШхВхТ: 69.9x134.8x8.9 мм, экран 4.7", 720x1280, FM-радио, Bluetooth, Wi-Fi, GPS, фотокамера 8 МП, память 32 Гб, аккумулятор 1800 мАч', NULL, NULL, NULL, NULL),
+	(384, 32, 10, 'HTC Sensation XL', 'GSM, 3G, смартфон, Android 2.3, вес 162 г, ШхВхТ: 70.7x132.5x9.9 мм, экран 4.7", 480x800, FM-радио, Bluetooth, Wi-Fi, GPS, фотокамера 8 МП, память 16 Гб, аккумулятор 1600 мАч', NULL, NULL, NULL, NULL),
+	(385, 33, 10, 'Apple iPhone 4S 16Gb', 'GSM, CDMA800, CDMA1900, 3G, смартфон, iOS 5, вес 140 г, ШхВхТ: 58.6x115.2x9.3 мм, экран 3.5", 640x960, Bluetooth, Wi-Fi, GPS, ГЛОНАСС, фотокамера 8 МП, память 16 Гб', NULL, NULL, NULL, NULL),
+	(386, 34, 10, 'Apple iPhone 3GS 8Gb', 'GSM, 3G, смартфон, iOS, вес 135 г, ШхВхТ: 62x116x12 мм, экран 3.5", 320x480, Bluetooth, Wi-Fi, GPS, фотокамера 3 МП, память 8 Гб', NULL, NULL, NULL, NULL),
+	(387, 35, 10, 'Apple iPhone 4 16Gb', 'GSM, 3G, смартфон, iOS 4, вес 137 г, ШхВхТ: 59x115x9 мм, экран 3.5", 640x960, Bluetooth, Wi-Fi, GPS, фотокамера 5 МП, память 16 Гб', NULL, NULL, NULL, NULL),
+	(388, 36, 10, 'Nokia N9', 'GSM, 3G, смартфон, MeeGo 1.2, вес 135 г, ШхВхТ: 61x116x12 мм, экран 3.9", 480x854, Bluetooth, Wi-Fi, GPS, фотокамера 8 МП, аккумулятор 1450 мАч', NULL, NULL, NULL, NULL),
+	(389, 37, 10, 'BlackBerry Bold 9900', 'GSM, 3G, смартфон, BlackBerry OS, вес 130 г, ШхВхТ: 66x115x11 мм, экран 2.8", 640x480, Bluetooth, Wi-Fi, GPS, фотокамера 5 МП, память 8 Гб, слот microSD (TransFlash), аккумулятор 1230 мАч', NULL, NULL, NULL, NULL),
+	(390, 38, 10, 'BlackBerry Bold 9780', 'GSM, 3G, смартфон, BlackBerry OS, вес 122 г, ШхВхТ: 60x109x14 мм, экран 2.4", 480x360, Bluetooth, Wi-Fi, GPS, фотокамера 5 МП, память 256 Мб, слот microSD (TransFlash), аккумулятор 1500 мАч', NULL, NULL, NULL, NULL),
+	(391, 39, 10, 'Apple iPad 2 16Gb Wi-Fi + 3G', 'экран 9.7", 1024x768, емкостный, мультитач, iOS, встроенная память 16 Гб, Wi-Fi, Bluetooth, 3G, GPS, гироскоп, две фотокамеры, вес 613 г', NULL, NULL, NULL, NULL),
+	(392, 40, 10, 'Apple iPad 2 64Gb Wi-Fi + 3G', 'экран 9.7", 1024x768, емкостный, мультитач, iOS, встроенная память 64 Гб, Wi-Fi, Bluetooth, 3G, GPS, гироскоп, две фотокамеры, вес 613 г', NULL, NULL, NULL, NULL),
+	(393, 41, 10, 'Samsung Galaxy Tab 7.0 Plus P6200 16GB', 'экран 7", 1024x600, емкостный, мультитач, Android 3.2, встроенная память 16 Гб, microSDHC, Wi-Fi, Bluetooth, 3G, GPS, гироскоп, две фотокамеры, подключение к компьютеру по USB, вес 343 г', NULL, NULL, NULL, NULL),
+	(394, 42, 10, 'Acer Iconia Tab A100 8Gb', 'экран 7", 1024x600, емкостный, мультитач, Android 3.2, встроенная память 8 Гб, microSDHC, Wi-Fi, Bluetooth, GPS, гироскоп, две фотокамеры, HDMI, подключение к компьютеру по USB, вес 410 г', NULL, NULL, NULL, NULL),
+	(395, 43, 10, 'Asus Transformer Pad Prime 201 64Gb', 'экран 10.1", 1280x800, емкостный, мультитач, Android 4.0, встроенная память 64 Гб, microSD, Wi-Fi, Bluetooth, гироскоп, две фотокамеры, micro HDMI, подключение к компьютеру по USB, вес 586 г', NULL, NULL, NULL, NULL),
+	(396, 44, 10, 'Samsung Galaxy Tab 10.1 P7500 16Gb', 'экран 10.1", 1280x800, емкостный, мультитач, Android 3.1, встроенная память 16 Гб, Wi-Fi, Bluetooth, 3G, GPS, гироскоп, две фотокамеры, подключение к компьютеру по USB, вес 565 г', NULL, NULL, NULL, NULL),
+	(401, 46, 9, 'test', 'fdasgsdfgfdsg', 'fdsgfdsgfsdgdsf', '', '', ''),
+	(400, 46, 1, 'test', 'fdasgsdfgfdsg', 'fdsgfdsgfsdgdsf', '', '', ''),
+	(402, 46, 10, 'test', 'fdasgsdfgfdsg', 'fdsgfdsgfsdgdsf', '', '', '');
 /*!40000 ALTER TABLE `StoreProductTranslate` ENABLE KEYS */;
 
 
@@ -1756,9 +1979,9 @@ CREATE TABLE IF NOT EXISTS `StoreProductType` (
   `categories_preset` text,
   `main_category` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductType: 6 rows
+-- Дамп данных таблицы partspro.StoreProductType: 7 rows
 DELETE FROM `StoreProductType`;
 /*!40000 ALTER TABLE `StoreProductType` DISABLE KEYS */;
 INSERT INTO `StoreProductType` (`id`, `name`, `categories_preset`, `main_category`) VALUES
@@ -1767,7 +1990,8 @@ INSERT INTO `StoreProductType` (`id`, `name`, `categories_preset`, `main_categor
 	(3, 'Акустика', NULL, 0),
 	(4, 'Монитор', NULL, 0),
 	(5, 'Телефон', NULL, 0),
-	(6, 'Планшет', NULL, 0);
+	(6, 'Планшет', NULL, 0),
+	(7, 'Автомобили', 'a:3:{i:0;s:3:"238";i:1;s:3:"239";i:2;s:3:"240";}', 0);
 /*!40000 ALTER TABLE `StoreProductType` ENABLE KEYS */;
 
 
@@ -1814,7 +2038,7 @@ CREATE TABLE IF NOT EXISTS `StoreTypeAttribute` (
   PRIMARY KEY (`type_id`,`attribute_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreTypeAttribute: 19 rows
+-- Дамп данных таблицы partspro.StoreTypeAttribute: 25 rows
 DELETE FROM `StoreTypeAttribute`;
 /*!40000 ALTER TABLE `StoreTypeAttribute` DISABLE KEYS */;
 INSERT INTO `StoreTypeAttribute` (`type_id`, `attribute_id`) VALUES
@@ -1836,7 +2060,13 @@ INSERT INTO `StoreTypeAttribute` (`type_id`, `attribute_id`) VALUES
 	(5, 16),
 	(6, 17),
 	(6, 18),
-	(6, 19);
+	(6, 19),
+	(7, 20),
+	(7, 21),
+	(7, 22),
+	(7, 23),
+	(7, 24),
+	(7, 25);
 /*!40000 ALTER TABLE `StoreTypeAttribute` ENABLE KEYS */;
 
 
@@ -1884,14 +2114,15 @@ CREATE TABLE IF NOT EXISTS `SystemLanguage` (
   `flag_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `code` (`code`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.SystemLanguage: 2 rows
+-- Дамп данных таблицы partspro.SystemLanguage: 3 rows
 DELETE FROM `SystemLanguage`;
 /*!40000 ALTER TABLE `SystemLanguage` DISABLE KEYS */;
 INSERT INTO `SystemLanguage` (`id`, `name`, `code`, `locale`, `default`, `flag_name`) VALUES
-	(1, 'Русский', 'ru', 'ru', 1, 'ru.png'),
-	(9, 'English', 'en', 'en', 0, 'us.png');
+	(1, 'Рус', 'ru', 'ru', 1, 'ru.png'),
+	(9, 'Eng', 'en', 'en', 0, 'us.png'),
+	(10, 'Kz', 'kz', 'kz', 0, 'kz.png');
 /*!40000 ALTER TABLE `SystemLanguage` ENABLE KEYS */;
 
 
@@ -2034,7 +2265,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `created_at`, `last_login`, `login_ip`, `recovery_key`, `recovery_password`, `discount`, `banned`) VALUES
-	(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@admin.ru', '2014-09-29 16:07:43', '2014-09-30 10:10:55', '192.168.0.111', NULL, NULL, NULL, 0);
+	(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@admin.ru', '2014-09-29 16:07:43', '2014-10-03 13:48:21', '192.168.0.111', NULL, NULL, NULL, 0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 
