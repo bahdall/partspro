@@ -23,4 +23,12 @@ $(function(){
       
     stage.start();
 
+    $("[data-change-target]").click(function(){
+
+        big = $( this ).data('change-target');
+
+        $( big ).attr('src', $( this ).data('src')) ;   
+        
+    })
+
 })

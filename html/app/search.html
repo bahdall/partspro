@@ -1,0 +1,1063 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>Parts Pro</title>
+
+        <!-- Important Owl stylesheet -->
+        <link rel="stylesheet" href="scripts/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="scripts/owl-carousel/owl.theme.css">
+
+        <!-- Custom select stylesheet -->
+        <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.css">
+
+        <!-- build:css({.tmp,app}) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+  
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+        
+        <!-- Include carousel plugin -->
+        <script src="scripts/owl-carousel/owl.carousel.js"></script>        
+        <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+
+        <!-- Include map region plugin -->
+        <script src="https://www.gstatic.com/swiffy/v7.0/runtime.js"></script>
+        <script src="scripts/map.js"></script>
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+    </head>
+    <body class='p_main'>        
+      
+        <div class='container-fluid l_header'>
+            <div class='row b_header-top _border-bottom-dashed'>
+
+                <div class='container-fixed _border-bottom-dashed'>
+                  <div class='row'>
+
+                    <ul class='list-inline b_head'>
+
+                      <li class='i_head-item'>
+
+                        <a href="#" class='_link-unstyled' data-toggle="modal" data-target="#feedback">
+                          <img src="images/icon-phone.png" alt="">
+                          <span class='_underline-dotted'>Обратный звонок</span>
+                        </a>
+
+                      </li>
+
+                      <li class='i_head-item_country'>
+
+                        <a href="#" class='_link-unstyled' data-toggle="modal" data-target="#region"> 
+                          <img src="images/icon-map.png" alt="">
+                          <span class='_underline-dotted'>Уточнить страну</span>
+                        </a>
+                        
+                      </li>
+
+                      <li class='i_head-item_phone'>
+                            +7 (123) <span class='text-yellow'>456-78-90</span>
+                      </li>                                    
+
+                      <li class='i_head-item_languages '>
+                        <a href="#" class='_underline-dotted'>Рус</a>                          
+                        <a href="#" class='active _underline-dotted'>Eng</a>                          
+                        <a href="#" class='_underline-dotted'>Kz</a>                          
+                      </li>
+
+                      <li class='il_head-item_buttons dropdown'>                          
+                          <a href="" class='i_header-button' id="login" data-toggle="dropdown">
+                              <img src="images/icon-user.png" alt="">
+                          </a>
+
+                          <ul class="dropdown-menu" role="menu" aria-labelledby="login">
+
+                            <form role="form" action='/search'>
+                              
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Логин</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Пароль</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                              </div>
+
+                              <div class='form-group'>
+                                <a href="" class='text-red'>Забыли пароль?</a>  
+                              </div>                   
+                            
+                              <div class='form-group'>
+                                  <button type="submit" class="btn btn-yellow">Войти</button>
+                                  <a href='#' class="btn btn-yellow">Регистрация</a>
+                               </div>
+
+                            </form>
+                          </ul>
+
+                      </li>
+
+                      <li class='il_head-item_buttons dropdown'> 
+
+                          <a href="" class='i_header-button i_cart-button' id="cart" data-toggle="dropdown">
+                            <img src="images/icon-cart.png" alt="">
+                            <span class='label_products round' id='products_qty'>3</span>  
+                          </a>
+                        
+                           <ul class="dropdown-menu b_cart" role="menu" aria-labelledby="cart" id='shop-cart'>
+
+                                <li class='i_cart-item'> 
+                                    <img src="upload/cart-1.png" alt="">
+                                    <div class='i_cart-text'>
+                                        <h5>Выхлопная труба</h5>
+                                        <h5>Nissan RSX</h5>                                        
+                                        <strong>127 500 р.</strong>
+                                    </div>
+                                    <div class='i_cart-control'>
+                                        <input type="text" class='input-square' value='1'>
+                                        <a href="" class=''>
+                                          <img src="images/icon_close.png" alt="">
+                                        </a>
+                                    </div>
+                                    
+                                </li>
+                                <li role="presentation" class="divider"></li>
+                                <li class='i_cart-item'> 
+                                    <img src="upload/cart-2.png" alt="">
+                                    <div class='i_cart-text'>
+                                        <h5>Колодки BMW Z4</h5>                                        
+                                        <strong>183 500 р.</strong>
+                                    </div>
+                                    <div class='i_cart-control'>
+                                        <input type="text" class='input-square' value='1'>
+                                        <a href="" class=''>
+                                          <img src="images/icon_close.png" alt="">
+                                        </a>
+                                    </div>
+                                </li>
+                                <li role="presentation" class="divider"></li>
+                                <li class='i_cart-item'> 
+                                    <img src="upload/cart-3.png" alt="">
+                                   <div class='i_cart-text'>
+                                        <h5>Фильтр l200</h5>
+                                        <strong>220 000 р.</strong>
+                                    </div>
+                                    <div class='i_cart-control'>
+                                        <input type="text" class='input-square' value='1'>
+                                        <a href="" class=''>
+                                          <img src="images/icon_close.png" alt="">
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li class='i_cart-item_sum'>
+                                  <div class='pull-right'>
+                                    Итого: <strong class='sum'><span>520 000</span> р.</strong>
+                                    <button class='btn btn-yellow'>Оформить</button>
+                                  </div>
+                                </li>
+                
+                          </ul>
+
+                      </li>
+
+                    </ul>
+
+                  </div>
+                </div>
+
+            </div>            
+            <div class='container-fixed _border-bottom-dashed'>
+
+              <div class='row b_header-bottom'>
+                  
+                <div class='b_logo'>
+                  <a href="/">
+                    <img src="/upload/logo.png" alt="Logo">
+                    <h2>Продажа запасных частей</h2>
+                  </a>
+                </div>                  
+                
+                <div class='b_search'>
+                  
+                  <div class="input-group-inline">
+
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-yellow" type="button">Найти</button>
+                    </span>
+
+                  </div>
+
+                </div>
+              
+
+                <div class='row b_menu'>
+                  <ul class='list-inline'>
+                    <li><a href="#" class='active'>О компании</a></li>
+                    <li><a href="#">Автозапчасти</a></li>
+                    <li><a href="#">Все услуги</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Вакансии</a></li>
+                  </ul>
+                </div> 
+                <img src="images/engine_bottom.png" alt="" class='engine-top'>                
+              </div>          
+              
+            </div>
+            <div class='_shadow-short block-md'></div>
+
+        </div>
+
+        <div class='container-fluid l_content'>                  
+
+          <div class="container-fixed">
+
+            <div class='row'>
+              <ol class="breadcrumb">
+                <li><a href="/">Главная</a></li>
+                <li class="active">Автозапчасти</li>
+              </ol>
+            </div>
+            
+            <div class='row block-sm'>
+              <div class='col-xs-12'> 
+
+                <h4><strong>Автозапчасти</strong></h4>
+
+              </div>
+            </div>
+
+            <div class='b_filter-cont _border-bottom-dashed _bg-gray'>
+              <div class='row'>
+              
+                <div class='col-xs-3 b_filter'>
+                  <h4><strong>Фильтр</strong></h4>
+                  <hr class='divider'>
+
+                  <form name='Filter'>
+                    
+                    <div class="form-group">
+
+                      <label for="country">Страна</label>
+                      <select name="" class='select-styled form-control'>
+                        <option value="">Выберите страну</option>
+                        <option value="">BMW</option>
+                        <option value="">Opel</option>
+                        <option value="">Mercedes-Benz</option>
+                      </select>
+                      
+                    </div>
+
+                    <div class="form-group">
+
+                      <label for="country">Марка:</label>
+                      <select name="" class='select-styled form-control'>
+                        <option value="">Выберите марку</option>
+                        <option value="">BMW</option>
+                        <option value="">Opel</option>
+                        <option value="">Mercedes-Benz</option>
+                      </select>
+
+                    </div>                    
+
+                    <div class='form-group'>
+                      
+                      <label for="price-from">Цена (тысяч руб.):</label>
+                      <div class="container-xs-height">                                                          
+
+                        <div class="row-xs-height b_filter-range">                                
+                          <div class="col-xs-height b_filter-r-text">
+                            От: 
+                          </div>
+                          <div class="col-xs-height b_filter-r-input">
+                            <input type="text" class="form-control" id="price-from" placeholder="0">  
+                          </div>
+                          <div class="col-xs-height b_filter-r-text">
+                            До: 
+                          </div>
+                          <div class="col-xs-height b_filter-r-input">
+                            <input type="text" class="form-control" id="" placeholder="0">  
+                          </div>                                                                                        
+                        </div>
+                        
+                      </div>
+
+                    </div>
+
+                    <div class='form-group'>
+
+                      <label for="price-from">Год выпуска:</label>
+                      <div class="container-xs-height">                                                          
+
+                        <div class="row-xs-height b_filter-range">                                
+                          <div class="col-xs-height b_filter-r-text">
+                            От: 
+                          </div>
+                          <div class="col-xs-height b_filter-r-input">
+                            <input type="text" class="form-control" id="price-from" placeholder="0">  
+                          </div>
+                          <div class="col-xs-height b_filter-r-text">
+                            До: 
+                          </div>
+                          <div class="col-xs-height b_filter-r-input">
+                            <input type="text" class="form-control" id="" placeholder="0">  
+                          </div>                                                                                        
+                        </div>
+                        
+                      </div>
+                    
+                    </div>
+
+                    <div class="form-group">
+
+                      <label for="country">Состояние:</label>
+                      <select name="" class='select-styled form-control'>
+                        <option value="">Выберите состояние</option>
+                        <option value="">BMW</option>
+                        <option value="">Opel</option>
+                        <option value="">Mercedes-Benz</option>
+                      </select>
+
+                    </div> 
+
+                    <div class='form-group'>
+
+                      <label for="price-from">Год выпуска:</label>
+                      <div class="container-xs-height">                                                          
+
+                        <div class="row-xs-height b_filter-range">                                
+                          <div class="col-xs-height b_filter-r-text">
+                            От: 
+                          </div>
+                          <div class="col-xs-height b_filter-r-input">
+                            <input type="text" class="form-control" id="price-from" placeholder="0">  
+                          </div>
+                          <div class="col-xs-height b_filter-r-text">
+                            До: 
+                          </div>
+                          <div class="col-xs-height b_filter-r-input">
+                            <input type="text" class="form-control" id="" placeholder="0">  
+                          </div>                                                                                        
+                        </div>
+                        
+                      </div>
+                    
+                    </div>
+
+                    <div class="form-group">
+
+                      <label for="country">Тип кузова:</label>
+                      <select name="" class='select-styled form-control'>
+                        <option value="">Выберите тип кузова</option>
+                        <option value="">BMW</option>
+                        <option value="">Opel</option>
+                        <option value="">Mercedes-Benz</option>
+                      </select>
+
+                    </div> 
+
+                    <div class="form-group">
+
+                      <label for="country">Тип КПП:</label>
+                      <select name="" class='select-styled form-control'>
+                        <option value="">Выберите тип КПП</option>
+                        <option value="">BMW</option>
+                        <option value="">Opel</option>
+                        <option value="">Mercedes-Benz</option>
+                      </select>
+
+                    </div> 
+
+                    <hr class='divider block'>
+
+                    <div class='form-group'>
+                      
+                      <button class='btn btn-black'>Применить</button>
+                      <button class='btn btn-black'>Сбросить</button>
+
+                    </div>
+
+                  </form>
+
+                </div>   
+
+                <div class='col-xs-9 b_sort-cont'>
+                  <div class='clearfix'>
+
+                    <ul class='list-inline b_sort'>
+
+                      <li>Сортировать по:</li>
+                      <li><a href="#">Цена:<span class="caret"></span><span class="caret reverse"></span></a></li>
+                      <li><a href="#">Год:<span class="caret"></span><span class="caret reverse"></a></li>
+                      <li><a href="#">Износ:<span class="caret"></span><span class="caret reverse"></a></li>
+
+                    </ul>
+
+                    <ul class='list-inline b_quantity'>
+
+                      <li><span>Показывать по:</span></li>
+                      <li><a href="#" class=''>20</a></li>
+                      <li><a href="#" class='active'>40</a></li>
+                      <li><a href="#">60</a></li>                                          
+                    </ul>
+
+                  </div>
+
+                  <hr class='divider'> 
+
+                  <div class='clearfix'>
+                    
+                    <div class="bl-product col-xs-3 new">
+
+                      <div class='block-sm'>
+                        <img src="upload/pro-1.png" alt="product">
+                      </div>
+
+                      <div class='block-sm'>
+                        <a href="">Фильтр L200</a>
+                      </div>
+
+                      <div class='block-sm b_pro-info'>
+
+                        <div>
+                          <span class='i_info-text'>Год:</span>
+                          <span>2009</span>
+                        </div>
+                        <div>
+                          <span class='i_info-text'>Пробег:</span>
+                          <span>70 000 км.</span>
+                        </div>
+
+                      </div>
+
+                      <hr class='divider block-sm'>
+
+                      <div class='i_pro-price block-sm'>
+                        220 000 р.
+                      </div>
+
+                      <div class='block-sm'>
+                        <form name='add-pro'>
+                          <input type="text" class="input-square" value="1">
+                          <button class='btn btn-black'>В корзину</button>
+                        </form>
+                      </div>
+
+                      <div class='block'>
+
+                        <div class="tooltip bottom _custom" role="tooltip">
+                         <div class="tooltip-arrow"></div>
+                         <div class="tooltip-inner">
+                           Восстановлен. Полностью на ходу.
+                         </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <!-- </carousel-item> -->
+
+                    <!-- <carousel-item> -->
+                    <div class="bl-product col-xs-3 new">
+                      
+                      <div class='block-sm'>
+                        <img src="upload/pro-2.png" alt="product">
+                      </div>
+
+                      <div class='block-sm'>
+                        <a href="">Мотор BMW Z4</a>
+                      </div>
+
+                      <div class='block-sm b_pro-info'>
+
+                        <div>
+                          <span class='i_info-text'>Год:</span>
+                          <span>2008</span>
+                        </div>
+                        <div>
+                          <span class='i_info-text'>Пробег:</span>
+                          <span>130 000 км.</span>
+                        </div>
+
+                      </div>
+
+                      <hr class='divider block-sm'>
+
+                      <div class='i_pro-price block-sm'>
+                        183 000 р.
+                      </div>
+
+                      <div class='block-sm'>
+                        <form name='add-pro'>
+                          <input type="text" class="input-square" value="1">
+                          <button class='btn btn-black'>В корзину</button>
+                        </form>
+                      </div>
+
+                    </div>
+                    <!-- </carousel-item> -->
+
+                    <!-- <carousel-item> -->
+                    <div class="bl-product col-xs-3">
+                     
+                      <div class='block-sm'>
+                        <img src="upload/pro-3.png" alt="product">
+                      </div>
+                      <div class='block-sm'>
+                        <a href="">Колодки BMW Z4</a>
+                      </div>
+
+                      <div class='block-sm b_pro-info'>
+
+                        <div>
+                          <span class='i_info-text'>Год:</span>
+                          <span>2000</span>
+                        </div>
+                        <div>
+                          <span class='i_info-text'>Пробег:</span>
+                          <span>113 000 км.</span>
+                        </div>
+
+                      </div>
+
+                      <hr class='divider block-sm'>
+
+                      <div class='i_pro-price block-sm'>
+                        183 000 р.
+                      </div>
+
+                      <div class='block-sm'>
+                        <form name='add-pro'>
+                          <input type="text" class="input-square" value="1">
+                          <button class='btn btn-black'>В корзину</button>
+                        </form>
+                      </div>
+
+                    </div>
+                    <!-- </carousel-item> -->
+
+                    <!-- <carousel-item> -->
+                    <div class="bl-product col-xs-3">
+                      
+                      <div class='block-sm'>
+                        <img src="upload/pro-4.png" alt="product">
+                      </div>
+                      <div class='block-sm'>
+                        <a href="">Выхлопная труба Nissan RSX </a>
+                      </div>
+
+                      <div class='block-sm b_pro-info'>
+
+                        <div>
+                          <span class='i_info-text'>Год:</span>
+                          <span>2000</span>
+                        </div>
+                        <div>
+                          <span class='i_info-text'>Пробег:</span>
+                          <span>240 000 км.</span>
+                        </div>
+
+                      </div>
+
+                      <hr class='divider block-sm'>
+
+                      <div class='i_pro-price block-sm'>
+                        127 500 р.
+                      </div>
+
+                      <div class='block-sm'>
+                        <form name='add-pro'>
+                          <input type="text" class="input-square" value="1">
+                          <button class='btn btn-black'>В корзину</button>
+                        </form>
+                      </div>
+
+                      <div class='block'>
+
+                        <div class="tooltip bottom _custom" role="tooltip">
+                         <div class="tooltip-arrow"></div>
+                         <div class="tooltip-inner">
+                           Восстановлен. Полностью на ходу.
+                         </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <!-- </carousel-item> -->
+
+                    <!-- <carousel-item> -->
+                    <div class="bl-product col-xs-3">
+                      
+                      <div class='block-sm'>
+                        <img src="upload/pro-5.png" alt="product">
+                      </div>
+                      <div class='block-sm'>
+                        <a href="">Тормозные диски</a>
+                      </div>
+
+                      <div class='block-sm b_pro-info'>
+
+                        <div>
+                          <span class='i_info-text'>Год:</span>
+                          <span>2000</span>
+                        </div>
+                        <div>
+                          <span class='i_info-text'>Пробег:</span>
+                          <span>240 000 км.</span>
+                        </div>
+
+                      </div>
+
+                      <hr class='divider block-sm'>
+
+                      <div class='i_pro-price block-sm'>
+                        <del>126 000 р.</del>
+                        102 000 р.
+                      </div>
+
+                      <div class='block-sm'>
+                        <form name='add-pro'>
+                          <input type="text" class="input-square" value="1">
+                          <button class='btn btn-black'>В корзину</button>
+                        </form>
+                      </div>
+
+                    </div>
+                    <!-- </carousel-item> -->
+
+                    <!-- <carousel-item> -->
+                    <div class="bl-product col-xs-3">
+                      
+                       <div class='block-sm'>
+                        <img src="upload/pro-6.png" alt="product">
+                      </div>
+                      <div class='block-sm'>
+                        <a href="">Фара BMW M5</a>
+                      </div>
+
+                      <div class='block-sm b_pro-info'>
+
+                        <div>
+                          <span class='i_info-text'>Год:</span>
+                          <span>2009</span>
+                        </div>
+                        <div>
+                          <span class='i_info-text'>Пробег:</span>
+                          <span>483 000 км.</span>
+                        </div>
+
+                      </div>
+
+                      <hr class='divider block-sm'>
+
+                      <div class='i_pro-price block-sm'>
+                        102 000 р.
+                      </div>
+
+                      <div class='block-sm'>
+                        <form name='add-pro'>
+                          <input type="text" class="input-square" value="1">
+                          <button class='btn btn-black'>В корзину</button>
+                        </form>
+                      </div>                                        
+
+                    </div>
+                    <!-- </carousel-item> -->
+
+                    <!-- <carousel-item> -->
+                    <div class="bl-product col-xs-3">
+                      
+                      <div class='block-sm'>
+                        <img src="upload/pro-4.png" alt="product">
+                      </div>
+                      <div class='block-sm'>
+                        <a href="">Выхлопная труба Nissan RSX </a>
+                      </div>
+
+                      <div class='block-sm b_pro-info'>
+
+                        <div>
+                          <span class='i_info-text'>Год:</span>
+                          <span>2000</span>
+                        </div>
+                        <div>
+                          <span class='i_info-text'>Пробег:</span>
+                          <span>240 000 км.</span>
+                        </div>
+
+                      </div>
+
+                      <hr class='divider block-sm'>
+
+                      <div class='i_pro-price block-sm'>
+                        127 500 р.
+                      </div>
+
+                      <div class='block-sm'>
+                        <form name='add-pro'>
+                          <input type="text" class="input-square" value="1">
+                          <button class='btn btn-black'>В корзину</button>
+                        </form>
+                      </div>
+
+                      <div class='block'>
+
+                        <div class="tooltip bottom _custom" role="tooltip">
+                         <div class="tooltip-arrow"></div>
+                         <div class="tooltip-inner">
+                           Восстановлен. Полностью на ходу.
+                         </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                    <!-- </carousel-item> -->
+
+                    <div class="bl-product col-xs-3">
+                      
+                      <div class="block-sm">
+                        <img src="upload/pro-2.png" alt="product">
+                      </div>
+
+                      <div class="block-sm">
+                        <a href="">Мотор BMW Z4</a>
+                      </div>
+
+                      <div class="block-sm b_pro-info">
+
+                        <div>
+                          <span class="i_info-text">Год:</span>
+                          <span>2008</span>
+                        </div>
+                        <div>
+                          <span class="i_info-text">Пробег:</span>
+                          <span>130 000 км.</span>
+                        </div>
+
+                      </div>
+
+                      <hr class="divider block-sm">
+
+                      <div class="i_pro-price block-sm">
+                        183 000 р.
+                      </div>
+
+                      <div class="block-sm">
+                        <form name="add-pro">
+                          <input type="text" class="input-square" value="1">
+                          <button class="btn btn-black">В корзину</button>
+                        </form>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>                
+
+              </div>
+            </div>
+            <div class='_shadow-short block-xxxlg'></div>
+            
+
+          </div>
+        </div>
+
+        <div class='container-fluid l_footer _bg-gray'>
+          
+          <div class='container-fixed'>
+
+            <div class='row b_menu'>
+              <ul class='list-inline'>
+
+                <li><a href="#">О компании</a></li>
+                <li><a href="#" class='active'>Автозапчасти</a></li>
+                <li><a href="#">Все услуги</a></li>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Вакансии</a></li>
+
+              </ul>
+            </div>
+            
+            <div class='row'>
+              <hr class='divider block'>                          
+            </div>
+
+            <div class='row b_footer'>
+
+              <div class='col-xs-4'>
+
+                <div class='b_social'>
+                    <a href="" class='i_social'>
+                      <img src="images/icon_fb.png" alt="">
+                    </a>
+                    <a href="" class='i_social'>
+                      <img src="images/icon_twt.png" alt="">
+                    </a>
+                    <a href="" class='i_social'>
+                      <img src="images/icon_vk.png" alt="">
+                    </a>
+                    <a href="" class='i_social'>
+                      <img src="images/icon_gg.png" alt="">
+                    </a>
+                </div>  
+
+                <div class='b_address'>
+                    <p>+7 (123) 456-78-90</p>
+                    <p><a href="mailto:some@mail.ru">example@example.com</a></p>
+                    <p>197022, Санкт-Петербург, <br>
+                        улица Аптекарская, дом 12</p>
+                </div>
+
+              </div>
+
+              <div class='col-xs-4'>
+
+                <div class='b_deprecated'>
+                  Использование материалов <br> сайта без согласия <br> правообладателя запрещено
+                  <img src="images/icon_deprecated.png" alt="Deprecated">  
+                </div>
+
+              </div>
+
+              <div class='col-xs-4'>
+                  
+                <div class='b_search'>
+                  
+                  <div class="input-group-inline">
+
+                    <input type="text" class="form-control">
+                    <span class="input-group-btn">
+                      <button class="btn btn-yellow" type="button">Найти</button>
+                    </span>
+                    <div>Например: Автозапчасти</div>
+                  </div>
+
+                </div>
+
+                <div class='b_modals text-right'>
+                  <p><a href="">Обратный звонок</a></p>
+                  <p><a href="">Уточнить страну</a></p>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class='row'>
+              <hr class='divider'>
+            </div>            
+
+            <div class='row b_footer-bottom'>
+
+              <div class='col-xs-4'>
+                  <div>2014© Parts-Pro</div>
+              </div>
+
+              <div class='col-xs-4 text-center'>
+                <img src="images/icon_tracker.png" alt="tracker">
+              </div>
+
+              <div class='col-xs-4 text-right'>
+                <div>Разработка, создание сайта</div>
+                <div><a href="http://wps.uz" target='blank'>WPS.uz</a></div>
+              </div>
+
+            </div>
+  
+          </div>          
+        </div>
+
+        <!-- </modal id='feedback'> -->
+        <div class="modal fade" id='feedback'>
+          <div class="modal-dialog modal-sm b_feedback">
+
+            <div class="modal-content _bg-gray _border-bottom-dashed">
+
+              <div class="modal-header">
+                <a href="javascript:;" class="close" data-dismiss="modal"><img src="images/icon_close.png" alt=""></a>
+              </div>
+
+              <div class="modal-body">
+                
+                <form role="form">
+
+                  <div class="form-group">
+                    <label for="name"><span class='required'>*</span>Имя:</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="tel"><span class='required'>*</span>Телефон:</label>
+                    <input type="text" class="form-control" id="tel">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="mail"><span class='required'>*</span>Электронный адрес:</label>
+                    <input type="text" class="form-control" id="mail">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="text"><span class='required'>*</span>Опишите вопрос::</label>
+                    <textarea id="text" cols="30" rows="6" class='form-control'></textarea>
+                  </div>
+
+                  <div class="form-group b_captcha block">
+                    <label for="captcha"><span class='required'>*</span>Электронный адрес:</label>
+                    <img src="upload/captcha.png" alt="captcha" class='captcha-img'><input type="text" class="form-control" id="captcha">
+                  </div>
+                  
+                  <div class='form-group text-center'>
+                    <button type="submit" class="btn btn-black">Отправить</button>  
+                  </div>
+                  
+                </form>              
+
+              </div>              
+
+            </div>
+
+          </div>
+        </div>
+        <!-- </modal> -->
+        
+        <!-- </modal id='region'> -->
+        <div class="modal fade" id='region'>
+          <div class="modal-dialog modal-lg">
+
+            <div class="modal-content _border-bottom-dashed b_region-map">
+
+              <div class="modal-header">
+                <a href="javascript:;" class="close" data-dismiss="modal"><img src="images/icon_close.png" alt=""></a>
+              </div>
+
+              <div class="modal-body">
+                
+                <div id="swiffycontainer" style="width: 930px; height: 690px">
+                </div>             
+
+              </div>              
+
+            </div>
+
+          </div>
+        </div>
+        <!-- </modal> -->
+
+        <!-- </modal id='order'> -->
+        <div class="modal fade" id='order'>
+          <div class="modal-dialog b_order">
+
+            <div class="modal-content _bg-gray _border-bottom-dashed">
+
+              <div class="modal-header">
+                <a href="javascript:;" class="close" data-dismiss="modal"><img src="images/icon_close.png" alt=""></a>
+              </div>
+
+              <div class="modal-body">
+                <div class='col-xs-12'>
+                  <h4 class='block-lg'>О компании</h4>
+                  <p>
+                    Если вы не нашли нужную деталь в нашем каталоге. Вы можете заказать её через наш сайт.
+                    Для этого введите свои контактные данные и детали, которые вас интересует.
+                    Сроки доставки по каждой детали обсуждаются индивидуально.
+                  </p>
+                </div>                
+
+                <div class='col-xs-5 center-block'>
+                  <form role="form">
+
+                    <div class="form-group">
+                      <label for="name">Имя:</label>
+                      <input type="text" class="form-control" id="name">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="tel">Телефон:</label>
+                      <input type="text" class="form-control" id="tel">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="mail">Электронный адрес:</label>
+                      <input type="text" class="form-control" id="mail">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="mail">Марка и модель автомобиля:</label>
+                      <input type="text" class="form-control" id="mail">
+                    </div>                  
+
+                    <div class="form-group">
+                      <label for="text">Год выпусaка автомобиля:</label>
+                      <input type="text" class="form-control" id="tel">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="text">Объем двигателя автомобиля:</label>
+                      <input type="text" class="form-control" id="tel">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="text">Потребляемое топливо:</label>
+                      <input type="text" class="form-control" id="tel">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="text">VIN-код автомобиля:</label>
+                      <input type="text" class="form-control" id="tel">
+                    </div>                                
+
+                    <div class="form-group">
+                      <label for="text">Список необходимых деталей:</label>
+                      <input type="text" class="form-control" id="tel">
+                    </div>                
+                    
+                    <div class='form-group text-center'>
+                      <button type="submit" class="btn btn-black">Отправить</button>  
+                    </div>
+                    
+                  </form>  
+                </div>            
+
+              </div>              
+
+            </div>
+
+          </div>
+        </div>
+        <!-- </modal> -->
+            
+</body>
+</html>
