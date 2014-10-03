@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="<?=$assetsPath?>bower_components/bootstrap-select/dist/css/bootstrap-select.css">
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="<?=$assetsPath?>styles/main.css">
+    <link rel="stylesheet" href="/html/app/styles/main.css">
     <!-- endbuild -->
 
     <!-- build:js scripts/vendor/modernizr.js -->
@@ -61,10 +61,12 @@
     <!-- endbuild -->
     <script type="text/javascript" src="<?=$assetsPath?>scripts/common.js"></script>
     <!-- build:js scripts/main.js -->
-    <script src="<?=$assetsPath?>scripts/main.js"></script>
+    <script src="/html/app/scripts/main.js"></script>
     <!-- endbuild -->
     
-    
+    <!-- Include map region plugin -->
+    <script src="https://www.gstatic.com/swiffy/v7.0/runtime.js"></script>
+    <script src="<?=$assetsPath?>scripts/map.js"></script>
     
 </head>
 <body class='p_main'>  
@@ -79,7 +81,7 @@
 
                       <li class='i_head-item'>
 
-                        <a href="#" class='_link-unstyled'>
+                        <a href="#" class='_link-unstyled' data-toggle="modal" data-target="#feedback">
                           <img src="<?=$assetsPath?>images/icon-phone.png" alt="">
                           <span class='_underline-dotted'><?=Yii::t('core','Обратный звонок')?></span>
                         </a>
@@ -88,7 +90,7 @@
 
                       <li class='i_head-item_country'>
 
-                        <a href="#" class='_link-unstyled'> 
+                        <a href="#" class='_link-unstyled' data-toggle="modal" data-target="#region"> 
                           <img src="<?=$assetsPath?>images/icon-map.png" alt="">
                           <span class='_underline-dotted'><?=Yii::t('core','Уточнить страну')?></span>
                         </a>
@@ -306,7 +308,139 @@
           </div>          
         </div>
   
+    <!-- </modal id='feedback'> -->
+    <div class="modal fade" id='feedback'>
+      <div class="modal-dialog modal-sm b_feedback">
 
+        <div class="modal-content _bg-gray _border-bottom-dashed">
+
+          <div class="modal-header">
+            <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
+          </div>
+
+          <div class="modal-body">
+            <?
+                Yii::import('feedback.models.CallbackForm');
+                $model = new CallbackForm;
+                
+                $this->renderPartial('//feedback/default/callback', array(
+        			'model'=>$model
+        		));
+            ?>              
+
+          </div>              
+
+        </div>
+
+      </div>
+    </div>
+    <!-- </modal> -->
+    
+    <!-- </modal id='region'> -->
+    <div class="modal fade" id='region'>
+      <div class="modal-dialog modal-lg">
+
+        <div class="modal-content _border-bottom-dashed b_region-map">
+
+          <div class="modal-header">
+            <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
+          </div>
+
+          <div class="modal-body">
+            
+            <div id="swiffycontainer" style="width: 930px; height: 690px">
+            </div>             
+
+          </div>              
+
+        </div>
+
+      </div>
+    </div>
+    <!-- </modal> -->
+
+    <!-- </modal id='order'> -->
+    <div class="modal fade" id='order'>
+      <div class="modal-dialog b_order">
+
+        <div class="modal-content _bg-gray _border-bottom-dashed">
+
+          <div class="modal-header">
+            <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
+          </div>
+
+          <div class="modal-body">
+            <div class='col-xs-12'>
+              <h4 class='block-lg'>О компании</h4>
+              <p>
+                Если вы не нашли нужную деталь в нашем каталоге. Вы можете заказать её через наш сайт.
+                Для этого введите свои контактные данные и детали, которые вас интересует.
+                Сроки доставки по каждой детали обсуждаются индивидуально.
+              </p>
+            </div>                
+
+            <div class='col-xs-5 center-block'>
+              <form role="form">
+
+                <div class="form-group">
+                  <label for="name">Имя:</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+
+                <div class="form-group">
+                  <label for="tel">Телефон:</label>
+                  <input type="text" class="form-control" id="tel">
+                </div>
+
+                <div class="form-group">
+                  <label for="mail">Электронный адрес:</label>
+                  <input type="text" class="form-control" id="mail">
+                </div>
+
+                <div class="form-group">
+                  <label for="mail">Марка и модель автомобиля:</label>
+                  <input type="text" class="form-control" id="mail">
+                </div>                  
+
+                <div class="form-group">
+                  <label for="text">Год выпусaка автомобиля:</label>
+                  <input type="text" class="form-control" id="tel">
+                </div>
+
+                <div class="form-group">
+                  <label for="text">Объем двигателя автомобиля:</label>
+                  <input type="text" class="form-control" id="tel">
+                </div>
+
+                <div class="form-group">
+                  <label for="text">Потребляемое топливо:</label>
+                  <input type="text" class="form-control" id="tel">
+                </div>
+
+                <div class="form-group">
+                  <label for="text">VIN-код автомобиля:</label>
+                  <input type="text" class="form-control" id="tel">
+                </div>                                
+
+                <div class="form-group">
+                  <label for="text">Список необходимых деталей:</label>
+                  <input type="text" class="form-control" id="tel">
+                </div>                
+                
+                <div class='form-group text-center'>
+                  <button type="submit" class="btn btn-black">Отправить</button>  
+                </div>
+                
+              </form>  
+            </div>            
+
+          </div>              
+
+        </div>
+
+      </div>
+    </div>
+    <!-- </modal> -->
             
 </body>
 </html>

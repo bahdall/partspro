@@ -36,5 +36,28 @@ class DefaultController extends Controller
 			'model'=>$model
 		));
 	}
+    
+    
+    
+    public function actionCallback()
+	{
+		Yii::import('feedback.models.CallbackForm');
+		$model = new CallbackForm;
+        
+
+		if(isset($_POST['CallbackForm']))
+			$model->attributes = $_POST['CallbackForm'];
+
+		if(Yii::app()->request->isPostRequest && $model->validate())
+		{
+			$model->sendMessage();
+			Yii::app()->request->redirect($this->createUrl('callback'));
+		}
+
+		$this->render('callback', array(
+			'model'=>$model
+		));
+        
+	}
 
 }

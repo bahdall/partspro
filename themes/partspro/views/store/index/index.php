@@ -1175,7 +1175,7 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
         </p>
       </div>
       <div class='col-xs-2 text-right'>
-        <a href="#" class='btn btn-block btn-yellow block-sm'>Оформить <br> заявку</a>
+        <a href="#" class='btn btn-block btn-yellow block-sm' data-toggle="modal" data-target="#order">Оформить <br> заявку</a>
         <img src="<?=$assetsPath?>images/icon-list.png">
       </div>
 

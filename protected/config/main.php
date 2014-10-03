@@ -50,7 +50,7 @@ return array(
 			'showScriptName'=>false,
 			'useStrictParsing'=>true,
 			'rules'=>array(
-				'/'=>'store/index/index',
+				'/'=>'store/index/index',                
 				'admin/auth'=>'admin/auth',
 				'admin/auth/logout'=>'admin/auth/logout',
 				'admin/<module:\w+>'=>'<module>/admin/default',

@@ -3,7 +3,7 @@
 define('VERSION', '1.5');
 
 error_reporting(0);
-
+define('YII_DEBUG',true);
 $yii=dirname(__FILE__).'/framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 

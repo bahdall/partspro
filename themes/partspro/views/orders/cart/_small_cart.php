@@ -6,10 +6,20 @@
  */
  $assetsPath = Yii::app()->theme->baseUrl."/assets/";
 ?>
+
+
 <a href="" class='i_header-button i_cart-button' id="cart-btn-d" data-toggle="dropdown">
     <img src="<?=$assetsPath?>images/icon-cart.png" alt="">
     <span class='label_products round' id='products_qty'><?php echo Yii::app()->cart->countItems() ?></span>  
 </a>
+
+
+<?if( ! Yii::app()->cart->countItems() ):?>
+    <ul class="dropdown-menu b_cart" role="menu" aria-labelledby="cart" >
+        <?=Yii::t('core','Ваша корзина пуста')?>
+    </ul>
+    <?return true;?>
+<?endif;?>
 
 <ul class="dropdown-menu b_cart" role="menu" aria-labelledby="cart" >
     <?foreach(Yii::app()->cart->getDataWithModels() as $index => $product):?>
