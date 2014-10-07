@@ -60,20 +60,48 @@ class CategoryController extends Controller
 	public function beforeAction($action)
 	{
 		$this->allowedPageLimit=explode(',',Yii::app()->settings->get('core', 'productsPerPage'));
+        
+        $model = StoreCategory::model()
+			->excludeRoot()
+			->withFullPath('cars')
+			->find();
+        $attributes = $model->getEavAttributes();
+        $data=array();
+        
+        foreach($attributes as $attr)
+        {
+            if($attr->type != StoreAttribute::TYPE_NUMBER )
+            {
+                if(Yii::app()->request->getPost($attr->name))
+                    $data[$attr->name] = Yii::app()->request->getPost($attr->name);
+            }
+            else
+            {
+                if(Yii::app()->request->getPost("min_".$attr->name))
+                    $data["min_".$attr->name] = (int)Yii::app()->request->getPost("min_".$attr->name);
+                
+                if(Yii::app()->request->getPost("max_".$attr->name))
+                    $data["max_".$attr->name] = (int)Yii::app()->request->getPost("max_".$attr->name);                
+            }
+        }
 
 		if(Yii::app()->request->getPost('min_price') || Yii::app()->request->getPost('max_price'))
 		{
-			$data=array();
+			
 			if(Yii::app()->request->getPost('min_price'))
 				$data['min_price']=(int)Yii::app()->request->getPost('min_price');
 			if(Yii::app()->request->getPost('max_price'))
 				$data['max_price']=(int)Yii::app()->request->getPost('max_price');
 
-			if($this->action->id==='search')
+		}
+        
+        if($data)
+        {
+            if($this->action->id==='search')
 				$this->redirect(Yii::app()->request->addUrlParam('/store/category/search', $data));
 			else
 				$this->redirect(Yii::app()->request->addUrlParam('/store/category/view', $data));
-		}
+        }
 
 		return true;
 	}
@@ -176,7 +204,7 @@ class CategoryController extends Controller
 					$data[$key] = array($_GET[$key]);
 			}
 		}
-
+        echo "<pre>";print_r($data);echo"</pre>";
 		return $data;
 	}
 
@@ -203,18 +231,21 @@ class CategoryController extends Controller
 		$criteria->group     = 'type_id';
 		$criteria->distinct  = true;
 		$typesUsed = $builder->createFindCommand(StoreProduct::model()->tableName(), $criteria)->queryColumn();
-
+        
 		// Find attributes by type
 		$criteria = new CDbCriteria;
 		$criteria->addInCondition('types.type_id', $typesUsed);
 		$query = StoreAttribute::model()
 			->useInFilter()
-			->with(array('types', 'options'))
+			->with(array('types',))//array('types', 'options')
 			->findAll($criteria);
 
 		$this->_eavAttributes = array();
 		foreach($query as $attr)
-			$this->_eavAttributes[$attr->name] = $attr;
+        {
+            $this->_eavAttributes[$attr->name] = $attr;
+        }
+			
 		return $this->_eavAttributes;
 	}
 

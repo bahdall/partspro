@@ -138,6 +138,8 @@ class SFilterRenderer extends CWidget
 			$data[$attribute->name] = array(
 				'title'      => $attribute->title,
 				'selectMany' => (boolean) $attribute->select_many,
+                'type'       => $attribute->type,
+                'queryKey'   => $attribute->name,
 				'filters'    => array()
 			);
 			foreach($attribute->options as $option)

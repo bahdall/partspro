@@ -451,6 +451,7 @@ class EEavBehavior extends CActiveRecordBehavior {
 		if (empty($attributes)) {
 			$attributes = $this->getSafeAttributesArray();
 		}
+        
 		// $attributes be array of elements: $attribute => $values
 		$criteria = $this->getFindByEavAttributesCriteria($attributes);
 		// Merge model criteria.
@@ -527,11 +528,14 @@ class EEavBehavior extends CActiveRecordBehavior {
 	 * @return CDbCriteria
 	 */
 	protected function getFindByEavAttributesCriteria($attributes){
+        
+        
 		$criteria = new CDbCriteria();
 		$pk = $this->getModelTableFk();
 
 		$conn = $this->getOwner()->getDbConnection();
 		$i = 0;
+        
 		foreach ($attributes as $attribute => $values) {
 			// If search models with attribute name with specified values.
 			if (is_string($attribute)) {

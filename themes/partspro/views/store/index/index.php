@@ -1,5 +1,11 @@
 <?
 $assetsPath = Yii::app()->theme->baseUrl."/assets/";
+
+$model = StoreCategory::model()
+			->excludeRoot()
+			->withFullPath('cars')
+			->find();
+$attributes = $model->getEavAttributes();
 ?>
 
 <div class='container-fluid l_content' >

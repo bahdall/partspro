@@ -20,7 +20,6 @@ foreach($ancestors as $c)
 	$this->breadcrumbs[$c->name] = $c->getViewUrl();
 
 $this->breadcrumbs[] = $this->model->name;
-
 ?>
 
 <div class="catalog_with_sidebar">
@@ -29,6 +28,7 @@ $this->breadcrumbs[] = $this->model->name;
 			$this->widget('application.modules.store.widgets.filter.SFilterRenderer', array(
 				'model'=>$this->model,
 				'attributes'=>$this->eavAttributes,
+                'view' => 'partsHome',
 			));
 		?>
 	</div>

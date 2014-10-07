@@ -315,4 +315,42 @@ class StoreCategory extends BaseModel
 	{
 		Yii::app()->cache->delete('SStoreCategoryUrlRule');
 	}
+    
+    
+    
+    public function getEavAttributes()
+    {
+        // Find category types
+		$model = new StoreProduct(null);
+		$criteria = $model
+			->applyCategories($this)
+			->active()
+			->getDbCriteria();
+
+		unset($model);
+
+		$builder = new CDbCommandBuilder(Yii::app()->db->getSchema());
+
+		$criteria->select    = 'type_id';
+		$criteria->group     = 'type_id';
+		$criteria->distinct  = true;
+		$typesUsed = $builder->createFindCommand(StoreProduct::model()->tableName(), $criteria)->queryColumn();
+        
+		// Find attributes by type
+		$criteria = new CDbCriteria;
+		$criteria->addInCondition('types.type_id', $typesUsed);
+		$query = StoreAttribute::model()
+			->useInFilter()
+			->with(array('types',))//array('types', 'options')
+			->findAll($criteria);
+
+		$_eavAttributes = array();
+		foreach($query as $attr)
+        {
+            $_eavAttributes[$attr->name] = $attr;
+        }
+			
+		return $_eavAttributes;
+        
+    }
 }
