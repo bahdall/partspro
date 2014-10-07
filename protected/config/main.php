@@ -77,7 +77,7 @@ return array(
 		'db'=>array(
 			'connectionString'=>'mysql:host=localhost;dbname=partspro',
 			'username'=>'root',
-			'password'=>'',
+			'password'=>'password_777',
 			'enableProfiling'       => YII_DEBUG, // Disable in production
 			'enableParamLogging'    => YII_DEBUG, // Disable in production
 			'emulatePrepare'        => true,

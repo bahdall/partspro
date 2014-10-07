@@ -63,9 +63,12 @@ class CategoryController extends Controller
         
         $model = StoreCategory::model()
 			->excludeRoot()
-			->withFullPath('cars')
+			->withFullPath(Yii::app()->request->getQuery('url'))
 			->find();
-        $attributes = $model->getEavAttributes();
+        
+        if($model)
+            $attributes = $model->getEavAttributes();
+        
         $data=array();
         
         foreach($attributes as $attr)
@@ -102,7 +105,7 @@ class CategoryController extends Controller
 			else
 				$this->redirect(Yii::app()->request->addUrlParam('/store/category/view', $data));
         }
-
+        
 		return true;
 	}
 
@@ -111,9 +114,22 @@ class CategoryController extends Controller
 	 */
 	public function actionView()
 	{
+        
 		$this->model = $this->_loadModel(Yii::app()->request->getQuery('url'));
 		$view = $this->setDesign($this->model, 'view');
 		$this->doSearch($this->model, $view);
+	}
+    
+    
+    /**
+	 * Display category products for HomePage
+	 */
+	public function actionHome()
+	{
+        
+		$this->model = $this->_loadModel(Yii::app()->request->getQuery('url'));
+		$view = $this->setDesign($this->model, 'home');
+		$this->doSearch($this->model, $view, true);
 	}
 
 	/**
@@ -134,7 +150,7 @@ class CategoryController extends Controller
 	 * @param $data StoreCategory|string
 	 * @param string $view
 	 */
-	public function doSearch($data, $view)
+	public function doSearch($data, $view,$partial = false)
 	{
 		$this->query = new StoreProduct(null);
 		$this->query->attachBehaviors($this->query->behaviors());
@@ -181,10 +197,20 @@ class CategoryController extends Controller
 
 		$this->provider->sort = StoreProduct::getCSort();
 
-		$this->render($view, array(
-			'provider'=>$this->provider,
-			'itemView'=>(isset($_GET['view']) && $_GET['view']==='wide') ? '_product_wide' : '_product'
-		));
+		if($partial)
+        {
+            echo $this->renderPartial($view, array(
+    			'provider'=>$this->provider,
+    			'itemView'=>(isset($_GET['view']) && $_GET['view']==='wide') ? '_product_wide' : '_product'
+    		));
+        }
+        else
+        {
+            $this->render($view, array(
+    			'provider'=>$this->provider,
+    			'itemView'=>(isset($_GET['view']) && $_GET['view']==='wide') ? '_product_wide' : '_product'
+    		));
+        }
 	}
 
 	/**
@@ -193,18 +219,43 @@ class CategoryController extends Controller
 	public function getActiveAttributes()
 	{
 		$data = array();
-
+        
 		foreach(array_keys($_GET) as $key)
 		{
+		    
+            $maxKey = str_replace("max_",'',$key);
+            $minKey = str_replace("min_",'',$key);
+            
 			if(array_key_exists($key, $this->eavAttributes))
 			{
 				if((boolean) $this->eavAttributes[$key]->select_many === true)
-					$data[$key] = explode(';', $_GET[$key]);
+					$data[$key]['values'] = explode(';', $_GET[$key]);
 				else
-					$data[$key] = array($_GET[$key]);
+					$data[$key]['values'] = array($_GET[$key]);
+            
+                $data[$key]['type'] = $this->eavAttributes[$key]->type;
+                
 			}
+            elseif(array_key_exists($minKey, $this->eavAttributes))
+            {
+                if((boolean) $this->eavAttributes[$minKey]->select_many === true)
+					$data[$minKey]['values']['min'] = explode(';', $_GET[$key]);
+				else
+					$data[$minKey]['values']['min'] = array($_GET[$key]);
+            
+                $data[$minKey]['type'] = $this->eavAttributes[$maxKey]->type;
+            }
+            elseif(array_key_exists($maxKey, $this->eavAttributes))
+            {
+                if((boolean) $this->eavAttributes[$maxKey]->select_many === true)
+					$data[$maxKey]['values']['max'] = explode(';', $_GET[$key]);
+				else
+					$data[$maxKey]['values']['max'] = array($_GET[$key]);
+            
+                $data[$maxKey]['type'] = $this->eavAttributes[$maxKey]->type;
+            }
+            
 		}
-        echo "<pre>";print_r($data);echo"</pre>";
 		return $data;
 	}
 

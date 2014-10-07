@@ -35,7 +35,7 @@ class SStoreCategoryUrlRule extends CBaseUrlRule
 
 		if($this->urlSuffix)
 			$pathInfo = strtr($pathInfo, array($this->urlSuffix=>''));
-
+        
 		foreach($this->getAllPaths() as $path)
 		{
 			if($path !== '' && strpos($pathInfo, $path) === 0)

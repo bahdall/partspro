@@ -538,6 +538,30 @@ class EEavBehavior extends CActiveRecordBehavior {
         
 		foreach ($attributes as $attribute => $values) {
 			// If search models with attribute name with specified values.
+            $type = $values['type'];
+            $values = $values['values'];
+            if($type == StoreAttribute::TYPE_NUMBER)
+            {
+                // Get attribute compare operator
+				$attribute = $conn->quoteValue($attribute);
+                $minValues = $values['min'];
+                $maxValues = $values['max'];
+				if (is_array($minValues)) $minValues = $values['min'][0];
+                if (is_array($maxValues)) $maxValues = $values['max'][0];
+
+				
+				$minValues = $conn->quoteValue($minValues);
+                $maxValues = $conn->quoteValue($maxValues);
+                
+				$criteria->join .= "\nJOIN {$this->tableName} eavb$i"
+					.  "\nON t.{$pk} = eavb$i.{$this->entityField}"
+					.  "\nAND eavb$i.{$this->attributeField} = $attribute"
+					.  "\nAND eavb$i.{$this->valueField} >= $minValues AND eavb$i.{$this->valueField} <= $maxValues";
+				$i++;
+                continue;
+				
+            }
+            
 			if (is_string($attribute)) {
 				// Get attribute compare operator
 				$attribute = $conn->quoteValue($attribute);
@@ -563,6 +587,7 @@ class EEavBehavior extends CActiveRecordBehavior {
 		}
 		$criteria->distinct = TRUE;
 		$criteria->group .= "t.{$pk}";
+        
 		return $criteria;
 	}
 }
