@@ -11,7 +11,7 @@ $(function(){
 		itemsTablet: false, //2 items between 600 and 0
 		itemsMobile : false, // itemsMobile disabled - inherit from itemsTablet option
     	navigation : false
-    });
+    });    
 
 	$('.select-styled').selectpicker({
         caretHTML: '<span class="select-caret"></span>'
@@ -30,5 +30,12 @@ $(function(){
         $( big ).attr('src', $( this ).data('src')) ;   
         
     })
+
+    $("#vertical-carousel").jCarouselLite({
+        btnNext: "#vertical-down",
+        btnPrev: "#vertical-up",
+        visible: 1,
+        vertical: true
+    });
 
 })

@@ -214,6 +214,34 @@
   }
 }
 
+.btn-up {
+  width: 36px;
+  height: 36px;
+  background: transparent url(../images/icon_arrow-up.png) 0px 0px no-repeat;
+  &:hover {
+    background: transparent url(../images/icon_arrow-up.png) 0px -36px no-repeat;
+  }
+  &:active,
+  &.active {
+    background: transparent url(../images/icon_arrow-up.png) 0px -72px no-repeat;
+    box-shadow: none;
+  }
+}
+
+.btn-down {
+  width: 36px;
+  height: 36px;
+  background: transparent url(../images/icon_arrow-down.png) 0px 0px no-repeat;
+  &:hover {
+    background: transparent url(../images/icon_arrow-down.png) 0px -36px no-repeat;
+  }
+  &:active,
+  &.active {
+    background: transparent url(../images/icon_arrow-down.png) 0px -72px no-repeat;
+    box-shadow: none;
+  }
+}
+
 // Link buttons
 // -------------------------
 
@@ -268,6 +296,10 @@
 }
 .btn-xs {
   @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+}
+.btn-wide {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 

@@ -33,6 +33,9 @@
         <script src="https://www.gstatic.com/swiffy/v7.0/runtime.js"></script>
         <script src="scripts/map.js"></script>
 
+        <!-- Include vertical carousel plugin -->
+        <script src="scripts/jquery.carousellite.js"></script>
+
         <!-- build:js scripts/plugins.js -->
         <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
         <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
@@ -244,222 +247,101 @@
             <div class='row'>
               <ol class="breadcrumb">
                 <li><a href="/">Главная</a></li>
-                <li class="active">Автозапчасти</li>
+                <li><a href="#">Машины в разборе</a></li>
+                <li class="active">Skoda Octavia</li>
               </ol>
             </div>
             
-            <div class='row block-sm'>
+            <div class='row block'>
               <div class='col-xs-12'> 
 
-                <h4><strong>Автозапчасти</strong></h4>
+                <h4><strong>Фильтр L200</strong></h4>
 
               </div>
             </div>
 
-            <div class='b_filter-cont _border-bottom-dashed _bg-gray'>
+            <div class='b_product-inner _border-bottom-dashed _bg-gray'>
               <div class='row'>
               
-                <div class='col-xs-3 b_filter'>
-                  <h4><strong>Фильтр</strong></h4>
-                  <hr class='divider'>
+                <div class='col-xs-6'>
 
-                  <form name='Filter'>
-                    
-                    <div class="form-group">
+                  <div class='new left block-sm'>
+                    <img src="upload/product-1.png" alt="parse" id='big-img'>
+                  </div>
 
-                      <label for="country">Страна</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите страну</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                      
+                  <div class='b_img-list-inline block'>
+
+                    <div class='i_img-list' data-change-target='#big-img' data-src='upload/partner-1.png'>                    
+                      <img src="upload/product-2.png" alt="parse" width='70' height='70'>                      
                     </div>
 
-                    <div class="form-group">
-
-                      <label for="country">Марка:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите марку</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-
-                    </div>                    
-
-                    <div class='form-group'>
-                      
-                      <label for="price-from">Цена (тысяч руб.):</label>
-                      <div class="container-xs-height">                                                          
-
-                        <div class="row-xs-height b_filter-range">                                
-                          <div class="col-xs-height b_filter-r-text">
-                            От: 
-                          </div>
-                          <div class="col-xs-height b_filter-r-input">
-                            <input type="text" class="form-control" id="price-from" placeholder="0">  
-                          </div>
-                          <div class="col-xs-height b_filter-r-text">
-                            До: 
-                          </div>
-                          <div class="col-xs-height b_filter-r-input">
-                            <input type="text" class="form-control" id="" placeholder="0">  
-                          </div>                                                                                        
-                        </div>
-                        
-                      </div>
-
+                    <div class='i_img-list'>
+                      <img src="upload/product-3.png" alt="parse" width='70' height='70'>
                     </div>
 
-                    <div class='form-group'>
-
-                      <label for="price-from">Год выпуска:</label>
-                      <div class="container-xs-height">                                                          
-
-                        <div class="row-xs-height b_filter-range">                                
-                          <div class="col-xs-height b_filter-r-text">
-                            От: 
-                          </div>
-                          <div class="col-xs-height b_filter-r-input">
-                            <input type="text" class="form-control" id="price-from" placeholder="0">  
-                          </div>
-                          <div class="col-xs-height b_filter-r-text">
-                            До: 
-                          </div>
-                          <div class="col-xs-height b_filter-r-input">
-                            <input type="text" class="form-control" id="" placeholder="0">  
-                          </div>                                                                                        
-                        </div>
-                        
-                      </div>
-                    
+                    <div class='i_img-list'>
+                      <img src="upload/product-4.png" alt="parse" width='70' height='70'>
                     </div>
 
-                    <div class="form-group">
-
-                      <label for="country">Состояние:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите состояние</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-
-                    </div> 
-
-                    <div class='form-group'>
-
-                      <label for="price-from">Год выпуска:</label>
-                      <div class="container-xs-height">                                                          
-
-                        <div class="row-xs-height b_filter-range">                                
-                          <div class="col-xs-height b_filter-r-text">
-                            От: 
-                          </div>
-                          <div class="col-xs-height b_filter-r-input">
-                            <input type="text" class="form-control" id="price-from" placeholder="0">  
-                          </div>
-                          <div class="col-xs-height b_filter-r-text">
-                            До: 
-                          </div>
-                          <div class="col-xs-height b_filter-r-input">
-                            <input type="text" class="form-control" id="" placeholder="0">  
-                          </div>                                                                                        
-                        </div>
-                        
-                      </div>
-                    
+                    <div class='i_img-list'>
+                      <img src="upload/product-5.png" alt="parse" width='70' height='70'>
                     </div>
 
-                    <div class="form-group">
-
-                      <label for="country">Тип кузова:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип кузова</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-
-                    </div> 
-
-                    <div class="form-group">
-
-                      <label for="country">Тип КПП:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип КПП</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-
-                    </div> 
-
-                    <hr class='divider block'>
-
-                    <div class='form-group'>
-                      
-                      <button class='btn btn-black'>Применить</button>
-                      <button class='btn btn-black'>Сбросить</button>
-
+                    <div class='i_img-list'>
+                      <img src="upload/product-6.png" alt="parse" width='70' height='70'>
                     </div>
 
-                  </form>
+                  </div>
+                  
+                  <div class='block'>
 
-                </div>   
+                    <div class='block-sm'>
+                      Поделиться: 
+                    </div>
 
-                <div class='col-xs-9 b_sort-cont'>
-                  <div class='clearfix'>
-
-                    <ul class='list-inline b_sort'>
-
-                      <li>Сортировать по:</li>
-                      <li><a href="#">Цена:<span class="caret"></span><span class="caret reverse"></span></a></li>
-                      <li><a href="#">Год:<span class="caret"></span><span class="caret reverse"></a></li>
-                      <li><a href="#">Износ:<span class="caret"></span><span class="caret reverse"></a></li>
-
-                    </ul>
-
-                    <ul class='list-inline b_quantity'>
-
-                      <li><span>Показывать по:</span></li>
-                      <li><a href="#" class=''>20</a></li>
-                      <li><a href="#" class='active'>40</a></li>
-                      <li><a href="#">60</a></li>                                          
-                    </ul>
+                    <div class="b_social">
+                      <a href="" class="i_social">
+                        <img src="images/icon_fb.png" alt="">
+                      </a>
+                      <a href="" class="i_social">
+                        <img src="images/icon_twt.png" alt="">
+                      </a>
+                      <a href="" class="i_social">
+                        <img src="images/icon_vk.png" alt="">
+                      </a>
+                      <a href="" class="i_social">
+                        <img src="images/icon_gg.png" alt="">
+                      </a>
+                    </div>
 
                   </div>
 
-                  <hr class='divider'> 
+                  <div>
+                    <a href="#" class='btn btn-black'>Назад к каталогу</a>
+                  </div>
 
-                  <div class='clearfix'>
+                </div>  
+
+                <div class='col-xs-3'>
+                  
+                  <div class="bl-product">                     
                     
-                    <div class="bl-product col-xs-3 new">
+                      <div class='block b_pro-info'>
 
-                      <div class='block-sm'>
-                        <img src="upload/pro-1.png" alt="product">
-                      </div>
-
-                      <div class='block-sm'>
-                        <a href="">Фильтр L200</a>
-                      </div>
-
-                      <div class='block-sm b_pro-info'>
-
-                        <div>
-                          <span class='i_info-text'>Год:</span>
-                          <span>2009</span>
+                        <div class='block-sm'>
+                          <span class='i_info-text'>Раздел:</span>
+                          <span>Двигатель</span>
                         </div>
-                        <div>
-                          <span class='i_info-text'>Пробег:</span>
-                          <span>70 000 км.</span>
+                        <div class='block-sm'>
+                          <span class='i_info-text'>Авто:</span>
+                          <span>BMW x6</span>
+                        </div>
+                        <div class='block-sm'>
+                          <span class='i_info-text'>Код:</span>
+                          <span>g13h</span>
                         </div>
 
                       </div>
-
-                      <hr class='divider block-sm'>
 
                       <div class='i_pro-price block-sm'>
                         220 000 р.
@@ -484,331 +366,125 @@
                       </div>
 
                     </div>
-                    <!-- </carousel-item> -->
 
-                    <!-- <carousel-item> -->
-                    <div class="bl-product col-xs-3 new">
-                      
-                      <div class='block-sm'>
-                        <img src="upload/pro-2.png" alt="product">
-                      </div>
+                </div>             
 
-                      <div class='block-sm'>
-                        <a href="">Мотор BMW Z4</a>
-                      </div>
+                <div class='col-xs-3 _divider-left'>
 
-                      <div class='block-sm b_pro-info'>
-
-                        <div>
-                          <span class='i_info-text'>Год:</span>
-                          <span>2008</span>
-                        </div>
-                        <div>
-                          <span class='i_info-text'>Пробег:</span>
-                          <span>130 000 км.</span>
-                        </div>
-
-                      </div>
-
-                      <hr class='divider block-sm'>
-
-                      <div class='i_pro-price block-sm'>
-                        183 000 р.
-                      </div>
-
-                      <div class='block-sm'>
-                        <form name='add-pro'>
-                          <input type="text" class="input-square" value="1">
-                          <button class='btn btn-black'>В корзину</button>
-                        </form>
-                      </div>
-
-                    </div>
-                    <!-- </carousel-item> -->
-
-                    <!-- <carousel-item> -->
-                    <div class="bl-product col-xs-3">
-                     
-                      <div class='block-sm'>
-                        <img src="upload/pro-3.png" alt="product">
-                      </div>
-                      <div class='block-sm'>
-                        <a href="">Колодки BMW Z4</a>
-                      </div>
-
-                      <div class='block-sm b_pro-info'>
-
-                        <div>
-                          <span class='i_info-text'>Год:</span>
-                          <span>2000</span>
-                        </div>
-                        <div>
-                          <span class='i_info-text'>Пробег:</span>
-                          <span>113 000 км.</span>
-                        </div>
-
-                      </div>
-
-                      <hr class='divider block-sm'>
-
-                      <div class='i_pro-price block-sm'>
-                        183 000 р.
-                      </div>
-
-                      <div class='block-sm'>
-                        <form name='add-pro'>
-                          <input type="text" class="input-square" value="1">
-                          <button class='btn btn-black'>В корзину</button>
-                        </form>
-                      </div>
-
-                    </div>
-                    <!-- </carousel-item> -->
-
-                    <!-- <carousel-item> -->
-                    <div class="bl-product col-xs-3">
-                      
-                      <div class='block-sm'>
-                        <img src="upload/pro-4.png" alt="product">
-                      </div>
-                      <div class='block-sm'>
-                        <a href="">Выхлопная труба Nissan RSX </a>
-                      </div>
-
-                      <div class='block-sm b_pro-info'>
-
-                        <div>
-                          <span class='i_info-text'>Год:</span>
-                          <span>2000</span>
-                        </div>
-                        <div>
-                          <span class='i_info-text'>Пробег:</span>
-                          <span>240 000 км.</span>
-                        </div>
-
-                      </div>
-
-                      <hr class='divider block-sm'>
-
-                      <div class='i_pro-price block-sm'>
-                        127 500 р.
-                      </div>
-
-                      <div class='block-sm'>
-                        <form name='add-pro'>
-                          <input type="text" class="input-square" value="1">
-                          <button class='btn btn-black'>В корзину</button>
-                        </form>
-                      </div>
-
-                      <div class='block'>
-
-                        <div class="tooltip bottom _custom" role="tooltip">
-                         <div class="tooltip-arrow"></div>
-                         <div class="tooltip-inner">
-                           Восстановлен. Полностью на ходу.
-                         </div>
-                        </div>
-
-                      </div>
-
-                    </div>
-                    <!-- </carousel-item> -->
-
-                    <!-- <carousel-item> -->
-                    <div class="bl-product col-xs-3">
-                      
-                      <div class='block-sm'>
-                        <img src="upload/pro-5.png" alt="product">
-                      </div>
-                      <div class='block-sm'>
-                        <a href="">Тормозные диски</a>
-                      </div>
-
-                      <div class='block-sm b_pro-info'>
-
-                        <div>
-                          <span class='i_info-text'>Год:</span>
-                          <span>2000</span>
-                        </div>
-                        <div>
-                          <span class='i_info-text'>Пробег:</span>
-                          <span>240 000 км.</span>
-                        </div>
-
-                      </div>
-
-                      <hr class='divider block-sm'>
-
-                      <div class='i_pro-price block-sm'>
-                        <del>126 000 р.</del>
-                        102 000 р.
-                      </div>
-
-                      <div class='block-sm'>
-                        <form name='add-pro'>
-                          <input type="text" class="input-square" value="1">
-                          <button class='btn btn-black'>В корзину</button>
-                        </form>
-                      </div>
-
-                    </div>
-                    <!-- </carousel-item> -->
-
-                    <!-- <carousel-item> -->
-                    <div class="bl-product col-xs-3">
-                      
-                       <div class='block-sm'>
-                        <img src="upload/pro-6.png" alt="product">
-                      </div>
-                      <div class='block-sm'>
-                        <a href="">Фара BMW M5</a>
-                      </div>
-
-                      <div class='block-sm b_pro-info'>
-
-                        <div>
-                          <span class='i_info-text'>Год:</span>
-                          <span>2009</span>
-                        </div>
-                        <div>
-                          <span class='i_info-text'>Пробег:</span>
-                          <span>483 000 км.</span>
-                        </div>
-
-                      </div>
-
-                      <hr class='divider block-sm'>
-
-                      <div class='i_pro-price block-sm'>
-                        102 000 р.
-                      </div>
-
-                      <div class='block-sm'>
-                        <form name='add-pro'>
-                          <input type="text" class="input-square" value="1">
-                          <button class='btn btn-black'>В корзину</button>
-                        </form>
-                      </div>                                        
-
-                    </div>
-                    <!-- </carousel-item> -->
-
-                    <!-- <carousel-item> -->
-                    <div class="bl-product col-xs-3">
-                      
-                      <div class='block-sm'>
-                        <img src="upload/pro-4.png" alt="product">
-                      </div>
-                      <div class='block-sm'>
-                        <a href="">Выхлопная труба Nissan RSX </a>
-                      </div>
-
-                      <div class='block-sm b_pro-info'>
-
-                        <div>
-                          <span class='i_info-text'>Год:</span>
-                          <span>2000</span>
-                        </div>
-                        <div>
-                          <span class='i_info-text'>Пробег:</span>
-                          <span>240 000 км.</span>
-                        </div>
-
-                      </div>
-
-                      <hr class='divider block-sm'>
-
-                      <div class='i_pro-price block-sm'>
-                        127 500 р.
-                      </div>
-
-                      <div class='block-sm'>
-                        <form name='add-pro'>
-                          <input type="text" class="input-square" value="1">
-                          <button class='btn btn-black'>В корзину</button>
-                        </form>
-                      </div>
-
-                      <div class='block'>
-
-                        <div class="tooltip bottom _custom" role="tooltip">
-                         <div class="tooltip-arrow"></div>
-                         <div class="tooltip-inner">
-                           Восстановлен. Полностью на ходу.
-                         </div>
-                        </div>
-
-                      </div>
-
-                    </div>
-                    <!-- </carousel-item> -->
-
-                    <div class="bl-product col-xs-3">
-                      
-                      <div class="block-sm">
-                        <img src="upload/pro-2.png" alt="product">
-                      </div>
-
-                      <div class="block-sm">
-                        <a href="">Мотор BMW Z4</a>
-                      </div>
-
-                      <div class="block-sm b_pro-info">
-
-                        <div>
-                          <span class="i_info-text">Год:</span>
-                          <span>2008</span>
-                        </div>
-                        <div>
-                          <span class="i_info-text">Пробег:</span>
-                          <span>130 000 км.</span>
-                        </div>
-
-                      </div>
-
-                      <hr class="divider block-sm">
-
-                      <div class="i_pro-price block-sm">
-                        183 000 р.
-                      </div>
-
-                      <div class="block-sm">
-                        <form name="add-pro">
-                          <input type="text" class="input-square" value="1">
-                          <button class="btn btn-black">В корзину</button>
-                        </form>
-                      </div>
-
-                    </div>
-
+                  <div class='col-xs-12 block'>
+                      <h4><strong>Похожий товар</strong></h4>
                   </div>
 
-                </div>                
+                  <div class='b_related'>
+                  
+                    <div class='block text-center'>
+                      <button class='btn btn-up' id='vertical-up'></button>
+                    </div>
 
-              </div>
-              
-              <div class='row'>
+                    <!-- <carousel direction='vertical'> -->
+                    <div id='vertical-carousel'>                    
+                      <ul>
+                        
+                        <!-- <carousel-item> -->
+                        <li>                        
+                          <div class="bl-product new block">
 
-                <div class='text-center b_pagination'>
-                  <ul class='list-inline'>
-                    <li><a href='#' class="btn btn-left"></a></li>
-                    <li><a href='#'>1</a></li>
-                    <li><a href='#' class='active'>2</a></li>
-                    <li><a href='#'>3</a></li>
-                    <li><a href='#'>4</a></li>
-                    <li><a href='#'>5</a></li>
-                    <li><a href='#' class="btn btn-right"></a></li>
-                  </ul>
-                </div>
+                            <div class='block-sm'>
+                              <img src="upload/pro-1.png" alt="product">
+                            </div>
 
-              </div>
+                            <div class='block-sm'>
+                              <a href="">Фильтр L200</a>
+                            </div>
+
+                            <div class='block-sm b_pro-info'>
+
+                              <div>
+                                <span class='i_info-text'>Год:</span>
+                                <span>2009</span>
+                              </div>
+                              <div>
+                                <span class='i_info-text'>Пробег:</span>
+                                <span>70 000 км.</span>
+                              </div>
+
+                            </div>
+
+                            <hr class='divider block-sm'>
+
+                            <div class='i_pro-price block-sm'>
+                              220 000 р.
+                            </div>
+
+                            <div class='block-sm'>
+                              <form name='add-pro'>
+                                <input type="text" class="input-square" value="1">
+                                <button class='btn btn-black'>В корзину</button>
+                              </form>
+                            </div>                      
+
+                          </div>                                                   
+                        </li>
+                        <!-- </carousel-item> -->  
+
+                        <!-- <carousel-item> -->
+                        <li>                        
+                          <div class="bl-product new block">
+
+                            <div class='block-sm'>
+                              <img src="upload/pro-2.png" alt="product">
+                            </div>
+
+                            <div class='block-sm'>
+                              <a href="">Фильтр L200</a>
+                            </div>
+
+                            <div class='block-sm b_pro-info'>
+
+                              <div>
+                                <span class='i_info-text'>Год:</span>
+                                <span>2009</span>
+                              </div>
+                              <div>
+                                <span class='i_info-text'>Пробег:</span>
+                                <span>70 000 км.</span>
+                              </div>
+
+                            </div>
+
+                            <hr class='divider block-sm'>
+
+                            <div class='i_pro-price block-sm'>
+                              220 000 р.
+                            </div>
+
+                            <div class='block-sm'>
+                              <form name='add-pro'>
+                                <input type="text" class="input-square" value="1">
+                                <button class='btn btn-black'>В корзину</button>
+                              </form>
+                            </div>                      
+
+                          </div>                                                   
+                        </li>
+                        <!-- </carousel-item> -->  
+
+                      </ul>
+                    </div>
+                    <!-- </carousel> -->
+                    
+                    <div class='block text-center'>
+                      <button class='btn btn-down' id='vertical-down'></button>
+                    </div>
+
+                </div>              
+              </div>                        
 
             </div>
-            <div class='_shadow-short block-xxxlg'></div>
-            
-
           </div>
+      
+          <div class='_shadow-short block-xxxlg'></div>
+
         </div>
 
         <div class='container-fluid l_footer _bg-gray'>

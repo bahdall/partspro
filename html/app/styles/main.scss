@@ -60,6 +60,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	margin-right: auto ;
 	height: 30px;
 }
+._shadow-ex-short {
+	background: url(../images/shadow_extra-short.png) center top no-repeat;
+	width: 420px;
+	margin-left: auto ;
+	margin-right: auto ;
+	height: 30px;
+}
 .i_heading {                  	         
 	display: inline-block;
 	margin: 0 15px;
@@ -360,6 +367,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 .block-xlg { 
 	margin-bottom: 45px;
 }
+.block-xxlg { 
+	margin-bottom: 60px;
+}
 .block-xxxlg {
 	margin-bottom: 100px;
 }
@@ -386,7 +396,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	vertical-align: middle;
 	padding-top: 8px;
 }
-.btn-show {
+.btn-show { 
 	.label-black-bordered {
 		position: absolute;
 		display: inline-block;
@@ -460,6 +470,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	background: #FFBA00;
 	padding: 2px 8px;
 	color: #fff;
+	display: inline-block;
 }
 .b_about-us {
 	padding-bottom: 26px;
@@ -703,6 +714,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 .b_parse {
 	padding: 20px 20px 40px;
 }
+.b_product-inner {
+	padding: 20px 20px 40px;		
+}
+.b_related{
+	padding-right: 10px;
+}
 .b_img-list-inline {
 	.i_img-list {
 		display: inline-block;
@@ -757,7 +774,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	}
 }
 .b_filter-cont {
-	padding: 30px 15px 0; 
+	margin: 0 -20px;
+	padding: 30px 15px 35px; 
 	.list-inline {
 		.caret {
 			margin: 0 2px;
@@ -797,6 +815,62 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 		float: left;		
 		margin: 0;
 	}	
+}
+.b_pagination {
+	.active {
+		text-decoration: none;
+	}
+}
+.i_news {
+	margin-bottom: 50px;
+	.b_news-text {
+		h5 {
+			font-size: 16px;
+			margin: 0px 0px 15px;
+		}
+		.bg-yellow {
+			display: inline-block;
+			margin-bottom: 10px;
+		}
+	}
+	img {
+		float: left;
+		margin-right: 30px;
+		width: 132px;
+		height: 132px;
+		border-radius: 1000px;		
+	}
+	@include clearfix();
+}
+.i_news-inner {
+	margin-bottom: 70px;
+	.b_news-text {                 
+		p {
+			margin-bottom: 30px;
+		}
+	}	
+	@include clearfix();
+}
+.b_register {
+	padding: 25px 80px 30px;
+}
+.b_register-tab {
+	padding: 0px 80px 30px;
+	.nav-tabs {
+		margin-top: -25px;
+	} 	
+}
+.b_register-icon {
+	padding-top: 60px;  
+}
+.b_cabinet-tab {
+	padding-bottom: 1px;
+}
+.b_cabinet-tab-row {
+
+	.i_cabinet-text {
+		margin-top: 33px;
+	}
 }
 
              

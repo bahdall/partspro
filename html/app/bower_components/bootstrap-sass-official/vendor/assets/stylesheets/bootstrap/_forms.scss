@@ -121,8 +121,8 @@ output {
   color: $input-color;
   background-color: $input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid $input-border;
-  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  border: 1px solid #fff;
+  @include box-shadow(inset 1px 2px 1px rgba(0,0,0,.075));
   @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
 
   // Customize the `:focus` state to imitate native WebKit styles.
@@ -145,6 +145,12 @@ output {
   }
 
   // [converter] extracted textarea& to textarea.form-control
+  &[type=checkbox],
+  &[type=radio],{
+    display: inline-block;
+    width: auto;
+    height: auto;
+  }
 }
 
 
@@ -197,6 +203,7 @@ input[type="month"] {
 
 .form-group {
   margin-bottom: 15px;
+  position: relative;
 }
 
 
@@ -310,13 +317,33 @@ input[type="checkbox"],
 
 // Feedback states
 .has-success {
-  @include form-control-validation($state-success-text, $state-success-text, $state-success-bg);
+  .notification {
+    display: block;
+  }
+  @include form-control-validation( $state-success-text, $state-success-text, $state-success-bg);
 }
 .has-warning {
-  @include form-control-validation($state-warning-text, $state-warning-text, $state-warning-bg);
+  .notification {
+    display: block;
+  }
+  @include form-control-validation( $state-warning-text, $state-warning-text, $state-warning-bg);
 }
 .has-error {
-  @include form-control-validation($state-danger-text, $state-danger-text, $state-danger-bg);
+  .notification {
+    display: block;
+  }
+  @include form-control-validation( $state-danger-text, $state-danger-text, $state-danger-bg);
+}
+.has-info {
+  .notification {
+    display: block;
+  }
+}
+.notification {
+  display: none;
+  position: absolute;  
+  top: 33px;
+  right: -35px;
 }
 
 
@@ -448,7 +475,7 @@ input[type="checkbox"],
   }
 
   // Make form groups behave like rows
-  .form-group {
+  .form-group {    
     @include make-row();
   }
 
