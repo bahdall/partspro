@@ -121,6 +121,7 @@ class StoreProduct extends BaseModel
 			'newest'=>array('order'=>$alias.'.created DESC'),
 			'byViews'=>array('order'=>$alias.'.views_count DESC'),
 			'byAddedToCart'=>array('order'=>$alias.'.added_to_cart_count DESC'),
+            'byYear' =>array( 'order'=> 'year_create DESC',  ),
 		);
 	}
 
@@ -353,12 +354,18 @@ class StoreProduct extends BaseModel
 		$criteria->compare('t.updated',$this->updated,true);
 		$criteria->compare('type_id', $this->type_id);
 		$criteria->compare('manufacturer_id', $this->manufacturer_id);
-
+        
+        
 		if (isset($params['category']) && $params['category'])
 		{
 			$criteria->with=array('categorization'=>array('together'=>true));
 			$criteria->compare('categorization.category', $params['category']);
 		}
+        
+        
+        $criteria->join = 'INNER JOIN StoreProductAttributeEAV pattrs ON pattrs.entity = t.id';
+        $criteria->condition = 'pattrs.attribute = "year_create"';
+        
 
 		// Id of product to exclude from search
 		if($this->exclude)
@@ -814,6 +821,7 @@ class StoreProduct extends BaseModel
 	public static function getCSort()
 	{
 		$sort = new CSort;
+        
 		$sort->defaultOrder = 't.created DESC';
 		$sort->attributes=array(
 			'*',
@@ -821,7 +829,18 @@ class StoreProduct extends BaseModel
 				'asc'   => 'translate.name',
 				'desc'  => 'translate.name DESC',
 			),
+            'price' => array(
+				'asc'   => 't.price',
+				'desc'  => 't.price DESC',
+			),
+            'year' => array(
+				'asc'   => 'pattrs.value',
+				'desc'  => 'pattrs.value DESC',
+			),
 		);
+        
+        
+        
 		return $sort;
 	}
 

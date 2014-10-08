@@ -156,7 +156,7 @@ class CategoryController extends Controller
 		$this->query->attachBehaviors($this->query->behaviors());
 		$this->query->applyAttributes($this->activeAttributes)
 			->active();
-
+            
 		if($data instanceof StoreCategory)
 			$this->query->applyCategories($this->model);
 		else
@@ -194,9 +194,23 @@ class CategoryController extends Controller
 				'pageSize'=>$per_page,
 			)
 		));
+        
+        
 
 		$this->provider->sort = StoreProduct::getCSort();
-
+        
+        
+        if( key_exists('year',$this->provider->sort->getDirections()))
+        {
+            /** Соединение с атрибутом Year_create */
+            $criteria = new CDbCriteria;
+            $criteria->join = 'INNER JOIN StoreProductAttributeEAV pattrs ON pattrs.entity = t.id';
+            $criteria->condition = 'pattrs.attribute = "year_create"';
+            $this->query->getDbCriteria()->mergeWith($criteria);
+        }
+        
+        
+        
 		if($partial)
         {
             echo $this->renderPartial($view, array(

@@ -642,316 +642,10 @@ $attributes = $model->getEavAttributes();
 
         <div id="carousel-pro" class="owl-carousel">
         <!-- <carousel> -->  
-
-            <!-- <carousel-item> -->
-            <div class="bl-product new">
-
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-1.png" alt="product">
-              </div>
-
-              <div class='block-sm'>
-                <a href="">Фильтр L200</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2009</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>70 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                220 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-              <div class='block'>
-
-                <div class="tooltip bottom _custom" role="tooltip">
-                 <div class="tooltip-arrow"></div>
-                 <div class="tooltip-inner">
-                   Восстановлен. Полностью на ходу.
-                 </div>
-                </div>
-
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product new">
-              
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-2.png" alt="product">
-              </div>
-
-              <div class='block-sm'>
-                <a href="">Мотор BMW Z4</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2008</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>130 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                183 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-             
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-3.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Колодки BMW Z4</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2000</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>113 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                183 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-              
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-4.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Выхлопная труба Nissan RSX </a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2000</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>240 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                127 500 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-              <div class='block'>
-
-                <div class="tooltip bottom _custom" role="tooltip">
-                 <div class="tooltip-arrow"></div>
-                 <div class="tooltip-inner">
-                   Восстановлен. Полностью на ходу.
-                 </div>
-                </div>
-
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-              
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-5.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Тормозные диски</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2000</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>240 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                <del>126 000 р.</del>
-                102 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-              
-               <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-6.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Фара BMW M5</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2009</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>483 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                102 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>                                        
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-              
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-4.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Выхлопная труба Nissan RSX </a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2000</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>240 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                127 500 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-              <div class='block'>
-
-                <div class="tooltip bottom _custom" role="tooltip">
-                 <div class="tooltip-arrow"></div>
-                 <div class="tooltip-inner">
-                   Восстановлен. Полностью на ходу.
-                 </div>
-                </div>
-
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-    
+            <?foreach($popular as $product):?>
+            <?$this->renderPartial('_product', array('data'=>$product));?>
+            <?endforeach;?>
+            <!-- </carousel-item> -->    
         </div>                
         <!-- </carousel> -->
 
@@ -962,49 +656,78 @@ $attributes = $model->getEavAttributes();
 
   <div class='_shadow _margin'></div>
 
-  <div class='row b_news _bg-gray _border-bottom-dashed'>
+  <div class="b_tab b_tab-news _bg-gray _border-bottom-dashed">
+    <div class='container-fixed'>
+      <div class='row b_news_tab'>
 
-        <div class='container-fixed'>
-    
-          <div class='b_heading'>
-            <h1 class='i_heading i_heading-yellow'> <?=Yii::t('core','Машины в разборе')?></h1>
-            <h1 class='i_heading i_heading-black'> <?=Yii::t('core','Новости')?></h1>
+        <!--</tab-nav>-->
+        <ul id="news-tab" class="nav nav-tabs" role="tablist">
 
-          </div>  
+          <!--<tab-nav-item>-->
+          <li class="active">
+            <a href="#fixcar" role="tab" data-toggle="tab" class="btn"> <?=Yii::t('base','Машины в разборе')?></a>                   
+          </li>
+          <!--</tab-nav-item>-->
 
-          <div class='row b_news-inner'>
-              
-              <div class='col-xs-4'>
-                <img src="<?=$assetsPath?>upload/news-1.png" class="img-circle">
-                <div class='b_news-text'>
-                  <span class='bg-yellow'>20.07.2014</span>
-                  <a href="#">Поступил в разбор Skoda Octavia A4 TOUR 2008 1.8 МКПП 150л.с двс AUM</a>
-                </div>
+          <!--<tab-nav-item>-->
+          <li class="">
+            <a href="#news" role="tab" data-toggle="tab" class="btn"> <?=Yii::t('base','Новости')?></a>                    
+          </li>
+          <!--</tab-nav-item>-->
+
+        </ul>              
+        <!--</tab-nav>-->
+
+        <!-- <tab-content> -->
+        <div id="news-tabContent" class="tab-content"> 
+
+          <!-- <tab-item> -->            
+          <div class="tab-pane fade active in" id="fixcar">
+
+              <div class='row b_news-inner'>
+                  <?foreach($fixcars as $car):?>
+                  <div class='col-xs-4'>
+                    <img src="upload/news-1.png" class="img-circle">
+                    <div class='b_news-text'>
+                      <span class='bg-yellow'><?php echo $car->created ?></span>
+                      <a href="<?php echo $car->viewUrl ?>" class='block-sm'><?php echo $car->title ?></a>
+                    </div>
+                  </div>
+                  <?endforeach;?>
               </div>
 
-              <div class='col-xs-4'>
-                <img src="<?=$assetsPath?>upload/news-2.png" class="img-circle">
-                <div class='b_news-text'>
-                  <span class='bg-yellow'>20.07.2014</span>
-                  <a href="#">Поступил в разбор Skoda Octavia A4 TOUR 2008 1.8 МКПП 150л.с двс AUM</a>
-                </div>
-              </div>
-
-              <div class='col-xs-4'>
-                <img src="<?=$assetsPath?>upload/news-3.png" class="img-circle">
-                <div class='b_news-text'>
-                  <span class='bg-yellow'>20.07.2014</span>
-                  <a href="#">Поступил в разбор Skoda Octavia A4 TOUR 2008 1.8 МКПП 150л.с двс AUM</a>
-                </div>
-              </div>
+              <div class='text-center block'> <a href="#" class='btn btn-black'>Все машины</a> </div>
 
           </div>
+          <!-- </tab-item> --> 
 
-          <div class='text-center block'> <a href="#" class='btn btn-black'>Все машины</a> </div>
+          <!-- <tab-item> -->            
+          <div class="tab-pane fade" id="news">
+              
+            <div class='row b_news-inner _news-inner-big'>
+                  
+                  <?foreach($news as $n):?>
+                  <div class='col-xs-4'>
+                    <img src="upload/news-1.png" class="img-circle">
+                    <div class='b_news-text'>
+                      <span class='bg-yellow'><?php echo $n->created ?></span>
+                      <a href="<?php echo $n->viewUrl ?>" class='block-sm'><?php echo $n->title ?></a>
+                    </div>
+                  </div>
+                  <?endforeach;?>                        
+
+              </div>
+
+              <div class='text-center block'> <a href="#" class='btn btn-black'>Все новости</a> </div>
+
+          </div>
+          <!-- <tab-item> -->  
+
+        </div>
+        <!-- </tab-content> -->
 
       </div>
-
-
+    </div>
   </div>
   <div class='_shadow block-md'></div>
 

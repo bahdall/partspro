@@ -124,7 +124,24 @@ return array(
 		'settings'=>array(
 			'class'=>'application.components.SSystemSettings'
 		),
-		'log'=>YII_DEBUG===true ? require('logging.php') : null,
+		//'log'=>YII_DEBUG===true ? require('logging.php') : null,
+        
+        'log'=>array(
+			'class'=>'CLogRouter',
+			'routes'=>array(
+				/*array(
+					'class'=>'CFileLogRoute',
+					'levels'=>'error, warning',
+				),*/
+				// uncomment the following to show log messages on web pages
+				
+				array(
+					'class'=>'CWebLogRoute',
+                    //'levels' => 'profile',
+				),
+				
+			),
+		),
 	),
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']

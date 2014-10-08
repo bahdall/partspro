@@ -221,7 +221,7 @@ class EEavBehavior extends CActiveRecordBehavior {
 			));
 		}
 		// Prepare cache component.
-		$this->cache = Yii::app()->getComponent($this->cacheId);
+		$this->cache = Yii::app()->getComponent( $this->cacheId );
 		if (!($this->cache instanceof ICache)) {
 			// If not set cache component, use dummy cache.
 			$this->cache = new CDummyCache;
@@ -229,7 +229,8 @@ class EEavBehavior extends CActiveRecordBehavior {
 		// Call parent method for convenience.
 		parent::attach($owner);
 	}
-
+    
+    
 	/**
 	 * @param CEvent
 	 * @return void
@@ -263,8 +264,11 @@ class EEavBehavior extends CActiveRecordBehavior {
 	public function afterFind($event) {
 		// Load attributes for model.
 		if ($this->preload) {
-			if($this->owner->getPrimaryKey()) // Added by firstrow@gmail.com
-				$this->loadEavAttributes($this->getSafeAttributesArray());
+			if($this->owner->getPrimaryKey()) {
+                $this->loadEavAttributes($this->getSafeAttributesArray()); 
+                
+			}                
+			
 		}
 		// Call parent method for convenience.
 		parent::afterFind($event);

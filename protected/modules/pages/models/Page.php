@@ -46,6 +46,7 @@ class Page extends BaseModel
 	public $meta_title;
 	public $meta_description;
 	public $meta_keywords;
+    public $preview_img;
 
 	/**
 	 * Name of the translations model.
@@ -131,10 +132,11 @@ class Page extends BaseModel
 	public function rules()
 	{
 		return array(
-			array('short_description, full_description, category_id', 'type', 'type'=>'string'),
+			array('short_description, full_description, category_id ', 'type', 'type'=>'string'),
 			array('status', 'in', 'range'=>array_keys(self::statuses())),
 			array('title, status, publish_date', 'required'),
 			array('url', 'LocalUrlValidator'),
+            array('preview_img','file','types'=>'jpg,gif,png', 'safe'=>true, 'maxSize'=>'204800', 'allowEmpty'=>true, 'maxFiles'=>1),
 			array('publish_date', 'date', 'format'=>'yyyy-MM-dd HH:mm:ss'),
 			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout, view', 'length', 'max'=>255),
 			// The following rule is used by search().
@@ -196,6 +198,8 @@ class Page extends BaseModel
 			'status' => Yii::t('PagesModule.core', 'Статус'),
 			'layout' => Yii::t('PagesModule.core', 'Макет'),
 			'view' => Yii::t('PagesModule.core', 'Шаблон'),
+            'preview_img' => Yii::t('PagesModule.core', 'Картинка Анонса'),
+            'detail_img' => Yii::t('PagesModule.core', 'Детальная Картинка'),
 		);
 	}
 

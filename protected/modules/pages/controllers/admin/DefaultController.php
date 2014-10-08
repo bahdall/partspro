@@ -48,6 +48,7 @@ class DefaultController extends SAdminController {
 			throw new CHttpException(404, Yii::t('PagesModule.core', 'Страница не найдена.'));
 
 		$form = new STabbedForm('application.modules.pages.views.admin.default.pageForm', $model);
+        
 
 		if (Yii::app()->request->isPostRequest)
 		{
