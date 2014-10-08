@@ -687,7 +687,7 @@ $attributes = $model->getEavAttributes();
               <div class='row b_news-inner'>
                   <?foreach($fixcars as $car):?>
                   <div class='col-xs-4'>
-                    <img src="upload/news-1.png" class="img-circle">
+                    <img src="<?=$car->getImage('149x149','adaptiveResize')?>" class="img-circle">
                     <div class='b_news-text'>
                       <span class='bg-yellow'><?php echo $car->created ?></span>
                       <a href="<?php echo $car->viewUrl ?>" class='block-sm'><?php echo $car->title ?></a>
@@ -708,7 +708,7 @@ $attributes = $model->getEavAttributes();
                   
                   <?foreach($news as $n):?>
                   <div class='col-xs-4'>
-                    <img src="upload/news-1.png" class="img-circle">
+                    <img src="<?=$n->getImage('149x149','adaptiveResize')?>" class="img-circle">
                     <div class='b_news-text'>
                       <span class='bg-yellow'><?php echo $n->created ?></span>
                       <a href="<?php echo $n->viewUrl ?>" class='block-sm'><?php echo $n->title ?></a>

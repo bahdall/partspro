@@ -136,7 +136,7 @@ class Page extends BaseModel
 			array('status', 'in', 'range'=>array_keys(self::statuses())),
 			array('title, status, publish_date', 'required'),
 			array('url', 'LocalUrlValidator'),
-            array('preview_img','file','types'=>'jpg,gif,png', 'safe'=>true, 'maxSize'=>'204800', 'allowEmpty'=>true, 'maxFiles'=>1),
+            array('preview_img','file','types'=>'jpg,gif,png', 'safe'=>true, 'maxSize'=>'204800', 'allowEmpty'=>true, 'maxFiles'=>1,'on'=>'insert,update'),
 			array('publish_date', 'date', 'format'=>'yyyy-MM-dd HH:mm:ss'),
 			array('title, url, meta_title, meta_description, meta_keywords, publish_date, layout, view', 'length', 'max'=>255),
 			// The following rule is used by search().
@@ -305,9 +305,43 @@ class Page extends BaseModel
 
 		if ($test > 0)
 			$this->url .= '-'.date('YmdHis');
-
-		return parent::beforeSave();
+        
+        if(!parent::beforeSave())
+            return false;
+        
+        if(($this->scenario=='insert' || $this->scenario=='update') &&
+            ($previewImg=CUploadedFile::getInstance($this,'preview_img'))){
+            
+            $this->deletePreviewImg(); // старый документ удалим, потому что загружаем новый
+ 
+            $this->preview_img=$previewImg;
+            $randomName = strtolower($this->id.'_'.crc32(microtime()).'.'.$this->preview_img->getExtensionName());
+            $this->preview_img->saveAs(Yii::getPathOfAlias('webroot.uploads.pages').DIRECTORY_SEPARATOR.$randomName);
+            $this->preview_img = $randomName;
+        }
+        elseif($this->scenario=='update' && ! CUploadedFile::getInstance($this,'preview_img'))
+        {
+            $this->preview_img = $this->preview_img;
+        }
+        
+        return true;
+		
 	}
+    
+    public function deletePreviewImg(){
+        $documentPath=Yii::getPathOfAlias('webroot.uploads.pages').DIRECTORY_SEPARATOR.
+            $this->preview_img;
+        if(is_file($documentPath))
+            @unlink($documentPath);
+    }
+    
+    
+    protected function beforeDelete(){
+        if(!parent::beforeDelete())
+            return false;
+        $this->deletePreviewImg(); // удалили модель? удаляем и файл
+        return true;
+    }
 
 	/**
 	 * Get url to view object on front
@@ -316,6 +350,40 @@ class Page extends BaseModel
 	public function getViewUrl()
 	{
 		return Yii::app()->createUrl('pages/pages/view', array('url'=>$this->url));
+	}
+    
+    
+    public function getImage($size = false, $resizeMethod = false, $random = false)
+	{
+		if($size !== false)
+		{
+			$thumbPath = Yii::getPathOfAlias('webroot.uploads.pages.Thumbs').'/'.$size;
+			if(!file_exists($thumbPath))
+				mkdir($thumbPath, 0777, true);
+
+			// Path to source image
+			$fullPath  = Yii::getPathOfAlias('webroot.uploads.pages').'/'.$this->preview_img;
+			// Path to thumb
+			$thumbPath = $thumbPath.'/'.$this->preview_img;
+
+			if(!file_exists($thumbPath))
+			{
+				// Resize if needed
+				Yii::import('ext.phpthumb.PhpThumbFactory');
+				$sizes  = explode('x', $size);
+				$thumb  = PhpThumbFactory::create($fullPath);
+
+				if($resizeMethod === false)
+					$resizeMethod = 'resize';
+				$thumb->$resizeMethod($sizes[0],$sizes[1])->save($thumbPath);
+			}
+
+			return '/uploads/pages/Thumbs/'.$size.'/'.$this->preview_img;
+		}
+
+		if ($random === true)
+			return '/uploads/pages/'.$this->preview_img.'?'.rand(1, 10000);
+		return '/uploads/pages/'.$this->preview_img;
 	}
 
 }

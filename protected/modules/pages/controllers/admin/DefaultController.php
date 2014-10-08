@@ -52,7 +52,9 @@ class DefaultController extends SAdminController {
 
 		if (Yii::app()->request->isPostRequest)
 		{
+		    $preview_img = $model->preview_img;
 			$model->attributes = $_POST['Page'];
+            $model->preview_img = $preview_img;
 
 			if ($model->isNewRecord)
 				$model->created = date('Y-m-d H:i:s');

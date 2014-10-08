@@ -71,6 +71,10 @@ return array(
                 'preview_img'=>array(
 					'type'=>'file',
 				),
+                '<div class="row">
+                    <label></label>
+                    <img src="'.Yii::app()->createUrl('uploads/pages').'/'.$this->getModel()->preview_img.'" />                
+                 </div>',
 			),
 		),
 	),

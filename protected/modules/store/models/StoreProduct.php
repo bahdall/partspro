@@ -363,8 +363,8 @@ class StoreProduct extends BaseModel
 		}
         
         
-        $criteria->join = 'INNER JOIN StoreProductAttributeEAV pattrs ON pattrs.entity = t.id';
-        $criteria->condition = 'pattrs.attribute = "year_create"';
+        //$criteria->join = 'INNER JOIN StoreProductAttributeEAV pattrs ON pattrs.entity = t.id';
+        //$criteria->condition = 'pattrs.attribute = "year_create"';
         
 
 		// Id of product to exclude from search
