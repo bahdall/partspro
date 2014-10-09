@@ -106,7 +106,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 }
 /* header */
 .l_header {
-	overflow: hidden;
+	
 }
 .b_header-top {
 	background: #232323; 
@@ -214,14 +214,15 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	float: right;
 	padding: 20px 0;
 }
-.input-square {
+.input-square {           
 	width: 32px;
 	height: 32px;
 	color: #000;
-	padding-left: 6px;  
+	text-align: center;
 }
 .b_header-bottom {
 	position: relative;
+	overflow: hidden;
 }
 
 .b_logo {
@@ -858,13 +859,18 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	padding: 0px 80px 30px;
 	.nav-tabs {
 		margin-top: -25px;
+		margin-left: -10px;
+		margin-right: -10px;
+		> li > a {
+			margin: 0 7px;
+		}
 	} 	
 }
 .b_register-icon {
 	padding-top: 60px;  
 }
 .b_cabinet-tab {
-	padding-bottom: 1px;
+	padding-bottom: 1px;  
 }
 .b_cabinet-tab-row {
 
@@ -872,5 +878,25 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 		margin-top: 33px;
 	}
 }
-
+.b_checkout {
+	padding: 30px 15px 45px;
+	margin: 0 -15px;
+}
+.i_price {
+    font-size: 16px;
+}
+.b_map-text {
+	h4 {
+		margin-bottom: 20px;
+	}
+	p {
+		margin-bottom: 20px;
+	}
+}
+.b_order-car {
+	padding: 20px 50px;
+	.b_register {
+		padding: 0px 30px;
+	}
+}
              

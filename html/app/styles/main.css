@@ -1803,6 +1803,23 @@ th {
 .table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
   background-color: #f5f5f5; }
 
+.table-checkout {
+  border-collapse: collapse; }
+  .table-checkout > thead > tr > th, .table-checkout > thead > tr > td, .table-checkout > tbody > tr > th, .table-checkout > tbody > tr > td {
+    border-bottom: 1px solid #ACACAC;
+    position: relative; }
+    .table-checkout > thead > tr > th:after, .table-checkout > thead > tr > td:after, .table-checkout > tbody > tr > th:after, .table-checkout > tbody > tr > td:after {
+      display: block;
+      position: absolute;
+      content: '';
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #fff; }
+  .table-checkout > tbody > tr > td {
+    padding: 25px 0 30px; }
+
 table col[class*="col-"] {
   position: static;
   float: none;
@@ -4979,9 +4996,6 @@ button.close {
   color: #FF5959; }
 
 /* header */
-.l_header {
-  overflow: hidden; }
-
 .b_header-top {
   background: #232323;
   color: #fff; }
@@ -5074,10 +5088,11 @@ button.close {
   width: 32px;
   height: 32px;
   color: #000;
-  padding-left: 6px; }
+  text-align: center; }
 
 .b_header-bottom {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .b_logo {
   text-align: center;
@@ -5594,7 +5609,11 @@ button.close {
 .b_register-tab {
   padding: 0px 80px 30px; }
   .b_register-tab .nav-tabs {
-    margin-top: -25px; }
+    margin-top: -25px;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .b_register-tab .nav-tabs > li > a {
+      margin: 0 7px; }
 
 .b_register-icon {
   padding-top: 60px; }
@@ -5604,3 +5623,20 @@ button.close {
 
 .b_cabinet-tab-row .i_cabinet-text {
   margin-top: 33px; }
+
+.b_checkout {
+  padding: 30px 15px 45px;
+  margin: 0 -15px; }
+
+.i_price {
+  font-size: 16px; }
+
+.b_map-text h4 {
+  margin-bottom: 20px; }
+.b_map-text p {
+  margin-bottom: 20px; }
+
+.b_order-car {
+  padding: 20px 50px; }
+  .b_order-car .b_register {
+    padding: 0px 30px; }

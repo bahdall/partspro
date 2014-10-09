@@ -127,6 +127,31 @@ th {
   }
 }
 
+.table-checkout {
+  border-collapse: collapse;
+  > thead > tr,
+  & > tbody > tr {    
+    > th,
+    & > td {
+      border-bottom: 1px solid #ACACAC;
+      position: relative;       
+      &:after {
+        display: block;
+        position: absolute;
+        content: '';
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #fff;
+      }
+    }
+  }
+
+  > tbody > tr > td {
+    padding: 25px 0 30px;
+  }  
+}
 
 // Table cell sizing
 //
