@@ -138,6 +138,8 @@ class SFilterRenderer extends CWidget
 			$data[$attribute->name] = array(
 				'title'      => $attribute->title,
 				'selectMany' => (boolean) $attribute->select_many,
+                'type'       => $attribute->type,
+                'queryKey'   => $attribute->name,
 				'filters'    => array()
 			);
 			foreach($attribute->options as $option)
@@ -176,21 +178,33 @@ class SFilterRenderer extends CWidget
 		$current = $this->getOwner()->activeAttributes;
 
 		$newData = array();
-
-		foreach($current as $key=>$row)
+		foreach($current['values'] as $key=>$row)
 		{
+		      
 			if(!isset($newData[$key])) $newData[$key] = array();
 			if(is_array($row))
 			{
 				foreach($row as $v)
-					$newData[$key][] = $v;
+					$newData[$key]['values'][] = $v;
 			}
 			else
-				$newData[$key][] = $row;
+				$newData[$key]['values'][] = $row;
 		}
-
-		$newData[$attribute->name][] = $option->id;
+        
+		$newData[$attribute->name]['values'][] = $option->id;
 		return $model->withEavAttributes($newData)->count();
+	}
+    
+    
+    
+    
+    public function countProducts()
+	{
+		$model = new StoreProduct(null);
+		$model->attachBehaviors($model->behaviors());
+		$model->active()
+			->applyCategories($this->model);
+		return $model->count();
 	}
 
 	/**

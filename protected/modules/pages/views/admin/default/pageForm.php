@@ -6,6 +6,7 @@ Yii::import('zii.widgets.jui.CJuiDatePicker');
 return array(
 	'id'=>'pageUpdateForm',
 	'showErrorSummary'=>true,
+    'enctype'=>'multipart/form-data',
 	'elements'=>array(
 		'content'=>array(
 			'type'=>'form',
@@ -25,6 +26,7 @@ return array(
 				'short_description'=>array(
 					'type'=>'SRichTextarea',
 				),
+                
 				'full_description'=>array(
 					'type'=>'SRichTextarea',
 				),
@@ -65,6 +67,14 @@ return array(
 				'view'=>array(
 					'type'=>'text',
 				),
+                
+                'preview_img'=>array(
+					'type'=>'file',
+				),
+                '<div class="row">
+                    <label></label>
+                    <img src="'.Yii::app()->createUrl('uploads/pages').'/'.$this->getModel()->preview_img.'" />                
+                 </div>',
 			),
 		),
 	),

@@ -1,8 +1,15 @@
 <?
 $assetsPath = Yii::app()->theme->baseUrl."/assets/";
+
+$model = StoreCategory::model()
+			->excludeRoot()
+			->withFullPath('cars')
+			->find();
+$attributes = $model->getEavAttributes();
+
 ?>
 
-<div class='container-fluid l_content' >
+
             
     <div class='row b_services _bg-gray _border-bottom-dashed'>
 
@@ -72,7 +79,7 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
 
     <div class='container-fixed'>
       <div class="b_tab _bg-gray _border-bottom-dashed">
-
+      <img src="<?=$assetsPath?>images/bg-left_search.png" class="bg-icon" alt="Background-icon">  
       <div class='row'>
        
           <ul id="myTab" class="nav nav-tabs" role="tablist">
@@ -104,170 +111,11 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
 
           <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade active in" id="home">
-
-              <form name='filter'>
-
-                <div class='row block'>
-                  <div class='col-xs-8 center-block'>
-                    
-                    <div class="input-group-inline">
-
-                      <input type="text" class="form-control">                            
-                      <span class="input-group-btn">
-                        <button class="btn btn-yellow" type="button"> <?=Yii::t('core','Поиск по каталогу авто')?></button>
-                      </span>                          
-
-                    </div>                                
-
-                  </div>
-                </div>
-                <div class='row block-sm'>
-                  
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1" > <?=Yii::t('core','Марка')?>:</label>                              
-                      <select name="" class='select-styled form-control'>
-                        <option value=""> <?=Yii::t('core','Выберите марку')?></option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-
-                    </div>
-                  </div>
-                  <div class='col-xs-3 col-xs-offset-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1"> <?=Yii::t('core','Тип кузова')?>:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value=""> <?=Yii::t('core','Выберите тип кузова')?></option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                        
-                    </div>
-                  </div>
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1"> <?=Yii::t('core','Тип КПП')?>:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value=""> <?=Yii::t('core','Выберите тип КПП')?></option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                      
-                    </div>
-                  </div>  
-                </div>
-                <div class='row block'>
-                   
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1"> <?=Yii::t('core','Цена (тысяч руб.)')?>:</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          <?=Yii::t('core','От')?>: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          <?=Yii::t('core','До')?>: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div>                            
-
-                  </div>
-
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1"> <?=Yii::t('core','Год выпуска')?>:</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          <?=Yii::t('core','От')?>: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          <?=Yii::t('core','До')?>: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div> 
-
-                  </div>
-
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1"> <?=Yii::t('core','Состояние')?>:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value=""> <?=Yii::t('core','Выберите тип кузова')?></option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                        
-                    </div>
-                  </div>
-                    
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1"> <?=Yii::t('core','Пробег (тысяч км.)')?></label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          <?=Yii::t('core','От')?>: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          <?=Yii::t('core','До')?>: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div> 
-
-                  </div>
-
-                </div>
-
-                <div class='row'>
-
-                  <div class='col-xs-6 center-block text-center'>
-
-                    <div class='b_btn-show'>
-                      <button class='btn btn-show'>
-                        <span class='label-black-bordered'>18+</span>
-                        <?=Yii::t('core','Показать')?>
-                      </button>                              
-                    </div>                            
-
-                  </div>                          
-
-                </div>
-              </form> 
+                <?php
+                	$p = Yii::app()->createController('store/category/home');
+                    $_GET['url'] = 'cars';
+                    $p[0]->run('home');
+                ?> 
 
             </div>
               
@@ -794,316 +642,10 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
 
         <div id="carousel-pro" class="owl-carousel">
         <!-- <carousel> -->  
-
-            <!-- <carousel-item> -->
-            <div class="bl-product new">
-
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-1.png" alt="product">
-              </div>
-
-              <div class='block-sm'>
-                <a href="">Фильтр L200</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2009</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>70 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                220 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-              <div class='block'>
-
-                <div class="tooltip bottom _custom" role="tooltip">
-                 <div class="tooltip-arrow"></div>
-                 <div class="tooltip-inner">
-                   Восстановлен. Полностью на ходу.
-                 </div>
-                </div>
-
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product new">
-              
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-2.png" alt="product">
-              </div>
-
-              <div class='block-sm'>
-                <a href="">Мотор BMW Z4</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2008</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>130 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                183 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-             
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-3.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Колодки BMW Z4</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2000</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>113 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                183 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-              
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-4.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Выхлопная труба Nissan RSX </a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2000</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>240 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                127 500 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-              <div class='block'>
-
-                <div class="tooltip bottom _custom" role="tooltip">
-                 <div class="tooltip-arrow"></div>
-                 <div class="tooltip-inner">
-                   Восстановлен. Полностью на ходу.
-                 </div>
-                </div>
-
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-              
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-5.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Тормозные диски</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2000</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>240 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                <del>126 000 р.</del>
-                102 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-              
-               <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-6.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Фара BMW M5</a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2009</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>483 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                102 000 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>                                        
-
-            </div>
-            <!-- </carousel-item> -->
-
-            <!-- <carousel-item> -->
-            <div class="bl-product">
-              
-              <div class='block-sm'>
-                <img src="<?=$assetsPath?>upload/pro-4.png" alt="product">
-              </div>
-              <div class='block-sm'>
-                <a href="">Выхлопная труба Nissan RSX </a>
-              </div>
-
-              <div class='block-sm b_pro-info'>
-
-                <div>
-                  <span class='i_info-text'>Год:</span>
-                  <span>2000</span>
-                </div>
-                <div>
-                  <span class='i_info-text'>Пробег:</span>
-                  <span>240 000 км.</span>
-                </div>
-
-              </div>
-
-              <hr class='divider block-sm'>
-
-              <div class='i_pro-price block-sm'>
-                127 500 р.
-              </div>
-
-              <div class='block-sm'>
-                <form name='add-pro'>
-                  <input type="text" class="input-square" value="1">
-                  <button class='btn btn-black'>В корзину</button>
-                </form>
-              </div>
-
-              <div class='block'>
-
-                <div class="tooltip bottom _custom" role="tooltip">
-                 <div class="tooltip-arrow"></div>
-                 <div class="tooltip-inner">
-                   Восстановлен. Полностью на ходу.
-                 </div>
-                </div>
-
-              </div>
-
-            </div>
-            <!-- </carousel-item> -->
-    
+            <?foreach($popular as $product):?>
+            <?$this->renderPartial('_product', array('data'=>$product));?>
+            <?endforeach;?>
+            <!-- </carousel-item> -->    
         </div>                
         <!-- </carousel> -->
 
@@ -1114,53 +656,83 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
 
   <div class='_shadow _margin'></div>
 
-  <div class='row b_news _bg-gray _border-bottom-dashed'>
+  <div class="b_tab b_tab-news _bg-gray _border-bottom-dashed">
+    <div class='container-fixed'>
+      <div class='row b_news_tab'>
 
-        <div class='container-fixed'>
-    
-          <div class='b_heading'>
-            <h1 class='i_heading i_heading-yellow'> <?=Yii::t('core','Машины в разборе')?></h1>
-            <h1 class='i_heading i_heading-black'> <?=Yii::t('core','Новости')?></h1>
+        <!--</tab-nav>-->
+        <ul id="news-tab" class="nav nav-tabs" role="tablist">
 
-          </div>  
+          <!--<tab-nav-item>-->
+          <li class="active">
+            <a href="#fixcar" role="tab" data-toggle="tab" class="btn"> <?=Yii::t('core','Машины в разборе')?></a>                   
+          </li>
+          <!--</tab-nav-item>-->
 
-          <div class='row b_news-inner'>
-              
-              <div class='col-xs-4'>
-                <img src="<?=$assetsPath?>upload/news-1.png" class="img-circle">
-                <div class='b_news-text'>
-                  <span class='bg-yellow'>20.07.2014</span>
-                  <a href="#">Поступил в разбор Skoda Octavia A4 TOUR 2008 1.8 МКПП 150л.с двс AUM</a>
-                </div>
+          <!--<tab-nav-item>-->
+          <li class="">
+            <a href="#news" role="tab" data-toggle="tab" class="btn"> <?=Yii::t('core','Новости')?></a>                    
+          </li>
+          <!--</tab-nav-item>-->
+
+        </ul>              
+        <!--</tab-nav>-->
+
+        <!-- <tab-content> -->
+        <div id="news-tabContent" class="tab-content"> 
+
+          <!-- <tab-item> -->            
+          <div class="tab-pane fade active in" id="fixcar">
+
+              <div class='row b_news-inner'>
+                  <?foreach($fixcars as $car):?>
+                  <div class='col-xs-4'>
+                    <img src="<?=$car->getImage('149x149','adaptiveResize')?>" class="img-circle">
+                    <div class='b_news-text'>
+                      <span class='bg-yellow'><?php echo $car->created ?></span>
+                      <a href="<?php echo $car->viewUrl ?>" class='block-sm'><?php echo $car->title ?></a>
+                    </div>
+                  </div>
+                  <?endforeach;?>
               </div>
 
-              <div class='col-xs-4'>
-                <img src="<?=$assetsPath?>upload/news-2.png" class="img-circle">
-                <div class='b_news-text'>
-                  <span class='bg-yellow'>20.07.2014</span>
-                  <a href="#">Поступил в разбор Skoda Octavia A4 TOUR 2008 1.8 МКПП 150л.с двс AUM</a>
-                </div>
-              </div>
-
-              <div class='col-xs-4'>
-                <img src="<?=$assetsPath?>upload/news-3.png" class="img-circle">
-                <div class='b_news-text'>
-                  <span class='bg-yellow'>20.07.2014</span>
-                  <a href="#">Поступил в разбор Skoda Octavia A4 TOUR 2008 1.8 МКПП 150л.с двс AUM</a>
-                </div>
-              </div>
+              <div class='text-center block'> <a href="<?=$car->category->viewUrl?>" class='btn btn-black'> <?=Yii::t('core','Все машины')?></a> </div>
 
           </div>
+          <!-- </tab-item> --> 
 
-          <div class='text-center block'> <a href="#" class='btn btn-black'>Все машины</a> </div>
+          <!-- <tab-item> -->            
+          <div class="tab-pane fade" id="news">
+              
+            <div class='row b_news-inner _news-inner-big'>
+                  
+                  <?foreach($news as $n):?>
+                  <div class='col-xs-6'>
+                    <img src="<?=$n->getImage('149x149','adaptiveResize')?>" >
+                    <div class='b_news-text'>
+                      <span class='bg-yellow'><?php echo $n->created ?></span>
+                      <a href="<?php echo $n->viewUrl ?>" class='block-sm'><?php echo $n->title ?></a>
+                    </div>
+                  </div>
+                  <?endforeach;?>                        
+
+              </div>
+
+              <div class='text-center block'> <a href="<?=$n->category->viewUrl?>" class='btn btn-black'> <?=Yii::t('core','Все новости')?></a> </div>
+
+          </div>
+          <!-- <tab-item> -->  
+
+        </div>
+        <!-- </tab-content> -->
 
       </div>
-
-
+    </div>
   </div>
   <div class='_shadow block-md'></div>
 
   <div class='container-fixed _border-bottom-dashed'>
+    <img src="<?=$assetsPath?>images/bg-left_engine.png" class="bg-icon" alt="Background-icon">
     <div class='row b_about-us'>
 
       <div class='col-xs-12'>
@@ -1175,7 +747,7 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
         </p>
       </div>
       <div class='col-xs-2 text-right'>
-        <a href="#" class='btn btn-block btn-yellow block-sm'>Оформить <br> заявку</a>
+        <a href="#" class='btn btn-block btn-yellow block-sm' data-toggle="modal" data-target="#order">Оформить <br> заявку</a>
         <img src="<?=$assetsPath?>images/icon-list.png">
       </div>
 
@@ -1185,6 +757,7 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
   <div class='_shadow-short block-lg'></div>
 
   <div class='container-fixed _border-bottom-dashed'>
+    <img src="<?=$assetsPath?>images/bg-left_users.png" class="bg-icon" alt="Background-icon">
     <div class='row b_partners'>
 
       <div class='col-xs-12'>
@@ -1211,7 +784,8 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
   
   <div class='_shadow-short block'></div>
 
-  <div class='container-fixed block'>
+  <div class='container-fixed b_captions block'>
+    <img src="<?=$assetsPath?>images/bg-left_hand.png" class="bg-icon" alt="Background-icon">
     <div class='row'>
 
       <div class='b_caption'>
@@ -1232,7 +806,7 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
 
           <div class='i_caption-image'></div>
           <div class='i_caption-text'>
-            <?=Yii::t('core','Удобный сервис и качественное обслуживание')?>
+            <?=Yii::t('core','Гарантия и 100% юридической чистоты')?>
           </div>
           <div class='i_caption-button'>
             <a href='#' class='btn btn-black'><?=Yii::t('core','Узнать больше')?></a>
@@ -1244,7 +818,7 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
 
           <div class='i_caption-image'></div>
           <div class='i_caption-text'>
-            <?=Yii::t('core','Удобный сервис и качественное обслуживание')?>
+            <?=Yii::t('core','Скидки и индивидуальный подход к каждому клиенту')?>
           </div>
           <div class='i_caption-button'>
             <a href='#' class='btn btn-black'><?=Yii::t('core','Узнать больше')?></a>
@@ -1257,4 +831,37 @@ $assetsPath = Yii::app()->theme->baseUrl."/assets/";
     </div>
   </div>
 
+
+
+
+
+
+<!-- </modal id='order'> -->
+<div class="modal fade" id='order'>
+  <div class="modal-dialog b_order">
+
+    <div class="modal-content _bg-gray _border-bottom-dashed">
+
+      <div class="modal-header">
+        <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
+      </div>
+
+      <div class="modal-body">
+      
+        <?
+            Yii::import('feedback.models.OrderDetailForm');
+            Yii::import('application.modules.feedback.FeedbackModule');
+            $model = new OrderDetailForm;
+            
+            $this->renderPartial('//feedback/default/orderdetail', array(
+    			'model'=>$model
+    		));
+        ?>                     
+
+      </div>              
+
+    </div>
+
+  </div>
 </div>
+<!-- </modal> -->

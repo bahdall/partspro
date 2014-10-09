@@ -1,8 +1,11 @@
 assets/*
 !assets/.gitignore
 protected/runtime/*
+protected/runtime/**
 !protected/runtime/.gitignore
 protected/data/*.db
-protected/config/main.php
+protected/config/*
+!protected/config/.gitignore
+!protected/config/main-example.php
 html/*
 !html/app

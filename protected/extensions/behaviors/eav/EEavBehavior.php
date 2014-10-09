@@ -221,7 +221,7 @@ class EEavBehavior extends CActiveRecordBehavior {
 			));
 		}
 		// Prepare cache component.
-		$this->cache = Yii::app()->getComponent($this->cacheId);
+		$this->cache = Yii::app()->getComponent( $this->cacheId );
 		if (!($this->cache instanceof ICache)) {
 			// If not set cache component, use dummy cache.
 			$this->cache = new CDummyCache;
@@ -229,7 +229,8 @@ class EEavBehavior extends CActiveRecordBehavior {
 		// Call parent method for convenience.
 		parent::attach($owner);
 	}
-
+    
+    
 	/**
 	 * @param CEvent
 	 * @return void
@@ -263,8 +264,11 @@ class EEavBehavior extends CActiveRecordBehavior {
 	public function afterFind($event) {
 		// Load attributes for model.
 		if ($this->preload) {
-			if($this->owner->getPrimaryKey()) // Added by firstrow@gmail.com
-				$this->loadEavAttributes($this->getSafeAttributesArray());
+			if($this->owner->getPrimaryKey()) {
+                $this->loadEavAttributes($this->getSafeAttributesArray()); 
+                
+			}                
+			
 		}
 		// Call parent method for convenience.
 		parent::afterFind($event);
@@ -451,6 +455,7 @@ class EEavBehavior extends CActiveRecordBehavior {
 		if (empty($attributes)) {
 			$attributes = $this->getSafeAttributesArray();
 		}
+        
 		// $attributes be array of elements: $attribute => $values
 		$criteria = $this->getFindByEavAttributesCriteria($attributes);
 		// Merge model criteria.
@@ -527,13 +532,40 @@ class EEavBehavior extends CActiveRecordBehavior {
 	 * @return CDbCriteria
 	 */
 	protected function getFindByEavAttributesCriteria($attributes){
+        
+        
 		$criteria = new CDbCriteria();
 		$pk = $this->getModelTableFk();
 
 		$conn = $this->getOwner()->getDbConnection();
 		$i = 0;
+        
 		foreach ($attributes as $attribute => $values) {
 			// If search models with attribute name with specified values.
+            $type = $values['type'];
+            $values = $values['values'];
+            if($type == StoreAttribute::TYPE_NUMBER)
+            {
+                // Get attribute compare operator
+				$attribute = $conn->quoteValue($attribute);
+                $minValues = $values['min'];
+                $maxValues = $values['max'];
+				if (is_array($minValues)) $minValues = $values['min'][0];
+                if (is_array($maxValues)) $maxValues = $values['max'][0];
+
+				
+				$minValues = $conn->quoteValue($minValues);
+                $maxValues = $conn->quoteValue($maxValues);
+                
+				$criteria->join .= "\nJOIN {$this->tableName} eavb$i"
+					.  "\nON t.{$pk} = eavb$i.{$this->entityField}"
+					.  "\nAND eavb$i.{$this->attributeField} = $attribute"
+					.  "\nAND eavb$i.{$this->valueField} >= $minValues AND eavb$i.{$this->valueField} <= $maxValues";
+				$i++;
+                continue;
+				
+            }
+            
 			if (is_string($attribute)) {
 				// Get attribute compare operator
 				$attribute = $conn->quoteValue($attribute);
@@ -559,6 +591,7 @@ class EEavBehavior extends CActiveRecordBehavior {
 		}
 		$criteria->distinct = TRUE;
 		$criteria->group .= "t.{$pk}";
+        
 		return $criteria;
 	}
 }

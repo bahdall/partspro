@@ -36,5 +36,57 @@ class DefaultController extends Controller
 			'model'=>$model
 		));
 	}
+    
+    
+    
+    public function actionCallback()
+	{
+		Yii::import('feedback.models.CallbackForm');
+		$model = new CallbackForm;
+        $success = false;
+        
+
+		if(isset($_POST['CallbackForm']))
+			$model->attributes = $_POST['CallbackForm'];
+
+		if(Yii::app()->request->isPostRequest && $model->validate())
+		{
+			$model->sendMessage();
+            $model = new OrderDetailForm;
+            $success = true;
+		}
+
+		$this->render('callback', array(
+			'model'=>$model,
+            'success' => $success,
+		));
+        
+	}
+    
+    
+    
+    public function actionOrderDetail()
+	{
+		Yii::import('feedback.models.OrderDetailForm');
+		$model = new OrderDetailForm;
+        $success = false;
+
+		if(isset($_POST['OrderDetailForm']))
+			$model->attributes = $_POST['OrderDetailForm'];
+
+		if(Yii::app()->request->isPostRequest && $model->validate())
+		{
+			$model->sendMessage();
+            $model = new OrderDetailForm;
+            $success = true;
+			//Yii::app()->request->redirect($this->createUrl('/feedback/order-detail'));
+		}
+
+		$this->render('orderdetail', array(
+			'model'=>$model,
+            'success' => $success,
+		));
+        
+	}
 
 }

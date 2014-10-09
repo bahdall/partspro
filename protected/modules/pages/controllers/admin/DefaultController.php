@@ -48,10 +48,13 @@ class DefaultController extends SAdminController {
 			throw new CHttpException(404, Yii::t('PagesModule.core', 'Страница не найдена.'));
 
 		$form = new STabbedForm('application.modules.pages.views.admin.default.pageForm', $model);
+        
 
 		if (Yii::app()->request->isPostRequest)
 		{
+		    $preview_img = $model->preview_img;
 			$model->attributes = $_POST['Page'];
+            $model->preview_img = $preview_img;
 
 			if ($model->isNewRecord)
 				$model->created = date('Y-m-d H:i:s');

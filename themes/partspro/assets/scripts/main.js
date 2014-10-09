@@ -17,4 +17,10 @@ $(function(){
         caretHTML: '<span class="select-caret"></span>'
     }); 
 
+    //region map start
+    var stage = new swiffy.Stage(document.getElementById('swiffycontainer'),
+          swiffyobject, {});
+      
+    stage.start();
+
 })

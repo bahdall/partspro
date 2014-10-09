@@ -60,21 +60,52 @@ class CategoryController extends Controller
 	public function beforeAction($action)
 	{
 		$this->allowedPageLimit=explode(',',Yii::app()->settings->get('core', 'productsPerPage'));
+        
+        $model = StoreCategory::model()
+			->excludeRoot()
+			->withFullPath(Yii::app()->request->getQuery('url'))
+			->find();
+        
+        if($model)
+            $attributes = $model->getEavAttributes();
+        
+        $data=array();
+        
+        foreach($attributes as $attr)
+        {
+            if($attr->type != StoreAttribute::TYPE_NUMBER )
+            {
+                if(Yii::app()->request->getPost($attr->name))
+                    $data[$attr->name] = Yii::app()->request->getPost($attr->name);
+            }
+            else
+            {
+                if(Yii::app()->request->getPost("min_".$attr->name))
+                    $data["min_".$attr->name] = (int)Yii::app()->request->getPost("min_".$attr->name);
+                
+                if(Yii::app()->request->getPost("max_".$attr->name))
+                    $data["max_".$attr->name] = (int)Yii::app()->request->getPost("max_".$attr->name);                
+            }
+        }
 
 		if(Yii::app()->request->getPost('min_price') || Yii::app()->request->getPost('max_price'))
 		{
-			$data=array();
+			
 			if(Yii::app()->request->getPost('min_price'))
 				$data['min_price']=(int)Yii::app()->request->getPost('min_price');
 			if(Yii::app()->request->getPost('max_price'))
 				$data['max_price']=(int)Yii::app()->request->getPost('max_price');
 
-			if($this->action->id==='search')
+		}
+        
+        if($data)
+        {
+            if($this->action->id==='search')
 				$this->redirect(Yii::app()->request->addUrlParam('/store/category/search', $data));
 			else
 				$this->redirect(Yii::app()->request->addUrlParam('/store/category/view', $data));
-		}
-
+        }
+        
 		return true;
 	}
 
@@ -83,9 +114,22 @@ class CategoryController extends Controller
 	 */
 	public function actionView()
 	{
+        
 		$this->model = $this->_loadModel(Yii::app()->request->getQuery('url'));
 		$view = $this->setDesign($this->model, 'view');
 		$this->doSearch($this->model, $view);
+	}
+    
+    
+    /**
+	 * Display category products for HomePage
+	 */
+	public function actionHome()
+	{
+        
+		$this->model = $this->_loadModel(Yii::app()->request->getQuery('url'));
+		$view = $this->setDesign($this->model, 'home');
+		$this->doSearch($this->model, $view, true);
 	}
 
 	/**
@@ -106,13 +150,13 @@ class CategoryController extends Controller
 	 * @param $data StoreCategory|string
 	 * @param string $view
 	 */
-	public function doSearch($data, $view)
+	public function doSearch($data, $view,$partial = false)
 	{
 		$this->query = new StoreProduct(null);
 		$this->query->attachBehaviors($this->query->behaviors());
 		$this->query->applyAttributes($this->activeAttributes)
 			->active();
-
+            
 		if($data instanceof StoreCategory)
 			$this->query->applyCategories($this->model);
 		else
@@ -150,13 +194,37 @@ class CategoryController extends Controller
 				'pageSize'=>$per_page,
 			)
 		));
+        
+        
 
 		$this->provider->sort = StoreProduct::getCSort();
-
-		$this->render($view, array(
-			'provider'=>$this->provider,
-			'itemView'=>(isset($_GET['view']) && $_GET['view']==='wide') ? '_product_wide' : '_product'
-		));
+        
+        
+        if( key_exists('year',$this->provider->sort->getDirections()))
+        {
+            /** Соединение с атрибутом Year_create */
+            $criteria = new CDbCriteria;
+            $criteria->join = 'INNER JOIN StoreProductAttributeEAV pattrs ON pattrs.entity = t.id';
+            $criteria->condition = 'pattrs.attribute = "year_create"';
+            $this->query->getDbCriteria()->mergeWith($criteria);
+        }
+        
+        
+        
+		if($partial)
+        {
+            echo $this->renderPartial($view, array(
+    			'provider'=>$this->provider,
+    			'itemView'=>(isset($_GET['view']) && $_GET['view']==='wide') ? '_product_wide' : '_product'
+    		));
+        }
+        else
+        {
+            $this->render($view, array(
+    			'provider'=>$this->provider,
+    			'itemView'=>(isset($_GET['view']) && $_GET['view']==='wide') ? '_product_wide' : '_product'
+    		));
+        }
 	}
 
 	/**
@@ -165,18 +233,43 @@ class CategoryController extends Controller
 	public function getActiveAttributes()
 	{
 		$data = array();
-
+        
 		foreach(array_keys($_GET) as $key)
 		{
+		    
+            $maxKey = str_replace("max_",'',$key);
+            $minKey = str_replace("min_",'',$key);
+            
 			if(array_key_exists($key, $this->eavAttributes))
 			{
 				if((boolean) $this->eavAttributes[$key]->select_many === true)
-					$data[$key] = explode(';', $_GET[$key]);
+					$data[$key]['values'] = explode(';', $_GET[$key]);
 				else
-					$data[$key] = array($_GET[$key]);
+					$data[$key]['values'] = array($_GET[$key]);
+            
+                $data[$key]['type'] = $this->eavAttributes[$key]->type;
+                
 			}
+            elseif(array_key_exists($minKey, $this->eavAttributes))
+            {
+                if((boolean) $this->eavAttributes[$minKey]->select_many === true)
+					$data[$minKey]['values']['min'] = explode(';', $_GET[$key]);
+				else
+					$data[$minKey]['values']['min'] = array($_GET[$key]);
+            
+                $data[$minKey]['type'] = $this->eavAttributes[$maxKey]->type;
+            }
+            elseif(array_key_exists($maxKey, $this->eavAttributes))
+            {
+                if((boolean) $this->eavAttributes[$maxKey]->select_many === true)
+					$data[$maxKey]['values']['max'] = explode(';', $_GET[$key]);
+				else
+					$data[$maxKey]['values']['max'] = array($_GET[$key]);
+            
+                $data[$maxKey]['type'] = $this->eavAttributes[$maxKey]->type;
+            }
+            
 		}
-
 		return $data;
 	}
 
@@ -203,18 +296,21 @@ class CategoryController extends Controller
 		$criteria->group     = 'type_id';
 		$criteria->distinct  = true;
 		$typesUsed = $builder->createFindCommand(StoreProduct::model()->tableName(), $criteria)->queryColumn();
-
+        
 		// Find attributes by type
 		$criteria = new CDbCriteria;
 		$criteria->addInCondition('types.type_id', $typesUsed);
 		$query = StoreAttribute::model()
 			->useInFilter()
-			->with(array('types', 'options'))
+			->with(array('types',))//array('types', 'options')
 			->findAll($criteria);
 
 		$this->_eavAttributes = array();
 		foreach($query as $attr)
-			$this->_eavAttributes[$attr->name] = $attr;
+        {
+            $this->_eavAttributes[$attr->name] = $attr;
+        }
+			
 		return $this->_eavAttributes;
 	}
 

@@ -1,6 +1,7 @@
 <?php
 
 	Yii::import('application.modules.store.components.SCompareProducts');
+    
 	Yii::import('application.modules.store.models.wishlist.StoreWishlist');
 
 	$assetsManager = Yii::app()->clientScript;
@@ -28,7 +29,7 @@
     <link rel="stylesheet" href="<?=$assetsPath?>bower_components/bootstrap-select/dist/css/bootstrap-select.css">
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="<?=$assetsPath?>styles/main.css">
+    <link rel="stylesheet" href="/html/app/styles/main.css">
     <!-- endbuild -->
 
     <!-- build:js scripts/vendor/modernizr.js -->
@@ -37,7 +38,7 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="<?=$assetsPath?>bower_components/jquery/dist/jquery.js"></script>
+    
     <!-- endbower -->
     <!-- endbuild -->
     
@@ -61,10 +62,12 @@
     <!-- endbuild -->
     <script type="text/javascript" src="<?=$assetsPath?>scripts/common.js"></script>
     <!-- build:js scripts/main.js -->
-    <script src="<?=$assetsPath?>scripts/main.js"></script>
+    <script src="/html/app/scripts/main.js"></script>
     <!-- endbuild -->
     
-    
+    <!-- Include map region plugin -->
+    <script src="https://www.gstatic.com/swiffy/v7.0/runtime.js"></script>
+    <script src="<?=$assetsPath?>scripts/map.js"></script>
     
 </head>
 <body class='p_main'>  
@@ -79,7 +82,7 @@
 
                       <li class='i_head-item'>
 
-                        <a href="#" class='_link-unstyled'>
+                        <a href="#" class='_link-unstyled' data-toggle="modal" data-target="#feedback">
                           <img src="<?=$assetsPath?>images/icon-phone.png" alt="">
                           <span class='_underline-dotted'><?=Yii::t('core','Обратный звонок')?></span>
                         </a>
@@ -88,7 +91,7 @@
 
                       <li class='i_head-item_country'>
 
-                        <a href="#" class='_link-unstyled'> 
+                        <a href="#" class='_link-unstyled' data-toggle="modal" data-target="#region"> 
                           <img src="<?=$assetsPath?>images/icon-map.png" alt="">
                           <span class='_underline-dotted'><?=Yii::t('core','Уточнить страну')?></span>
                         </a>
@@ -147,7 +150,7 @@
 
             </div>  
             
-            <div class='container-fixed'>
+            <div class='container-fixed <?=(!Yii::app()->isHome()) ? "_border-bottom-dashed" : ""?>'>
 
               <div class='row b_header-bottom'>
                   
@@ -185,17 +188,30 @@
                     ));
                     ?>
                 </div> 
-                <img src="<?=$assetsPath?>images/engine_bottom.png" alt="" class='engine-top'>                
-                <img src="<?=$assetsPath?>images/engine_top.png" alt="" class='engine-bottom'>                
+                
+                <img src="<?=$assetsPath?>images/engine_bottom.png" alt="" class='engine-top'>  
+                <?if(Yii::app()->isHome()):?>              
+                <img src="<?=$assetsPath?>images/engine_top.png" alt="" class='engine-bottom'> 
+                <?endif;?>               
               </div>          
               
 
             </div>
           
-
+            <?if(!Yii::app()->isHome()):?>
+            <div class="_shadow-short block-md"></div>
+            <?endif;?>
         </div>
-
-        <?php echo $content; ?>
+        
+        <div class='container-fluid l_content' >
+            <?if( Yii::app()->isHome() ):?>
+                <?php echo $content; ?>
+            <?else:?>
+                <div class="container-fixed">
+                <?php echo $content; ?>
+                </div>
+            <?endif;?>
+        </div>
 
         <div class='container-fluid l_footer _bg-gray'>
           
@@ -243,8 +259,7 @@
                 <div class='b_address'>
                     <p>+7 (123) 456-78-90</p>
                     <p><a href="mailto:some@mail.ru">example@example.com</a></p>
-                    <p>197022, Санкт-Петербург, <br>
-                        улица Аптекарская, дом 12</p>
+                    <p> <?=Yii::t('core','address')?></p>
                 </div>
 
               </div>
@@ -252,7 +267,7 @@
               <div class='col-xs-4'>
 
                 <div class='b_deprecated'>
-                  Использование материалов <br> сайта без согласия <br> правообладателя запрещено
+                  <?=Yii::t('core','deny_text')?>
                   <img src="<?=$assetsPath?>images/icon_deprecated.png" alt="Deprecated">  
                 </div>
 
@@ -263,19 +278,20 @@
                 <div class='b_search'>
                   
                   <div class="input-group-inline">
-
-                    <input type="text" class="form-control">
+                    <?php echo CHtml::form($this->createUrl('/store/category/search')) ?>
+                    <input type="text" name="q" class="form-control">
                     <span class="input-group-btn">
-                      <button class="btn btn-yellow" type="button"> <?=Yii::t('base','Найти')?></button>
+                      <button class="btn btn-yellow" type="submit"> <?=Yii::t('core','Найти')?></button>
                     </span>
-                    <div>Например: Автозапчасти</div>
+                    <? echo CHtml::endForm() ?>
+                    <div> <?=Yii::t('core','Например: Автозапчасти')?></div>
                   </div>
 
                 </div>
 
                 <div class='b_modals text-right'>
-                  <p><a href=""> <?=Yii::t('base','Обратный звонок')?></a></p>
-                  <p><a href=""> <?=Yii::t('base','Уточнить страну')?></a></p>
+                  <p><a href="" data-toggle="modal" data-target="#feedback"> <?=Yii::t('core','Обратный звонок')?></a></p>
+                  <p><a href="" data-toggle="modal" data-target="#region"> <?=Yii::t('core','Уточнить страну')?></a></p>
                 </div>
 
               </div>
@@ -306,7 +322,58 @@
           </div>          
         </div>
   
+    <!-- </modal id='feedback'> -->
+    <div class="modal fade" id='feedback'>
+      <div class="modal-dialog modal-sm b_feedback">
 
+        <div class="modal-content _bg-gray _border-bottom-dashed">
+
+          <div class="modal-header">
+            <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
+          </div>
+
+          <div class="modal-body">
+            <?
+                Yii::import('feedback.models.CallbackForm');
+                $model = new CallbackForm;
+                
+                $this->renderPartial('//feedback/default/callback', array(
+        			'model'=>$model
+        		));
+            ?>              
+
+          </div>              
+
+        </div>
+
+      </div>
+    </div>
+    <!-- </modal> -->
+    
+    <!-- </modal id='region'> -->
+    <div class="modal fade" id='region'>
+      <div class="modal-dialog modal-lg">
+
+        <div class="modal-content _border-bottom-dashed b_region-map">
+
+          <div class="modal-header">
+            <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
+          </div>
+
+          <div class="modal-body">
+            
+            <div id="swiffycontainer" style="width: 930px; height: 690px">
+            </div>             
+
+          </div>              
+
+        </div>
+
+      </div>
+    </div>
+    <!-- </modal> -->
+
+    
             
 </body>
 </html>

@@ -29,6 +29,7 @@ class StoreAttribute extends BaseModel
 	const TYPE_RADIO_LIST    = 5;
 	const TYPE_CHECKBOX_LIST = 6;
 	const TYPE_YESNO         = 7;
+    const TYPE_NUMBER        = 8;
 
 	/**
 	 * @var string attr name
@@ -166,6 +167,7 @@ class StoreAttribute extends BaseModel
 			self::TYPE_RADIO_LIST     => 'Radio List',
 			self::TYPE_CHECKBOX_LIST  => 'Checkbox List',
 			self::TYPE_YESNO          => 'Yes/No',
+            self::TYPE_NUMBER         => 'Number',
 		);
 	}
 
@@ -177,6 +179,9 @@ class StoreAttribute extends BaseModel
 		$name = 'StoreAttribute['.$this->name.']';
 		switch ($this->type):
 			case self::TYPE_TEXT:
+				return CHtml::textField($name, $value);
+			break;
+            case self::TYPE_NUMBER:
 				return CHtml::textField($name, $value);
 			break;
 			case self::TYPE_TEXTAREA:
@@ -217,6 +222,7 @@ class StoreAttribute extends BaseModel
 	{
 		switch ($this->type):
 			case self::TYPE_TEXT:
+            case self::TYPE_NUMBER:
 			case self::TYPE_TEXTAREA:
 				return $value;
 			break;
