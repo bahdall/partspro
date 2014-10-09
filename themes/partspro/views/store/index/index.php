@@ -9,7 +9,7 @@ $attributes = $model->getEavAttributes();
 
 ?>
 
-<div class='container-fluid l_content' >
+
             
     <div class='row b_services _bg-gray _border-bottom-dashed'>
 
@@ -79,7 +79,7 @@ $attributes = $model->getEavAttributes();
 
     <div class='container-fixed'>
       <div class="b_tab _bg-gray _border-bottom-dashed">
-
+      <img src="<?=$assetsPath?>images/bg-left_search.png" class="bg-icon" alt="Background-icon">  
       <div class='row'>
        
           <ul id="myTab" class="nav nav-tabs" role="tablist">
@@ -665,13 +665,13 @@ $attributes = $model->getEavAttributes();
 
           <!--<tab-nav-item>-->
           <li class="active">
-            <a href="#fixcar" role="tab" data-toggle="tab" class="btn"> <?=Yii::t('base','Машины в разборе')?></a>                   
+            <a href="#fixcar" role="tab" data-toggle="tab" class="btn"> <?=Yii::t('core','Машины в разборе')?></a>                   
           </li>
           <!--</tab-nav-item>-->
 
           <!--<tab-nav-item>-->
           <li class="">
-            <a href="#news" role="tab" data-toggle="tab" class="btn"> <?=Yii::t('base','Новости')?></a>                    
+            <a href="#news" role="tab" data-toggle="tab" class="btn"> <?=Yii::t('core','Новости')?></a>                    
           </li>
           <!--</tab-nav-item>-->
 
@@ -696,7 +696,7 @@ $attributes = $model->getEavAttributes();
                   <?endforeach;?>
               </div>
 
-              <div class='text-center block'> <a href="#" class='btn btn-black'>Все машины</a> </div>
+              <div class='text-center block'> <a href="<?=$car->category->viewUrl?>" class='btn btn-black'> <?=Yii::t('core','Все машины')?></a> </div>
 
           </div>
           <!-- </tab-item> --> 
@@ -707,8 +707,8 @@ $attributes = $model->getEavAttributes();
             <div class='row b_news-inner _news-inner-big'>
                   
                   <?foreach($news as $n):?>
-                  <div class='col-xs-4'>
-                    <img src="<?=$n->getImage('149x149','adaptiveResize')?>" class="img-circle">
+                  <div class='col-xs-6'>
+                    <img src="<?=$n->getImage('149x149','adaptiveResize')?>" >
                     <div class='b_news-text'>
                       <span class='bg-yellow'><?php echo $n->created ?></span>
                       <a href="<?php echo $n->viewUrl ?>" class='block-sm'><?php echo $n->title ?></a>
@@ -718,7 +718,7 @@ $attributes = $model->getEavAttributes();
 
               </div>
 
-              <div class='text-center block'> <a href="#" class='btn btn-black'>Все новости</a> </div>
+              <div class='text-center block'> <a href="<?=$n->category->viewUrl?>" class='btn btn-black'> <?=Yii::t('core','Все новости')?></a> </div>
 
           </div>
           <!-- <tab-item> -->  
@@ -732,6 +732,7 @@ $attributes = $model->getEavAttributes();
   <div class='_shadow block-md'></div>
 
   <div class='container-fixed _border-bottom-dashed'>
+    <img src="<?=$assetsPath?>images/bg-left_engine.png" class="bg-icon" alt="Background-icon">
     <div class='row b_about-us'>
 
       <div class='col-xs-12'>
@@ -756,6 +757,7 @@ $attributes = $model->getEavAttributes();
   <div class='_shadow-short block-lg'></div>
 
   <div class='container-fixed _border-bottom-dashed'>
+    <img src="<?=$assetsPath?>images/bg-left_users.png" class="bg-icon" alt="Background-icon">
     <div class='row b_partners'>
 
       <div class='col-xs-12'>
@@ -782,7 +784,8 @@ $attributes = $model->getEavAttributes();
   
   <div class='_shadow-short block'></div>
 
-  <div class='container-fixed block'>
+  <div class='container-fixed b_captions block'>
+    <img src="<?=$assetsPath?>images/bg-left_hand.png" class="bg-icon" alt="Background-icon">
     <div class='row'>
 
       <div class='b_caption'>
@@ -803,7 +806,7 @@ $attributes = $model->getEavAttributes();
 
           <div class='i_caption-image'></div>
           <div class='i_caption-text'>
-            <?=Yii::t('core','Удобный сервис и качественное обслуживание')?>
+            <?=Yii::t('core','Гарантия и 100% юридической чистоты')?>
           </div>
           <div class='i_caption-button'>
             <a href='#' class='btn btn-black'><?=Yii::t('core','Узнать больше')?></a>
@@ -815,7 +818,7 @@ $attributes = $model->getEavAttributes();
 
           <div class='i_caption-image'></div>
           <div class='i_caption-text'>
-            <?=Yii::t('core','Удобный сервис и качественное обслуживание')?>
+            <?=Yii::t('core','Скидки и индивидуальный подход к каждому клиенту')?>
           </div>
           <div class='i_caption-button'>
             <a href='#' class='btn btn-black'><?=Yii::t('core','Узнать больше')?></a>
@@ -828,4 +831,37 @@ $attributes = $model->getEavAttributes();
     </div>
   </div>
 
+
+
+
+
+
+<!-- </modal id='order'> -->
+<div class="modal fade" id='order'>
+  <div class="modal-dialog b_order">
+
+    <div class="modal-content _bg-gray _border-bottom-dashed">
+
+      <div class="modal-header">
+        <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
+      </div>
+
+      <div class="modal-body">
+      
+        <?
+            Yii::import('feedback.models.OrderDetailForm');
+            Yii::import('application.modules.feedback.FeedbackModule');
+            $model = new OrderDetailForm;
+            
+            $this->renderPartial('//feedback/default/orderdetail', array(
+    			'model'=>$model
+    		));
+        ?>                     
+
+      </div>              
+
+    </div>
+
+  </div>
 </div>
+<!-- </modal> -->

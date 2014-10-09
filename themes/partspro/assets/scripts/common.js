@@ -80,8 +80,8 @@ function processCartResponseFromList(data, textStatus, jqXHR, redirect)
         window.location = redirect
     }else{
         reloadSmallCart();
-        
-        $("#cart-btn-d").click();
+        $.jGrowl("Товар успешно добавлен в корзину. <a href='/cart'>Перейти к оформлению</a>.", {position:"bottom-right",sticky: true});
+        //$("#cart-btn-d").click();
     }
 }
 

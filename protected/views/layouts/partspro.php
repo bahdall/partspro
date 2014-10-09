@@ -1,6 +1,7 @@
 <?php
 
 	Yii::import('application.modules.store.components.SCompareProducts');
+    
 	Yii::import('application.modules.store.models.wishlist.StoreWishlist');
 
 	$assetsManager = Yii::app()->clientScript;
@@ -37,7 +38,7 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="<?=$assetsPath?>bower_components/jquery/dist/jquery.js"></script>
+    
     <!-- endbower -->
     <!-- endbuild -->
     
@@ -149,7 +150,7 @@
 
             </div>  
             
-            <div class='container-fixed'>
+            <div class='container-fixed <?=(!Yii::app()->isHome()) ? "_border-bottom-dashed" : ""?>'>
 
               <div class='row b_header-bottom'>
                   
@@ -187,17 +188,30 @@
                     ));
                     ?>
                 </div> 
-                <img src="<?=$assetsPath?>images/engine_bottom.png" alt="" class='engine-top'>                
-                <img src="<?=$assetsPath?>images/engine_top.png" alt="" class='engine-bottom'>                
+                
+                <img src="<?=$assetsPath?>images/engine_bottom.png" alt="" class='engine-top'>  
+                <?if(Yii::app()->isHome()):?>              
+                <img src="<?=$assetsPath?>images/engine_top.png" alt="" class='engine-bottom'> 
+                <?endif;?>               
               </div>          
               
 
             </div>
           
-
+            <?if(!Yii::app()->isHome()):?>
+            <div class="_shadow-short block-md"></div>
+            <?endif;?>
         </div>
-
-        <?php echo $content; ?>
+        
+        <div class='container-fluid l_content' >
+            <?if( Yii::app()->isHome() ):?>
+                <?php echo $content; ?>
+            <?else:?>
+                <div class="container-fixed">
+                <?php echo $content; ?>
+                </div>
+            <?endif;?>
+        </div>
 
         <div class='container-fluid l_footer _bg-gray'>
           
@@ -245,8 +259,7 @@
                 <div class='b_address'>
                     <p>+7 (123) 456-78-90</p>
                     <p><a href="mailto:some@mail.ru">example@example.com</a></p>
-                    <p>197022, Санкт-Петербург, <br>
-                        улица Аптекарская, дом 12</p>
+                    <p> <?=Yii::t('core','address')?></p>
                 </div>
 
               </div>
@@ -254,7 +267,7 @@
               <div class='col-xs-4'>
 
                 <div class='b_deprecated'>
-                  Использование материалов <br> сайта без согласия <br> правообладателя запрещено
+                  <?=Yii::t('core','deny_text')?>
                   <img src="<?=$assetsPath?>images/icon_deprecated.png" alt="Deprecated">  
                 </div>
 
@@ -265,19 +278,20 @@
                 <div class='b_search'>
                   
                   <div class="input-group-inline">
-
-                    <input type="text" class="form-control">
+                    <?php echo CHtml::form($this->createUrl('/store/category/search')) ?>
+                    <input type="text" name="q" class="form-control">
                     <span class="input-group-btn">
-                      <button class="btn btn-yellow" type="button"> <?=Yii::t('base','Найти')?></button>
+                      <button class="btn btn-yellow" type="submit"> <?=Yii::t('core','Найти')?></button>
                     </span>
-                    <div>Например: Автозапчасти</div>
+                    <? echo CHtml::endForm() ?>
+                    <div> <?=Yii::t('core','Например: Автозапчасти')?></div>
                   </div>
 
                 </div>
 
                 <div class='b_modals text-right'>
-                  <p><a href=""> <?=Yii::t('base','Обратный звонок')?></a></p>
-                  <p><a href=""> <?=Yii::t('base','Уточнить страну')?></a></p>
+                  <p><a href="" data-toggle="modal" data-target="#feedback"> <?=Yii::t('core','Обратный звонок')?></a></p>
+                  <p><a href="" data-toggle="modal" data-target="#region"> <?=Yii::t('core','Уточнить страну')?></a></p>
                 </div>
 
               </div>
@@ -359,88 +373,7 @@
     </div>
     <!-- </modal> -->
 
-    <!-- </modal id='order'> -->
-    <div class="modal fade" id='order'>
-      <div class="modal-dialog b_order">
-
-        <div class="modal-content _bg-gray _border-bottom-dashed">
-
-          <div class="modal-header">
-            <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
-          </div>
-
-          <div class="modal-body">
-            <div class='col-xs-12'>
-              <h4 class='block-lg'>О компании</h4>
-              <p>
-                Если вы не нашли нужную деталь в нашем каталоге. Вы можете заказать её через наш сайт.
-                Для этого введите свои контактные данные и детали, которые вас интересует.
-                Сроки доставки по каждой детали обсуждаются индивидуально.
-              </p>
-            </div>                
-
-            <div class='col-xs-5 center-block'>
-              <form role="form">
-
-                <div class="form-group">
-                  <label for="name">Имя:</label>
-                  <input type="text" class="form-control" id="name">
-                </div>
-
-                <div class="form-group">
-                  <label for="tel">Телефон:</label>
-                  <input type="text" class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <label for="mail">Электронный адрес:</label>
-                  <input type="text" class="form-control" id="mail">
-                </div>
-
-                <div class="form-group">
-                  <label for="mail">Марка и модель автомобиля:</label>
-                  <input type="text" class="form-control" id="mail">
-                </div>                  
-
-                <div class="form-group">
-                  <label for="text">Год выпусaка автомобиля:</label>
-                  <input type="text" class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <label for="text">Объем двигателя автомобиля:</label>
-                  <input type="text" class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <label for="text">Потребляемое топливо:</label>
-                  <input type="text" class="form-control" id="tel">
-                </div>
-
-                <div class="form-group">
-                  <label for="text">VIN-код автомобиля:</label>
-                  <input type="text" class="form-control" id="tel">
-                </div>                                
-
-                <div class="form-group">
-                  <label for="text">Список необходимых деталей:</label>
-                  <input type="text" class="form-control" id="tel">
-                </div>                
-                
-                <div class='form-group text-center'>
-                  <button type="submit" class="btn btn-black">Отправить</button>  
-                </div>
-                
-              </form>  
-            </div>            
-
-          </div>              
-
-        </div>
-
-      </div>
-    </div>
-    <!-- </modal> -->
+    
             
 </body>
 </html>

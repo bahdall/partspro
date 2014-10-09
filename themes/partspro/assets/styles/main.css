@@ -5349,3 +5349,6 @@ button.close {
     padding: 5px 10px; }
   .select-styled .dropdown-menu > li > a:hover, .select-styled .dropdown-menu > li > a:focus {
     background: #FFC300; }
+  .b_header-bottom {
+    overflow: hidden;
+  }

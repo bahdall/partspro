@@ -3,12 +3,6 @@
 <?php $form=$this->beginWidget('CActiveForm',array(
         'action'    => Yii::app()->createUrl('feedback/callback'),
 )); ?>
-
-    <?if($success):?>
-    <p class="bg-success">
-        <?=Yii::t('FeedbackModule.core', 'Спасибо. Ваше сообщение отправлено.')?>
-    </p>
-    <?endif;?>  
   
   <!-- Display errors  -->
   <?php echo $form->errorSummary($model,null,null,array('class' => 'text-danger')); ?>

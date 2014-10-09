@@ -56,4 +56,16 @@ class SWebApplication extends CWebApplication
 			$this->_theme=$this->getThemeManager()->getTheme(Yii::app()->settings->get('core', 'theme'));
 		return $this->_theme;
 	}
+    
+    
+    public function isHome($default_controller = 'index', $default_action = 'index', $default_module = 'store')
+    {
+        $controller = Yii::app()->getController();
+        
+        return $isHome = (
+            ($controller->id === $default_controller) && 
+            ($controller->action->id === $default_action) &&
+            ($controller->module->id === $default_module)
+        ) ? true : false;
+    }
 }

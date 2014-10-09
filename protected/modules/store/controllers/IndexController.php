@@ -16,7 +16,7 @@ class IndexController extends Controller
 		$this->render('index', array(
 			'popular' => $this->getPopular(18),
 			'newest'  => $this->getNewest(4),
-			'news'    => Page::model()->published()->filterByCategory(7)->findAll(array('limit'=>3)),
+			'news'    => Page::model()->published()->filterByCategory(7)->findAll(array('limit'=>2)),
             'fixcars' => Page::model()->published()->filterByCategory(13)->findAll(array('limit'=>3)),
 		));
 	}
