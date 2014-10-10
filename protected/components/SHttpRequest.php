@@ -60,16 +60,21 @@ class SHttpRequest extends CHttpRequest
 	 * @return string
 	 */
 	public function addUrlParam($route, $data, $selectMany=false)
-	{
+	{	   
 		foreach($data as $key=>$val)
 		{
+		    if($val===FALSE)
+            {
+                unset($_GET[$key]);
+                unset($data[$key]);
+                continue;
+            }
 			if(isset($_GET[$key]) && $key !== 'url' && $selectMany === true)
 			{
 				$tempData = explode(';', $_GET[$key]);
 				$data[$key] = implode(';', array_unique(array_merge((array)$data[$key], $tempData)));
 			}
 		}
-
 		return Yii::app()->createUrl($route, CMap::mergeArray($_GET, $data));
 	}
 

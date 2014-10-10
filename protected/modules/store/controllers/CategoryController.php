@@ -71,35 +71,56 @@ class CategoryController extends Controller
         
         $data=array();
         
-        foreach($attributes as $attr)
+        if($_POST)
         {
-            if($attr->type != StoreAttribute::TYPE_NUMBER )
+            foreach($attributes as $attr)
             {
-                if(Yii::app()->request->getPost($attr->name))
-                    $data[$attr->name] = Yii::app()->request->getPost($attr->name);
-            }
-            else
-            {
-                if(Yii::app()->request->getPost("min_".$attr->name))
-                    $data["min_".$attr->name] = (int)Yii::app()->request->getPost("min_".$attr->name);
-                
-                if(Yii::app()->request->getPost("max_".$attr->name))
-                    $data["max_".$attr->name] = (int)Yii::app()->request->getPost("max_".$attr->name);                
+                if($attr->type != StoreAttribute::TYPE_NUMBER )
+                {
+                    if(Yii::app()->request->getPost($attr->name))
+                        $data[$attr->name] = Yii::app()->request->getPost($attr->name);
+                    else
+                        $data[$attr->name]=false;  
+                }
+                else
+                {
+                    if(Yii::app()->request->getPost("min_".$attr->name,false))
+                        $data["min_".$attr->name] = (int)Yii::app()->request->getPost("min_".$attr->name);
+                    else
+                        $data["min_".$attr->name]=false;          
+                    
+                    if(Yii::app()->request->getPost("max_".$attr->name,false))
+                        $data["max_".$attr->name] = (int)Yii::app()->request->getPost("max_".$attr->name);   
+                    else
+                        $data["max_".$attr->name]=false;    
+                }
             }
         }
-
-		if(Yii::app()->request->getPost('min_price') || Yii::app()->request->getPost('max_price'))
-		{
-			
-			if(Yii::app()->request->getPost('min_price'))
-				$data['min_price']=(int)Yii::app()->request->getPost('min_price');
-			if(Yii::app()->request->getPost('max_price'))
-				$data['max_price']=(int)Yii::app()->request->getPost('max_price');
-
-		}
         
+        if($_POST)
+        {
+    		if(Yii::app()->request->getPost('min_price') || Yii::app()->request->getPost('max_price'))
+    		{
+    			
+    			if(Yii::app()->request->getPost('min_price'))
+    				$data['min_price']=(int)Yii::app()->request->getPost('min_price');
+                else
+                    $data['min_price']=false;
+    			if(Yii::app()->request->getPost('max_price'))
+    				$data['max_price']=(int)Yii::app()->request->getPost('max_price');  
+                else
+                    $data['max_price']=false;             
+    
+    		}
+            else
+            {
+                $data['min_price']=false; 
+                $data['max_price']=false; 
+            }
+        }
         if($data)
         {
+            //echo Yii::app()->request->addUrlParam('/store/category/view', $data);die;
             if($this->action->id==='search')
 				$this->redirect(Yii::app()->request->addUrlParam('/store/category/search', $data));
 			else
@@ -209,6 +230,15 @@ class CategoryController extends Controller
             $this->query->getDbCriteria()->mergeWith($criteria);
         }
         
+        if( key_exists('wear',$this->provider->sort->getDirections()))
+        {
+            /** Соединение с атрибутом Year_create */
+            $criteria = new CDbCriteria;
+            $criteria->join = 'INNER JOIN StoreProductAttributeEAV pattrs ON pattrs.entity = t.id';
+            $criteria->condition = 'pattrs.attribute = "uroven_sostoyaniya"';
+            $this->query->getDbCriteria()->mergeWith($criteria);
+        }
+        
         
         
 		if($partial)
@@ -233,10 +263,10 @@ class CategoryController extends Controller
 	public function getActiveAttributes()
 	{
 		$data = array();
-        
 		foreach(array_keys($_GET) as $key)
 		{
-		    
+		    $maxKey = "";
+            $minKey = "";
             $maxKey = str_replace("max_",'',$key);
             $minKey = str_replace("min_",'',$key);
             
@@ -257,7 +287,7 @@ class CategoryController extends Controller
 				else
 					$data[$minKey]['values']['min'] = array($_GET[$key]);
             
-                $data[$minKey]['type'] = $this->eavAttributes[$maxKey]->type;
+                $data[$minKey]['type'] = $this->eavAttributes[$minKey]->type;
             }
             elseif(array_key_exists($maxKey, $this->eavAttributes))
             {
@@ -270,6 +300,7 @@ class CategoryController extends Controller
             }
             
 		}
+        
 		return $data;
 	}
 

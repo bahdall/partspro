@@ -65,7 +65,8 @@ class SFilterRenderer extends CWidget
 
 	/**
 	 * Get active/applied filters to make easier to cancel them.
-	 */
+	 */    
+    
 	public function getActiveFilters()
 	{
 		// Render links to cancel applied filters like prices, manufacturers, attributes.
@@ -102,6 +103,7 @@ class SFilterRenderer extends CWidget
 
 		// Process eav attributes
 		$activeAttributes = $this->getOwner()->activeAttributes;
+        
 		if(!empty($activeAttributes))
 		{
 			foreach($activeAttributes as $attributeName=>$value)
@@ -111,7 +113,7 @@ class SFilterRenderer extends CWidget
 					$attribute = $this->getOwner()->eavAttributes[$attributeName];
 					foreach($attribute->options as $option)
 					{
-						if(isset($activeAttributes[$attribute->name]) && in_array($option->id, $activeAttributes[$attribute->name]))
+						if(isset($activeAttributes[$attribute->name]) && in_array($option->id, $activeAttributes[$attribute->name]['values']))
 						{
 							array_push($menuItems, array(
 								'label'=> $option->value,

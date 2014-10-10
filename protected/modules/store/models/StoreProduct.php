@@ -362,7 +362,9 @@ class StoreProduct extends BaseModel
 			$criteria->compare('categorization.category', $params['category']);
 		}
         
+        $sort = StoreProduct::getCSort();
         
+        //echo $sort->getDirection();die;
         //$criteria->join = 'INNER JOIN StoreProductAttributeEAV pattrs ON pattrs.entity = t.id';
         //$criteria->condition = 'pattrs.attribute = "year_create"';
         
@@ -373,7 +375,7 @@ class StoreProduct extends BaseModel
 
 		return new CActiveDataProvider($this, array(
 			'criteria'   => $criteria,
-			'sort'       => StoreProduct::getCSort(),
+			'sort'       => $sort,
 		));
 	}
 
@@ -836,6 +838,10 @@ class StoreProduct extends BaseModel
             'year' => array(
 				'asc'   => 'pattrs.value',
 				'desc'  => 'pattrs.value DESC',
+			),
+            'wear' => array(
+				'asc'   => 'pattrs.value DESC',
+				'desc'  => 'pattrs.value',
 			),
 		);
         

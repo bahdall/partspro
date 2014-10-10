@@ -35,6 +35,11 @@ class Controller extends RController
 	 * @var string
 	 */
 	private $_pageTitle;
+    
+    /**
+	 * @var string
+	 */
+	private $_pageH;
 
 	/**
 	 * Set layout and view
@@ -80,5 +85,17 @@ class Controller extends RController
 		if(!empty($this->_pageTitle))
 			$title=$this->_pageTitle.=' / '.$title;
 		return $title;
+	}
+    
+    
+    public function setPageH($title)
+	{
+		$this->_pageH=$title;
+	}
+
+
+	public function getPageH()
+	{
+		return $this->_pageH;
 	}
 }

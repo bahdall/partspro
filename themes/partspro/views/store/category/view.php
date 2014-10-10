@@ -10,6 +10,7 @@
 
 // Set meta tags
 $this->pageTitle = ($this->model->meta_title) ? $this->model->meta_title : $this->model->name;
+$this->pageH = $this->model->name;
 $this->pageKeywords = $this->model->meta_keywords;
 $this->pageDescription = $this->model->meta_description;
 
@@ -20,74 +21,117 @@ foreach($ancestors as $c)
 	$this->breadcrumbs[$c->name] = $c->getViewUrl();
 
 $this->breadcrumbs[] = $this->model->name;
+
+
+$limits=array(Yii::app()->request->removeUrlParam('/store/category/view', 'per_page')  => $this->allowedPageLimit[0]);
+array_shift($this->allowedPageLimit);
+foreach($this->allowedPageLimit as $l)
+	$limits[Yii::app()->request->addUrlParam('/store/category/view', array('per_page'=> $l))]=$l;
 ?>
 
-<div class="catalog_with_sidebar">
-	<div id="filter">
-		<?php
-			$this->widget('application.modules.store.widgets.filter.SFilterRenderer', array(
-				'model'=>$this->model,
-				'attributes'=>$this->eavAttributes,
-                'view' => 'partsHome',
-			));
-		?>
-	</div>
+<!-- catalog_with_sidebar end -->
 
-	<div class="products_list <?php if($itemView==='_product_wide') echo 'wide'; ?>">
-		<?php
-			$this->widget('zii.widgets.CBreadcrumbs', array(
-				'links'=>$this->breadcrumbs,
-			));
-		?>
 
-		<h1><?php echo CHtml::encode($this->model->name); ?></h1>
+<div class='b_filter-cont _border-bottom-dashed _bg-gray'>
+              <div class='row'>
+              
+                <div class='col-xs-3 b_filter'>
+                    <?php
+            			$this->widget('application.modules.store.widgets.filter.SFilterRenderer', array(
+            				'model'=>$this->model,
+            				'attributes'=>$this->eavAttributes,
+                            'view' => 'partsCategory',
+            			));
+            		?>
+                </div>   
 
-		<?php if(!empty($this->model->description)): ?>
-			<div>
-				<?php echo $this->model->description ?>
-			</div>
-		<?php endif ?>
+                <div class='col-xs-9 b_sort-cont'>
+                  <div class='clearfix'>
 
-		<div class="actions">
-			<?php
-				echo Yii::t('StoreModule.core', 'Сортировать:');
-				echo CHtml::dropDownList('sorter', Yii::app()->request->url, array(
-					Yii::app()->request->removeUrlParam('/store/category/view', 'sort')  => '---',
-					Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'price'))  => Yii::t('StoreModule.core', 'Сначала дешевые'),
-					Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'price.desc')) => Yii::t('StoreModule.core', 'Сначала дорогие'),
-				), array('onchange'=>'applyCategorySorter(this)'));
-			?>
+                    <ul class='list-inline b_sort'>
 
-			<?php
-				$limits=array(Yii::app()->request->removeUrlParam('/store/category/view', 'per_page')  => $this->allowedPageLimit[0]);
-				array_shift($this->allowedPageLimit);
-				foreach($this->allowedPageLimit as $l)
-					$limits[Yii::app()->request->addUrlParam('/store/category/view', array('per_page'=> $l))]=$l;
+                      <li>Сортировать по:</li>
+                      <li>
+                        <?if(Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'price.desc')) == Yii::app()->request->url):?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'price'))?>">Цена:<span class="caret"></span></a>
+                        <?elseif(Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'price')) == Yii::app()->request->url):?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'price.desc'))?>">Цена:<span class="caret reverse"></span></a>
+                        <?else:?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'price'))?>">Цена:<span class="caret"></span><span class="caret reverse"></a>                        
+                        <?endif;?>
+                      </li>
+                      <li>
+                        <?if(Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'year.desc')) == Yii::app()->request->url):?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'year'))?>">Год:<span class="caret"></span></a>
+                        <?elseif(Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'year')) == Yii::app()->request->url):?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'year.desc'))?>">Год:<span class="caret reverse"></span></a>
+                        <?else:?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'year'))?>">Год:<span class="caret"></span><span class="caret reverse"></a>                        
+                        <?endif;?>                      
+                      </li>
+                      <li>
+                        <?if(Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'wear.desc')) == Yii::app()->request->url):?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'wear'))?>">Износ:<span class="caret"></span></a>
+                        <?elseif(Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'wear')) == Yii::app()->request->url):?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'wear.desc'))?>">Износ:<span class="caret reverse"></span></a>
+                        <?else:?>
+                            <a href="<?=Yii::app()->request->addUrlParam('/store/category/view', array('sort'=>'wear'))?>">Износ:<span class="caret"></span><span class="caret reverse"></a>                        
+                        <?endif;?> 
+                      </li>
 
-				echo Yii::t('StoreModule.core', 'На странице:');
-				echo CHtml::dropDownList('per_page', Yii::app()->request->url, $limits, array('onchange'=>'applyCategorySorter(this)'));
-			?>
+                    </ul>
 
-			<div class="buttons">
-				<div class="silver_clean silver_button <?php if($itemView==='_product_wide') echo 'active'; ?>">
-					<a <?php if($itemView==='_product_wide') echo 'class="active"'; ?> href="<?php echo Yii::app()->request->addUrlParam('/store/category/view',  array('view'=>'wide')) ?>"><span class="icon lines"></span>Списком</a>
-				</div>
-				<div class="silver_clean silver_button <?php if($itemView==='_product') echo 'active'; ?>">
-					<a <?php if($itemView==='_product') echo 'class="active"'; ?> href="<?php echo Yii::app()->request->removeUrlParam('/store/category/view', 'view') ?>"><span class="icon dots"></span>Картинками</a>
-				</div>
-			</div>
-		</div>
+                    <ul class='list-inline b_quantity'>
 
-		<?php
-			$this->widget('zii.widgets.CListView', array(
-				'dataProvider'=>$provider,
-				'ajaxUpdate'=>false,
-				'template'=>'{items} {pager} {summary}',
-				'itemView'=>$itemView,
-				'sortableAttributes'=>array(
-					'name', 'price'
-				),
-			));
-		?>
-	</div>
-</div><!-- catalog_with_sidebar end -->
+                      <li><span>Показывать по:</span></li>
+                      <?foreach($limits as $href => $limit):?>
+                      <li><a href="<?=$href?>" class='<?=$href == Yii::app()->request->url ? "active" : ""?>'><?=$limit?></a></li>
+                      <?endforeach;?>                                   
+                    </ul>
+
+                  </div>
+
+                  <hr class='divider'> 
+
+                  <?php
+            			$this->widget('zii.widgets.CListView', array(
+            				'dataProvider'=>$provider,
+            				'ajaxUpdate'=>false,
+            				'template'=>'{items}',
+            				'itemView'=>$itemView,
+            				'sortableAttributes'=>array(
+            					'name', 'price'
+            				),
+                            'htmlOptions' => array('class'=>'clearfix'),
+            			));
+            		?>
+
+                </div>                
+
+              </div>
+              
+              <div class='row'>
+
+                <div class='text-center b_pagination'>
+                  <?php
+                        $pages = $provider->getPagination();
+                        $this->widget('CLinkPager', array(
+                            'pages' => $pages,
+                            'htmlOptions' => array(
+                                'class' => 'list-inline',
+                            ),
+                            'firstPageLabel'    => '',
+                            'lastPageLabel'    => '',
+                            'footer'    => '',
+                            'header'    => '',
+                            'prevPageLabel' => '<span href="#" class="btn btn-left"></span>',
+                            'nextPageLabel' => '<span href="#" class="btn btn-right"></span>',
+                            'selectedPageCssClass'  => 'active',
+                        )); 
+            		?>
+                </div>
+                
+              </div>
+
+            </div>
+            <div class='_shadow-short block-xxxlg'></div>

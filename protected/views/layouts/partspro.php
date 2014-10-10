@@ -208,7 +208,27 @@
                 <?php echo $content; ?>
             <?else:?>
                 <div class="container-fixed">
-                <?php echo $content; ?>
+                    <div class='row'>
+                      <?php
+            			$this->widget('zii.widgets.CBreadcrumbs', array(
+            				'links'=>$this->breadcrumbs,
+                            'tagName' => 'ol',
+                            'separator' => '',
+                            'inactiveLinkTemplate' => '<li class="active">{label}</li>',
+                            'activeLinkTemplate' => '<li><a href="{url}">{label}</a></li>',
+                            'htmlOptions' => array('class' => 'breadcrumb'),
+            			));
+                	  ?>
+                    </div>
+                    
+                    <div class='row block-sm'>
+                      <div class='col-xs-12'> 
+        
+                        <h4><strong><?=$this->pageH?></strong></h4>
+        
+                      </div>
+                    </div>
+                    <?php echo $content; ?>
                 </div>
             <?endif;?>
         </div>

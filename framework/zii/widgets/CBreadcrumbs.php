@@ -89,7 +89,7 @@ class CBreadcrumbs extends CWidget
 	 * label while "{url}" will be replaced by the URL of the item.
 	 * @since 1.1.11
 	 */
-	public $activeLinkTemplate='<a href="{url}">{label}</a>';
+	public $activeLinkTemplate='<li><a href="{url}">{label}</a></li>';
 	/**
 	 * @var string String, specifies how each inactive item is rendered. Defaults to
 	 * "<span>{label}</span>", where "{label}" will be replaced by the corresponding item label.
@@ -109,11 +109,15 @@ class CBreadcrumbs extends CWidget
 	{
 		if(empty($this->links))
 			return;
-
+            
 		echo CHtml::openTag($this->tagName,$this->htmlOptions)."\n";
 		$links=array();
+        
 		if($this->homeLink===null)
-			$links[]=CHtml::link(Yii::t('zii','Home'),Yii::app()->homeUrl);
+			$links[]=strtr($this->activeLinkTemplate,array(
+					'{url}'=>CHtml::normalizeUrl(Yii::app()->homeUrl),
+					'{label}'=>$this->encodeLabel ? CHtml::encode(Yii::t('zii','Home')) : Yii::t('zii','Home'),
+				));
 		elseif($this->homeLink!==false)
 			$links[]=$this->homeLink;
 		foreach($this->links as $label=>$url)
@@ -126,6 +130,7 @@ class CBreadcrumbs extends CWidget
 			else
 				$links[]=str_replace('{label}',$this->encodeLabel ? CHtml::encode($url) : $url,$this->inactiveLinkTemplate);
 		}
+        
 		echo implode($this->separator,$links);
 		echo CHtml::closeTag($this->tagName);
 	}

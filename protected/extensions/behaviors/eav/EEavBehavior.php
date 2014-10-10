@@ -550,6 +550,7 @@ class EEavBehavior extends CActiveRecordBehavior {
 				$attribute = $conn->quoteValue($attribute);
                 $minValues = $values['min'];
                 $maxValues = $values['max'];
+                
 				if (is_array($minValues)) $minValues = $values['min'][0];
                 if (is_array($maxValues)) $maxValues = $values['max'][0];
 
