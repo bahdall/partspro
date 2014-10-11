@@ -134,4 +134,4 @@ foreach($this->allowedPageLimit as $l)
               </div>
 
             </div>
-            <div class='_shadow-short block-xxxlg'></div>
+            
