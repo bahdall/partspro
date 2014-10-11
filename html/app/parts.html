@@ -251,132 +251,465 @@
             <div class='row block'>
 
               <div class='col-xs-12'>                   
-                <h4><strong>Выкуп авто</strong></h4>
+                <h3><strong>Каталог автозапчастей и дисков</strong></h3>
               </div>
-            </div>
+            </div>                    
             
-            <div class='clearfix'>
-              
-                <div class='col-xs-6'>
+            <div class="row b_tab b_cabinet-tab _bg-gray _border-bottom-dashed">
+               
+              <ul id="myTab" class="nav nav-tabs" role="tablist">
+
+                <li class="active">
+                  <a href="#autoparts" role="tab" data-toggle="tab" class="btn">Для легковых</a>
+                  <span class="round-caret">
+                    <span class="caret"></span>
+                  </span>
+                </li>
+
+                <li>
+                  <a href="#light" role="tab" data-toggle="tab" class="btn">Для грузовых</a>
+                  <span class="round-caret">
+                    <span class="caret"></span>
+                  </span>
+                </li>
+
+                <li>
+                  <a href="#heavy" role="tab" data-toggle="tab" class="btn">Диски</a>
+                  <span class="round-caret">
+                    <span class="caret"></span>
+                  </span>
+                </li>
+
+                <li>
+                  <a href="#for-parse" role="tab" data-toggle="tab" class="btn">Заказать деталь</a>
+                  <span class="round-caret">
+                    <span class="caret"></span>
+                  </span>
+                </li>
+
+              </ul>
+
+              <div id="cabinet-tab-content" class="tab-content">
+
+                <div class="tab-pane fade active in" id="autoparts">
                   
-                  <div class='b_order-car _border-bottom-dashed _bg-gray block'>
-                    <h4 class='block'>Форма оценки авто для выкупа</h4>
+                  <h4><strong>Индивидуальный подбор</strong></h4>
+                  <p class='block'>Для подбора дисков выберите диаметр диска.</p>
 
-                    <div class='b_register'>
-                      <form role="form">
+                  <form name="filter">
+                    
+                    <!-- <cabinet-row> -->
+                    <div class='row block-sm b_cabinet-tab-row'>
 
+                      <div class='col-xs-4'>
+                          
                         <div class="form-group">
-                          <label for="name"><span class='required'>*</span>Имя:</label>
-                          <input type="text" class="form-control" id="name">                          
-                        </div>                        
 
-                        <div class="form-group">
-                          <label for="mail"><span class='required'>*</span>Телефон:</label>
-                          <input type="text" class="form-control" id="mail">
-                        </div>                  
-
-                        <div class="form-group">
-                          <label for="text">Электронная почта:</label>
-                          <input type="text" class="form-control" id="tel">
-                        </div>
-
-                        <div class="form-group">
-                          <label for="text"><span class='required'>*</span>Марка авто:</label>
-                          <select name="select" class='select-styled form-control'>
-                            <option value="0"></option>
-                            <option value="uz">Uzbekistan</option>
-                            <option value="uz">Kazakhstan</option>
-                            <option value="uz">Tadjikistan</option>
+                          <label for="exampleInputEmail1">Марка авто:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
                           </select>
+                            
                         </div>
 
-                        <div class="form-group">
-                          <label for="text"><span class='required'>*</span>Модель авто:</label>
-                          <input type="text" class="form-control" id="tel">
-                        </div>
+                      </div>
 
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 1</div>
+                      
+                      <div class='col-xs-4'>
+                          
                         <div class="form-group">
-                          <label for="text"><span class='required'>*</span>Год выпуска:</label>
-                          <select name="select" class='select-styled form-control'>
-                            <option value="0"></option>
-                            <option value="uz">1994</option>
-                            <option value="uz">1995</option>
-                            <option value="uz">1996</option>
+
+                          <label for="exampleInputEmail1">Модель авто:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
                           </select>
+                            
                         </div>
 
-                        <div class="form-group has-info">
-                          <label for="text"><span class='required'>*</span>Объем двигателя:</label>
-                          <input type="password" class="form-control" id="tel">
-                          <div class='notification'>
-                            См<sup>3</sup>
-                          </div>
-                        </div> 
+                      </div>
 
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 2</div>
+
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    <!-- <cabinet-row> -->
+                    <div class='row block-sm b_cabinet-tab-row'>
+
+                      <div class='col-xs-4'>
+                          
                         <div class="form-group">
-                          <label for="text"><span class='required'>*</span>КПП:</label>
-                          <select name="select" class='select-styled form-control'>
-                            <option value="0"></option>
-                            <option value="uz">1994</option>
-                            <option value="uz">1995</option>
-                            <option value="uz">1996</option>
+
+                          <label for="exampleInputEmail1">Раздел:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
                           </select>
-                        </div>  
-
-                        <div class="form-group">
-                          <label for="text">Дополнительная информация:</label>
-                          <textarea name="text" id="text" cols="10" rows="5" class='form-control'></textarea>
-                        </div> 
-
-                        <div class="form-group block">
-                          <label for="filee">Загрузить фото: <span class='link'>Выбрать</span></label>
-                          <input type="file" style='display: none' id='filee'>
-                        </div>                
-                        
-                        <div class='form-group text-center'>
-                          <button type="submit" class="btn btn-black btn-wide">Отправить заявку</button>  
+                            
                         </div>
-                        
-                      </form> 
-                    </div>
-                  </div> 
-                  <div class='_shadow-ex-short block'></div>
 
-                </div>                               
+                      </div>
 
-                <div class='col-xs-6 b_form-text'>
-                   <p>
-                     Если вы хотите быстро продать свой автомобиль, то немедленно звоните нам. Мы осуществляем:
-                   </p>
-                   <p>
-                     <ul>
-                       <li>выкуп битых авто после ДТП;</li>
-                       <li>и легковых автомобилей с пробегом в хорошем состоянии;</li>
-                       <li>выкуп грузовых автомобилей (иностранного пройзводства).</li>
-                     </ul>
-                   </p>
-                   <h4><strong>Номер телефона для связи: </strong></h4>
-                   <p>
-                     +7 (123) 456-78-90; +7 (123) 456-78-90 <br>
-                     Фото машин можно отправить на e-mail: example@example.ru  
-                   </p>
-                   <h4><strong>Оценка автомобилей</strong></h4>
-                   <p>
-                     Вы можете выслать фотографии машины для оценки, либо вызвать оценщика в удобное для вас место и время. Исходя из состояния автомобиля оценщик предлагает вам цену за автомобиль. Мы всегда даем лучшие цены на машину, а не стараемся снизить ее стоимость. Нам нужны ваши автомобили, а не ваши деньги!
-                   </p>
-                   <h4><strong>Документы, необходимые для выкупа авто</strong></h4>
-                   <p>Процесс выкупа автомобиля пройдет еще быстрее, если вы подготовите документы:</p>
-                   <p>
-                     <ul>
-                       <li>ПТС;</li>
-                       <li>Свидетельство о регистрации ТС;</li>
-                       <li>Ваш паспорт;</li>
-                       <li>Генеральная доверенность (если Вы не собственник)</li>
-                     </ul>
-                   </p>
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 3</div>
+                      
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Подраздел:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 4</div>
+
+                    </div>  
+                    <!-- </cabinet-row> -->                                      
+                    <!-- <cabinet-row> -->
+                    <div class='row block b_cabinet-tab-row'>
+                      <div class='col-xs-12'>
+                        <button class='btn btn-black'>Добавить</button>
+                      </div>
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    
+                  </form> 
+
                 </div>
-                
-          </div>
+                  
+                <div class="tab-pane fade" id="light">
+                   
+                  <h4><strong>Индивидуальный подбор</strong></h4>
+                  <p class='block'>Для подбора дисков выберите диаметр диска.</p>
+
+                  <form name="filter">
+                    
+                    <!-- <cabinet-row> -->
+                    <div class='row block-sm b_cabinet-tab-row'>
+
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Марка авто:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 1</div>
+                      
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Модель авто:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 2</div>
+
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    <!-- <cabinet-row> -->
+                    <div class='row block-sm b_cabinet-tab-row'>
+
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Раздел:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 3</div>
+                      
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Подраздел:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 4</div>
+
+                    </div>  
+                    <!-- </cabinet-row> -->                                      
+                    <!-- <cabinet-row> -->
+                    <div class='row block b_cabinet-tab-row'>
+                      <div class='col-xs-12'>
+                        <button class='btn btn-black'>Добавить</button>
+                      </div>
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    
+                  </form> 
+
+                </div>
+
+                <div class="tab-pane fade" id="heavy">
+                   
+                  <h4><strong>Индивидуальный подбор</strong></h4>
+                  <p class='block'>Для подбора дисков выберите диаметр диска.</p>
+
+                  <form name="filter">
+                    
+                    <!-- <cabinet-row> -->
+                    <div class='row block-sm b_cabinet-tab-row'>
+
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Марка авто:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 1</div>
+                      
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Модель авто:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 2</div>
+
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    <!-- <cabinet-row> -->
+                    <div class='row block-sm b_cabinet-tab-row'>
+
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Раздел:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 3</div>
+                      
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Подраздел:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 4</div>
+
+                    </div>  
+                    <!-- </cabinet-row> -->                                      
+                    <!-- <cabinet-row> -->
+                    <div class='row block b_cabinet-tab-row'>
+                      <div class='col-xs-12'>
+                        <button class='btn btn-black'>Добавить</button>
+                      </div>
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    
+                  </form> 
+
+                </div>
+
+                <div class="tab-pane fade" id="for-parse">
+                  
+                  <h4><strong>Индивидуальный подбор</strong></h4>
+                  <p class='block'>Для подбора дисков выберите диаметр диска.</p>
+
+                  <form name="filter">
+                    
+                    <!-- <cabinet-row> -->
+                    <div class='row block-sm b_cabinet-tab-row'>
+
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Марка авто:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 1</div>
+                      
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Модель авто:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 2</div>
+
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    <!-- <cabinet-row> -->
+                    <div class='row block-sm b_cabinet-tab-row'>
+
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Раздел:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 3</div>
+                      
+                      <div class='col-xs-4'>
+                          
+                        <div class="form-group">
+
+                          <label for="exampleInputEmail1">Подраздел:</label>
+                          <select name="" class="select-styled form-control">
+                            <option value="">Выберите тип кузова</option>
+                            <option value="">BMW</option>
+                            <option value="">Opel</option>
+                            <option value="">Mercedes-Benz</option>
+                          </select>
+                            
+                        </div>
+
+                      </div>
+
+                      <div class='col-xs-1 i_cabinet-text'>Шаг 4</div>
+
+                    </div>  
+                    <!-- </cabinet-row> -->                  
+                    <!-- <cabinet-row> -->
+                    <div class='row block b_cabinet-tab-row'>                      
+                      <div class='col-xs-4'>
+                        <input type="file" id='file-upload'>
+                        <label for="file-upload"><button class="btn btn-yellow" type="button">Обзор</button></label>                         
+                      </div>                       
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    <!-- <cabinet-row> -->
+                    <div class='row block b_cabinet-tab-row'>
+                      <div class='col-xs-12'>
+                        <button class='btn btn-black'>Добавить</button>
+                      </div>
+                    </div>  
+                    <!-- </cabinet-row> -->
+                    
+                  </form> 
+
+                </div>
+
+              </div>                                  
+
+            </div>
+
+            <div class="_shadow-short block"></div>
+
+          </div>  
         </div>
 
         <div class='container-fluid l_footer _bg-gray'>
@@ -636,6 +969,29 @@
                   </form>  
                 </div>            
 
+              </div>              
+
+            </div>
+
+          </div>
+        </div>
+        <!-- </modal> -->
+
+         <!-- </modal id='success'> -->
+        <div class="modal fade" id='success'>
+          <div class="modal-dialog modal-sm">
+
+            <div class="modal-content _border-bottom-dashed _bg-gray">
+
+              <div class="modal-header block">
+                <a href="javascript:;" class="close" data-dismiss="modal"><img src="images/icon_close.png" alt=""></a>
+              </div>
+
+              <div class="modal-body">
+                <div class='text-center block'>
+                  <p class='block-sm'>Пароль изменен!</p>
+                  <img src="images/icon_ok.png" alt="Ok">
+                </div>
               </div>              
 
             </div>

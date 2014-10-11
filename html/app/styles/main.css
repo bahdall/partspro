@@ -5111,7 +5111,7 @@ button.close {
   width: 290px;
   margin: 37px auto 48px; }
   .b_search .form-control {
-    background: #fff url(../images/icon_search.png) 5px 7px no-repeat;
+    background: #F4F4F4 url(../images/icon_search.png) 5px 7px no-repeat;
     padding-left: 30px;
     padding-right: 70px; }
   .b_search .btn {
@@ -5640,3 +5640,14 @@ button.close {
   padding: 20px 50px; }
   .b_order-car .b_register {
     padding: 0px 30px; }
+
+.b_form-text p {
+  margin-bottom: 20px; }
+.b_form-text h4 {
+  margin-bottom: 25px; }
+.b_form-text ul {
+  margin: 0;
+  padding: 0; }
+  .b_form-text ul li {
+    list-style-position: inside;
+    margin-bottom: 10px; }

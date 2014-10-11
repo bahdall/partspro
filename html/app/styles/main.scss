@@ -245,7 +245,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	width: 290px;
 	margin: 37px auto 48px;   	
 	.form-control {
-		background: #fff url(../images/icon_search.png) 5px 7px no-repeat;
+		background: #F4F4F4 url(../images/icon_search.png) 5px 7px no-repeat;
 		padding-left: 30px;
 		padding-right: 70px;
 	}
@@ -899,4 +899,19 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 		padding: 0px 30px;
 	}
 }
-             
+.b_form-text {
+	p {
+		margin-bottom: 20px;
+	}
+	h4 {
+		margin-bottom: 25px;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style-position: inside;
+			margin-bottom: 10px;
+		}		
+	}
+}          
