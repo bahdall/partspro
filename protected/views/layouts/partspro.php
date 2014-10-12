@@ -221,7 +221,7 @@
             			));
                 	  ?>
                     </div>
-                    
+                    <?if($this->pageH):?>
                     <div class='row block-sm'>
                       <div class='col-xs-12'> 
         
@@ -229,6 +229,7 @@
         
                       </div>
                     </div>
+                    <?endif;?>
                     <?php echo $content; ?>
                     <div class="_shadow-short block-xxxlg"></div>
                 </div>

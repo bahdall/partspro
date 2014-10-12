@@ -9,26 +9,60 @@
 $this->pageTitle = ($model->meta_title) ? $model->meta_title : $model->name;
 $this->pageKeywords = $model->meta_keywords;
 $this->pageDescription = $model->meta_description;
+
+$catTree = new PageCategoryTree();
+$catTree = $catTree->buildTree();
+foreach($catTree as $cat)
+{
+    if($cat->id == $model->id)break;
+    $this->breadcrumbs[$cat->name] = $cat->getViewUrl();
+}
+    
+$this->breadcrumbs[] = $model->name;
 ?>
+<div class='row block-sm'>
+  <div class='col-xs-12 block-xxlg'> 
 
-<h1 class="has_background"><?php echo $model->name ?></h1>
-<div class="pages-list">
-    <?php if (sizeof($pages) > 0): ?>
-        <?php foreach ($pages as $page): ?>
-            <div class="title">
-                <?php echo CHtml::link($page->title, array('/pages/pages/view', 'url'=>$page->url)); ?>
-            </div>
-            <div class="description">
-                <?php echo $page->short_description; ?>
-            </div>
-        <?php endforeach ?>
-    <?php else: ?>
-        <?php echo Yii::t('PagesModule.core', 'В категории нет страниц.') ?>
-    <?php endif ?>
+    <h4><strong><?php echo $model->name ?></strong></h4>
+
+  </div>
 </div>
 
-<div>
-    <?php $this->widget('CLinkPager', array(
-        'pages' => $pagination
-    )) ?>
+<div class='col-xs-12'>
+<?php if (sizeof($pages) > 0): ?>
+    <?php foreach ($pages as $page): ?>
+        <div class="i_news">
+          <img src="<?=$page->getImage('132x132','adaptiveResize')?>">
+          <div class="b_news-text">
+            <span class="bg-yellow"><?php echo date("d.m.Y",strtotime($page->created)); ?></span><br>
+            <h5>
+              <?php echo CHtml::link($page->title, array('/pages/pages/view', 'url'=>$page->url),array('class'=>'block-sm')); ?>
+            </h5>
+            <p><?php echo $page->short_description; ?></p>
+          </div>
+        </div>
+    <?php endforeach ?>
+<?php else: ?>
+    <?php echo Yii::t('PagesModule.core', 'В категории нет страниц.') ?>
+<?php endif ?>
+                
+
+<div class="text-center b_pagination">
+  <?php $this->widget('CLinkPager', array(
+        'pages' => $pagination,
+        'htmlOptions' => array(
+            'class' => 'list-inline',
+        ),
+        'firstPageLabel'    => '',
+        'lastPageLabel'    => '',
+        'footer'    => '',
+        'header'    => '',
+        'prevPageLabel' => '<span href="#" class="btn btn-left"></span>',
+        'nextPageLabel' => '<span href="#" class="btn btn-right"></span>',
+        'selectedPageCssClass'  => 'active',
+    )); ?>
+
 </div>
+
+</div>
+

@@ -14,7 +14,7 @@ class PagesController extends Controller
 	{
 		// Remove "pages/" from beginning
 		$url = substr(Yii::app()->request->getPathInfo(), 6);
-
+        $url = $_GET['url'];
 		$model = PageCategory::model()
 			->withFullUrl($url)
 			->find();
