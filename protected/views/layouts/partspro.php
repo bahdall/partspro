@@ -52,7 +52,6 @@
     <script src="<?=$assetsPath?>bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
     <script src="<?=$assetsPath?>bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
     <script src="<?=$assetsPath?>bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="<?=$assetsPath?>bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
     <script src="<?=$assetsPath?>bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
     <script src="<?=$assetsPath?>bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
     <script src="<?=$assetsPath?>bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
@@ -179,10 +178,10 @@
                     $this->widget('zii.widgets.CMenu', array(
                         'items'=>array(
                         	array('label'=>Yii::t('core', 'О компании'), 'url'=>array('/pages/pages/view', 'url'=>'about')),
-                        	array('label'=>Yii::t('core', 'Автозапчасти'), 'url'=>array('/pages/pages/view', 'url'=>'how-to-create-order')),
+                        	array('label'=>Yii::t('core', 'Автозапчасти'), 'url'=>array('/avto-parts')),
                         	array('label'=>Yii::t('core', 'Все услуги'), 'url'=>array('/pages/pages/view', 'url'=>'services')),
                         	array('label'=>Yii::t('core', 'Новости'), 'url'=>array('/pages/pages/list', 'url'=>'news')),
-                        	array('label'=>Yii::t('core', 'Контакты'), 'url'=>array('/feedback/default/index')),
+                        	array('label'=>Yii::t('core', 'Контакты'), 'url'=>array('/pages/pages/view', 'url'=>'contacts')),
                             array('label'=>Yii::t('core', 'Вакансии'), 'url'=>array('/pages/pages/view', 'url'=>'vakansii')),
                         ),
                         'htmlOptions' => array('class' => 'list-inline'),
@@ -244,12 +243,12 @@
                 <?php
                 $this->widget('zii.widgets.CMenu', array(
                     'items'=>array(
-                    	array('label'=>Yii::t('core', 'О компании'), 'url'=>array('/pages/pages/view', 'url'=>'help')),
-                    	array('label'=>Yii::t('core', 'Автозапчасти'), 'url'=>array('/pages/pages/view', 'url'=>'how-to-create-order')),
-                    	array('label'=>Yii::t('core', 'Все услуги'), 'url'=>array('/pages/pages/view', 'url'=>'garantiya')),
-                    	array('label'=>Yii::t('core', 'Новости'), 'url'=>array('/pages/pages/view', 'url'=>'dostavka-i-oplata')),
-                    	array('label'=>Yii::t('core', 'Контакты'), 'url'=>array('/feedback/default/index')),
-                        array('label'=>Yii::t('core', 'Вакансии'), 'url'=>array('/feedback/default/index')),
+                    	array('label'=>Yii::t('core', 'О компании'), 'url'=>array('/pages/pages/view', 'url'=>'about')),
+                    	array('label'=>Yii::t('core', 'Автозапчасти'), 'url'=>array('/avto-parts')),
+                    	array('label'=>Yii::t('core', 'Все услуги'), 'url'=>array('/pages/pages/view', 'url'=>'services')),
+                    	array('label'=>Yii::t('core', 'Новости'), 'url'=>array('/pages/pages/list', 'url'=>'news')),
+                    	array('label'=>Yii::t('core', 'Контакты'), 'url'=>array('/pages/pages/view', 'url'=>'contacts')),
+                        array('label'=>Yii::t('core', 'Вакансии'), 'url'=>array('/pages/pages/view', 'url'=>'vakansii')),
                     ),
                     'htmlOptions' => array('class' => 'list-inline'),
                 ));
@@ -396,7 +395,37 @@
     </div>
     <!-- </modal> -->
 
+   
+
+    <!-- </modal id='order'> -->
+    <div class="modal fade" id='order'>
+      <div class="modal-dialog b_order">
     
-            
+        <div class="modal-content _bg-gray _border-bottom-dashed">
+    
+          <div class="modal-header">
+            <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
+          </div>
+    
+          <div class="modal-body">
+          
+            <?
+                Yii::import('feedback.models.OrderDetailForm');
+                Yii::import('application.modules.feedback.FeedbackModule');
+                $model = new OrderDetailForm;
+                
+                $this->renderPartial('//feedback/default/orderdetail', array(
+        			'model'=>$model
+        		));
+            ?>                     
+    
+          </div>              
+    
+        </div>
+    
+      </div>
+    </div>
+    <!-- </modal> --> 
+    <script src="<?=$assetsPath?>bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>        
 </body>
 </html>

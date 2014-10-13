@@ -10,14 +10,6 @@ $this->pageTitle = ($model->meta_title) ? $model->meta_title : $model->name;
 $this->pageKeywords = $model->meta_keywords;
 $this->pageDescription = $model->meta_description;
 
-$catTree = new PageCategoryTree();
-$catTree = $catTree->buildTree();
-foreach($catTree as $cat)
-{
-    if($cat->id == $model->id)break;
-    $this->breadcrumbs[$cat->name] = $cat->getViewUrl();
-}
-    
 $this->breadcrumbs[] = $model->name;
 ?>
 <div class='row block-sm'>

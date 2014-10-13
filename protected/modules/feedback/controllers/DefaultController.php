@@ -88,5 +88,29 @@ class DefaultController extends Controller
 		));
         
 	}
+    
+    
+    public function actionEvacuator()
+    {
+        Yii::import('feedback.models.EvacuatorForm');
+		$model = new EvacuatorForm;
+        $success = false;
+
+		if(isset($_POST['EvacuatorForm']))
+			$model->attributes = $_POST['EvacuatorForm'];
+
+		if(Yii::app()->request->isPostRequest && $model->validate())
+		{
+			$model->sendMessage();
+            $model = new EvacuatorForm;
+            $success = true;
+			//Yii::app()->request->redirect($this->createUrl('/feedback/order-detail'));
+		}
+
+		$this->render('evacuator', array(
+			'model'=>$model,
+            'success' => $success,
+		));
+    }
 
 }

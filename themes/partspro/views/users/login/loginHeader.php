@@ -24,7 +24,7 @@
 
   <div class='form-group'>
       <button type="submit" class="btn btn-yellow"><?php echo Yii::t('UsersModule.core','Вход'); ?></button>
-      <?php echo CHtml::link(Yii::t('UsersModule.core', 'Регистрация'), array('register/register'),array('class' => 'btn btn-yellow')) ?>
+      <?php echo CHtml::link(Yii::t('UsersModule.core', 'Регистрация'), array('/users/register'),array('class' => 'btn btn-yellow')) ?>
    </div>
    
 

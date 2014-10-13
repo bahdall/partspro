@@ -25,6 +25,7 @@ class User extends BaseModel
 {
 
 	public $new_password;
+    public $password_repeat;
 	public $verifyCode;
 
 	/**
@@ -61,6 +62,8 @@ public function rules()
 		array('username, password, email, discount', 'length', 'max'=>255),
 		array('new_password', 'length', 'min'=>4, 'max'=>40, 'on'=>'update'),
 		array('password', 'length', 'min'=>4, 'max'=>40),
+        array('password_repeat', 'required', 'on'=>'register'),
+        array('password_repeat', 'compare', 'on'=>'register','compareAttribute'=>'password'),
 		// Search
 		array('id, username, email, created_at, last_login, banned', 'safe', 'on'=>'search'),
 	);
@@ -111,6 +114,7 @@ public function rules()
 			'discount'     => Yii::t('UsersModule.core', 'Персональная скидка'),
 			'banned'       => Yii::t('UsersModule.core', 'Бан'),
 			'verifyCode'   => Yii::t('UsersModule.core', 'Код проверки'),
+            'password_repeat' => Yii::t('UsersModule.core', 'Повторите пароль'),
 		);
 	}
 

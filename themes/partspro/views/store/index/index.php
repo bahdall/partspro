@@ -689,7 +689,7 @@ $attributes = $model->getEavAttributes();
                   <div class='col-xs-4'>
                     <img src="<?=$car->getImage('149x149','adaptiveResize')?>" class="img-circle">
                     <div class='b_news-text'>
-                      <span class='bg-yellow'><?php echo $car->created ?></span>
+                      <span class='bg-yellow'><?php echo date('d.m.Y',strtotime($car->created)) ?></span>
                       <a href="<?php echo $car->viewUrl ?>" class='block-sm'><?php echo $car->title ?></a>
                     </div>
                   </div>
@@ -710,7 +710,7 @@ $attributes = $model->getEavAttributes();
                   <div class='col-xs-6'>
                     <img src="<?=$n->getImage('149x149','adaptiveResize')?>" >
                     <div class='b_news-text'>
-                      <span class='bg-yellow'><?php echo $n->created ?></span>
+                      <span class='bg-yellow'><?php echo date('d.m.Y',strtotime($n->created)) ?></span>
                       <a href="<?php echo $n->viewUrl ?>" class='block-sm'><?php echo $n->title ?></a>
                     </div>
                   </div>
@@ -834,34 +834,3 @@ $attributes = $model->getEavAttributes();
 
 
 
-
-
-<!-- </modal id='order'> -->
-<div class="modal fade" id='order'>
-  <div class="modal-dialog b_order">
-
-    <div class="modal-content _bg-gray _border-bottom-dashed">
-
-      <div class="modal-header">
-        <a href="javascript:;" class="close" data-dismiss="modal"><img src="<?=$assetsPath?>images/icon_close.png" alt=""></a>
-      </div>
-
-      <div class="modal-body">
-      
-        <?
-            Yii::import('feedback.models.OrderDetailForm');
-            Yii::import('application.modules.feedback.FeedbackModule');
-            $model = new OrderDetailForm;
-            
-            $this->renderPartial('//feedback/default/orderdetail', array(
-    			'model'=>$model
-    		));
-        ?>                     
-
-      </div>              
-
-    </div>
-
-  </div>
-</div>
-<!-- </modal> -->
