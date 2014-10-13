@@ -47,15 +47,15 @@ class SAttributesTableRenderer extends CWidget
 
 		if(!empty($data))
 		{
-			echo CHtml::openTag('table', $this->htmlOptions);
+			echo CHtml::openTag('div', $this->htmlOptions);
 			foreach($data as $title=>$value)
 			{
-				echo CHtml::openTag('tr');
-				echo '<td>'.CHtml::encode($title).'</td>';
-				echo '<td>'.CHtml::encode($value).'</td>';
-				echo CHtml::closeTag('tr');
+				echo CHtml::openTag('div',array('class'=>'block-sm'));
+				echo '<span  class="i_info-text">'.CHtml::encode($title).': </span>';
+				echo '<span>'.CHtml::encode($value).'</span>';
+				echo CHtml::closeTag('div');
 			}
-			echo CHtml::closeTag('table');
+			echo CHtml::closeTag('div');
 		}
 	}
 

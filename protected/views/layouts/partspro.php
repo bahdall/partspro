@@ -34,6 +34,7 @@
 
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="<?=$assetsPath?>bower_components/modernizr/modernizr.js"></script>
+    <script src="<?=$assetsPath?>scripts/jquery.carousellite.js"></script>
     <!-- endbuild -->
 
     <!-- build:js scripts/vendor.js -->
@@ -220,7 +221,7 @@
             			));
                 	  ?>
                     </div>
-                    
+                    <?if($this->pageH):?>
                     <div class='row block-sm'>
                       <div class='col-xs-12'> 
         
@@ -228,7 +229,9 @@
         
                       </div>
                     </div>
+                    <?endif;?>
                     <?php echo $content; ?>
+                    <div class="_shadow-short block-xxxlg"></div>
                 </div>
             <?endif;?>
         </div>
