@@ -4996,6 +4996,9 @@ button.close {
   color: #FF5959; }
 
 /* header */
+.l_header {
+  overflow-x: hidden; }
+
 .b_header-top {
   background: #232323;
   color: #fff; }
@@ -5091,8 +5094,7 @@ button.close {
   text-align: center; }
 
 .b_header-bottom {
-  position: relative;
-  overflow: hidden; }
+  position: relative; }
 
 .b_logo {
   text-align: center;

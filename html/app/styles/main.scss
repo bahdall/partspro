@@ -106,7 +106,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 }
 /* header */
 .l_header {
-	
+	overflow-x: hidden;
 }
 .b_header-top {
 	background: #232323; 
@@ -221,8 +221,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 	text-align: center;
 }
 .b_header-bottom {
-	position: relative;
-	overflow: hidden;
+	position: relative;	
 }
 
 .b_logo {
