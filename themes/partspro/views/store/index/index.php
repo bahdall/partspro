@@ -27,16 +27,16 @@ $attributes = $model->getEavAttributes();
                   <img src="<?=$assetsPath?>upload/service_car.png" alt="door">
                 </div>
                 <div class='i_service-link'>
-                  <a href=""><?=Yii::t('core','Продажа авто')?></a>
+                  <a href="<?=Yii::app()->createUrl('/cars')?>"><?=Yii::t('core','Продажа авто')?></a>
                 </div>
               </div>
 
-              <div class='bl_service-icon active'>
+              <div class='bl_service-icon'>
                 <div class='img'>
                   <img src="<?=$assetsPath?>upload/service_door.png" alt="door">
                 </div>
                 <div class='i_service-link'>
-                  <a href=""><?=Yii::t('core','Автозапчасти')?></a>
+                  <a href="<?=Yii::app()->createUrl('/avto-parts')?>"><?=Yii::t('core','Автозапчасти')?></a>
                 </div>
               </div>
 
@@ -45,7 +45,7 @@ $attributes = $model->getEavAttributes();
                   <img src="<?=$assetsPath?>upload/service_money.png" alt="door">
                 </div>
                 <div class='i_service-link'>
-                  <a href=""> <?=Yii::t('core','Выкуп авто')?></a>
+                  <a href="<?=Yii::app()->createUrl('/feedback/ordercar')?>"> <?=Yii::t('core','Выкуп авто')?></a>
                 </div>
               </div>
 
@@ -54,7 +54,7 @@ $attributes = $model->getEavAttributes();
                   <img src="<?=$assetsPath?>upload/service_helmet.png" alt="door">
                 </div>
                 <div class='i_service-link'>
-                  <a href=""> <?=Yii::t('core','Аргон сварка')?></a>
+                  <a href="<?=Yii::app()->createUrl('/page/argon')?>"> <?=Yii::t('core','Аргон сварка')?></a>
                 </div>
               </div>
 
@@ -63,7 +63,7 @@ $attributes = $model->getEavAttributes();
                   <img src="<?=$assetsPath?>upload/service_evacuation.png" alt="door">
                 </div>
                 <div class='i_service-link'>
-                  <a href=""> <?=Yii::t('core','Эвакуатор')?></a>
+                  <a href="<?=Yii::app()->createUrl('/feedback/evacuator')?>"> <?=Yii::t('core','Эвакуатор')?></a>
                 </div>
               </div>
 
@@ -96,13 +96,13 @@ $attributes = $model->getEavAttributes();
               </span>
             </li>
             <li>
-              <a href="#profile" role="tab" data-toggle="tab" class='btn'> <?=Yii::t('core','Легковые авто')?></a>
+              <a href="#dropdown1" role="tab" data-toggle="tab" class='btn'> <?=Yii::t('core','Легковые авто')?></a>
               <span class='round-caret'>
                 <span class="caret"></span>
               </span>
             </li>
             <li>
-              <a href="#profile" role="tab" data-toggle="tab" class='btn'> <?=Yii::t('core','Заказать деталь')?></a>
+              <a href="<?=Yii::app()->createUrl('/feedback/order-detail') ?>" class='btn'> <?=Yii::t('core','Заказать деталь')?></a>
               <span class='round-caret'>
                 <span class="caret"></span>
               </span>
@@ -113,507 +113,27 @@ $attributes = $model->getEavAttributes();
             <div class="tab-pane fade active in" id="home">
                 <?php
                 	$p = Yii::app()->createController('store/category/home');
-                    $_GET['url'] = 'cars';
+                    $_GET['url'] = 'avto-parts';
                     $p[0]->run('home');
                 ?> 
 
             </div>
               
             <div class="tab-pane fade" id="profile">
-               <form name='filter'>
-
-                <div class='row block'>
-                  <div class='col-xs-8 center-block'>
-                    
-                    <div class="input-group-inline">
-
-                      <input type="text" class="form-control">                            
-                      <span class="input-group-btn">
-                        <button class="btn btn-yellow" type="button">Поиск по каталогу авто</button>
-                      </span>                          
-
-                    </div>                                
-
-                  </div>
-                </div>
-                <div class='row block-sm'>
-                  
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1" >Марка:</label>                              
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите марку</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-
-                    </div>
-                  </div>
-                  <div class='col-xs-3 col-xs-offset-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Тип кузова:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип кузова</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                        
-                    </div>
-                  </div>
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Тип КПП:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип КПП</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                      
-                    </div>
-                  </div>  
-                </div>
-                <div class='row block'>
-                   
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Цена (тысяч руб.):</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div>                            
-
-                  </div>
-
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Год выпуска:</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div> 
-
-                  </div>
-
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Состояние:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип кузова</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                        
-                    </div>
-                  </div>
-                    
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Пробег (тысяч км.)</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div> 
-
-                  </div>
-
-                </div>
-
-                <div class='row'>
-
-                  <div class='col-xs-6 center-block text-center'>
-
-                    <div class='b_btn-show'>
-                      <button class='btn btn-show'>
-                        <span class='label-black-bordered'>18+</span>
-                        Показать
-                      </button>                              
-                    </div>                            
-
-                  </div>                          
-
-                </div>
-              </form> 
+               <?php
+                	$p = Yii::app()->createController('store/category/home');
+                    $_GET['url'] = 'lorries';
+                    $p[0]->run('home');
+                ?>  
             </div>
             <div class="tab-pane fade" id="dropdown1">
-               <form name='filter'>
-
-                <div class='row block'>
-                  <div class='col-xs-8 center-block'>
-                    
-                    <div class="input-group-inline">
-
-                      <input type="text" class="form-control">                            
-                      <span class="input-group-btn">
-                        <button class="btn btn-yellow" type="button">Поиск по каталогу авто</button>
-                      </span>                          
-
-                    </div>                                
-
-                  </div>
-                </div>
-                <div class='row block-sm'>
-                  
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1" >Марка:</label>                              
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите марку</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-
-                    </div>
-                  </div>
-                  <div class='col-xs-3 col-xs-offset-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Тип кузова:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип кузова</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                        
-                    </div>
-                  </div>
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Тип КПП:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип КПП</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                      
-                    </div>
-                  </div>  
-                </div>
-                <div class='row block'>
-                   
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Цена (тысяч руб.):</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div>                            
-
-                  </div>
-
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Год выпуска:</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div> 
-
-                  </div>
-
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Состояние:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип кузова</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                        
-                    </div>
-                  </div>
-                    
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Пробег (тысяч км.)</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div> 
-
-                  </div>
-
-                </div>
-
-                <div class='row'>
-
-                  <div class='col-xs-6 center-block text-center'>
-
-                    <div class='b_btn-show'>
-                      <button class='btn btn-show'>
-                        <span class='label-black-bordered'>18+</span>
-                        Показать
-                      </button>                              
-                    </div>                            
-
-                  </div>                          
-
-                </div>
-              </form> 
+               <?php
+                	$p = Yii::app()->createController('store/category/home');
+                    $_GET['url'] = 'cars';
+                    $p[0]->run('home');
+                ?>  
             </div>
-            <div class="tab-pane fade" id="dropdown2">
-               <form name='filter'>
-
-                <div class='row block'>
-                  <div class='col-xs-8 center-block'>
-                    
-                    <div class="input-group-inline">
-
-                      <input type="text" class="form-control">                            
-                      <span class="input-group-btn">
-                        <button class="btn btn-yellow" type="button">Поиск по каталогу авто</button>
-                      </span>                          
-
-                    </div>                                
-
-                  </div>
-                </div>
-                <div class='row block-sm'>
-                  
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1" >Марка:</label>                              
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите марку</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-
-                    </div>
-                  </div>
-                  <div class='col-xs-3 col-xs-offset-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Тип кузова:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип кузова</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                        
-                    </div>
-                  </div>
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Тип КПП:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип КПП</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                      
-                    </div>
-                  </div>  
-                </div>
-                <div class='row block'>
-                   
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Цена (тысяч руб.):</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div>                            
-
-                  </div>
-
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Год выпуска:</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div> 
-
-                  </div>
-
-                  <div class='col-xs-3'>
-                    <div class="form-group">
-
-                      <label for="exampleInputEmail1">Состояние:</label>
-                      <select name="" class='select-styled form-control'>
-                        <option value="">Выберите тип кузова</option>
-                        <option value="">BMW</option>
-                        <option value="">Opel</option>
-                        <option value="">Mercedes-Benz</option>
-                      </select>
-                        
-                    </div>
-                  </div>
-                    
-                  <div class='col-xs-3'>
-
-                    <label for="exampleInputEmail1">Пробег (тысяч км.)</label>
-                    <div class='container-xs-height'>                                                          
-
-                      <div class='row-xs-height b_filter-range'>                                
-                        <div class='col-xs-height b_filter-r-text'>
-                          От: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>
-                        <div class='col-xs-height b_filter-r-text'>
-                          До: 
-                        </div>
-                        <div class='col-xs-height b_filter-r-input'>
-                          <input type="text" class="form-control" id="" placeholder="0">  
-                        </div>                                                                                        
-                      </div>
-                      
-                    </div> 
-
-                  </div>
-
-                </div>
-
-                <div class='row'>
-
-                  <div class='col-xs-6 center-block text-center'>
-
-                    <div class='b_btn-show'>
-                      <button class='btn btn-show'>
-                        <span class='label-black-bordered'>18+</span>
-                        Показать
-                      </button>                              
-                    </div>                            
-
-                  </div>                          
-
-                </div>
-              </form> 
-            </div>
+            
           </div>                                  
 
         </div>
@@ -797,7 +317,7 @@ $attributes = $model->getEavAttributes();
             <?=Yii::t('core','Удобный сервис и качественное обслуживание')?>
           </div>
           <div class='i_caption-button'>
-            <a href='#' class='btn btn-black'> <?=Yii::t('core','Узнать больше')?></a>
+            <a href='<?=Yii::app()->createUrl('/page/about')?>' class='btn btn-black'> <?=Yii::t('core','Узнать больше')?></a>
           </div>
 
         </div>
@@ -809,7 +329,7 @@ $attributes = $model->getEavAttributes();
             <?=Yii::t('core','Гарантия и 100% юридической чистоты')?>
           </div>
           <div class='i_caption-button'>
-            <a href='#' class='btn btn-black'><?=Yii::t('core','Узнать больше')?></a>
+            <a href='<?=Yii::app()->createUrl('/page/about')?>' class='btn btn-black'><?=Yii::t('core','Узнать больше')?></a>
           </div>
 
         </div>
@@ -821,7 +341,7 @@ $attributes = $model->getEavAttributes();
             <?=Yii::t('core','Скидки и индивидуальный подход к каждому клиенту')?>
           </div>
           <div class='i_caption-button'>
-            <a href='#' class='btn btn-black'><?=Yii::t('core','Узнать больше')?></a>
+            <a href='<?=Yii::app()->createUrl('/page/about')?>' class='btn btn-black'><?=Yii::t('core','Узнать больше')?></a>
           </div>
 
         </div>                

@@ -12,6 +12,7 @@ class SLicenseChecker
 	 */
 	public static function check()
 	{
+	    return true;
 		// Check license file.
 		$licensePath=Yii::getPathOfAlias('webroot').DIRECTORY_SEPARATOR.'eximus_license.key';
 

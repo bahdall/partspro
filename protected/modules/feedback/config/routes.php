@@ -8,5 +8,6 @@ return array(
     'feedback/callback'=>'feedback/default/callback',
     'feedback/order-detail'=>'feedback/default/orderDetail',
     'feedback/evacuator'=>'feedback/default/evacuator',
+    'feedback/ordercar'=>'feedback/default/ordercar',
 	'feedback/captcha'=>'feedback/default/captcha',
 );

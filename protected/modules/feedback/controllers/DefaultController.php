@@ -112,5 +112,28 @@ class DefaultController extends Controller
             'success' => $success,
 		));
     }
+    
+    public function actionOrdercar()
+    {
+        Yii::import('feedback.models.OrderCarForm');
+		$model = new OrderCarForm;
+        $success = false;
+
+		if(isset($_POST['OrderCarForm']))
+			$model->attributes = $_POST['OrderCarForm'];
+
+		if(Yii::app()->request->isPostRequest && $model->validate())
+		{
+			$model->sendMessage();
+            $model = new OrderCarForm;
+            $success = true;
+			//Yii::app()->request->redirect($this->createUrl('/feedback/order-detail'));
+		}
+
+		$this->render('ordercar', array(
+			'model'=>$model,
+            'success' => $success,
+		));
+    }
 
 }

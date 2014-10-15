@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `ActionLog` (
   KEY `event` (`event`),
   KEY `datetime` (`datetime`),
   KEY `model_name` (`model_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.ActionLog: 72 rows
+-- Дамп данных таблицы partspro.ActionLog: 73 rows
 DELETE FROM `ActionLog`;
 /*!40000 ALTER TABLE `ActionLog` DISABLE KEYS */;
 INSERT INTO `ActionLog` (`id`, `username`, `event`, `model_name`, `model_title`, `datetime`) VALUES
@@ -117,7 +117,8 @@ INSERT INTO `ActionLog` (`id`, `username`, `event`, `model_name`, `model_title`,
 	(69, 'admin', 2, 'Page', 'Наши контакты', '2014-10-13 14:43:33'),
 	(70, 'admin', 2, 'Page', 'Наши контакты', '2014-10-13 14:46:40'),
 	(71, 'admin', 2, 'Page', 'Наши контакты', '2014-10-13 14:51:00'),
-	(72, 'admin', 2, 'Page', 'Наши контакты', '2014-10-13 14:52:43');
+	(72, 'admin', 2, 'Page', 'Наши контакты', '2014-10-13 14:52:43'),
+	(73, 'admin', 2, 'StoreProduct', 'Mercedes Benz (Грузовые) Axor 1843LS', '2014-10-15 14:02:08');
 /*!40000 ALTER TABLE `ActionLog` ENABLE KEYS */;
 
 
@@ -1202,6 +1203,41 @@ INSERT INTO `StoreCategoryTranslate` (`id`, `object_id`, `language_id`, `name`, 
 /*!40000 ALTER TABLE `StoreCategoryTranslate` ENABLE KEYS */;
 
 
+-- Дамп структуры для таблица partspro.StoreCountry
+CREATE TABLE IF NOT EXISTS `StoreCountry` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы partspro.StoreCountry: ~0 rows (приблизительно)
+DELETE FROM `StoreCountry`;
+/*!40000 ALTER TABLE `StoreCountry` DISABLE KEYS */;
+INSERT INTO `StoreCountry` (`id`) VALUES
+	(1);
+/*!40000 ALTER TABLE `StoreCountry` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица partspro.StoreCountryTranslate
+CREATE TABLE IF NOT EXISTS `StoreCountryTranslate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `object_id` int(10) NOT NULL,
+  `language_id` int(10) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `object_id` (`object_id`),
+  KEY `language_id` (`language_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы partspro.StoreCountryTranslate: ~0 rows (приблизительно)
+DELETE FROM `StoreCountryTranslate`;
+/*!40000 ALTER TABLE `StoreCountryTranslate` DISABLE KEYS */;
+INSERT INTO `StoreCountryTranslate` (`id`, `object_id`, `language_id`, `name`) VALUES
+	(1, 1, 1, 'Россия'),
+	(2, 1, 9, 'Russia'),
+	(3, 1, 10, 'Россия');
+/*!40000 ALTER TABLE `StoreCountryTranslate` ENABLE KEYS */;
+
+
 -- Дамп структуры для таблица partspro.StoreCurrency
 CREATE TABLE IF NOT EXISTS `StoreCurrency` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1560,7 +1596,7 @@ INSERT INTO `StoreProduct` (`id`, `manufacturer_id`, `type_id`, `use_configurati
 	(49, NULL, 7, 0, 'toyota-highlander', 300000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:33:26', '2014-10-11 11:52:21', NULL, NULL, NULL, '', NULL),
 	(50, NULL, 7, 0, 'man-gruzovie-tgs-19360', 70000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:56:01', '2014-10-10 15:57:19', NULL, NULL, NULL, '', NULL),
 	(51, NULL, 7, 0, 'scania-gruzovie-p340', 8000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:58:56', '2014-10-10 15:58:56', NULL, NULL, NULL, '', NULL),
-	(52, NULL, 7, 0, 'mercedes-benz-gruzovie-axor-1843ls', 50000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 16:02:02', '2014-10-10 16:02:02', NULL, NULL, NULL, '', NULL);
+	(52, NULL, 7, 0, 'mercedes-benz-gruzovie-axor-1843ls', 50000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 16:02:02', '2014-10-15 14:02:08', NULL, NULL, NULL, '', NULL);
 /*!40000 ALTER TABLE `StoreProduct` ENABLE KEYS */;
 
 
@@ -1798,10 +1834,10 @@ INSERT INTO `StoreProductAttributeEAV` (`entity`, `attribute`, `value`) VALUES
 	(51, 'state', '178'),
 	(51, 'odometer', '415000'),
 	(51, 'uroven_sostoyaniya', '2'),
-	(52, 'mark', '173'),
-	(52, 'kpp_type', '167'),
-	(52, 'state', '177'),
 	(52, 'odometer', '271000'),
+	(52, 'state', '177'),
+	(52, 'kpp_type', '167'),
+	(52, 'mark', '173'),
 	(52, 'uroven_sostoyaniya', '2');
 /*!40000 ALTER TABLE `StoreProductAttributeEAV` ENABLE KEYS */;
 
@@ -2005,11 +2041,11 @@ INSERT INTO `StoreProductImage` (`id`, `product_id`, `name`, `is_main`, `uploade
 	(199, 51, '51_126070141.jpg', 0, 1, '2014-10-10 15:58:57', NULL),
 	(200, 51, '51_-823148980.jpg', 0, 1, '2014-10-10 15:58:57', NULL),
 	(201, 51, '51_-564099434.jpg', 0, 1, '2014-10-10 15:58:57', NULL),
-	(202, 52, '52_1241689904.jpg', 1, 1, '2014-10-10 16:02:02', NULL),
-	(203, 52, '52_978314008.jpg', 0, 1, '2014-10-10 16:02:02', NULL),
-	(204, 52, '52_423837957.jpg', 0, 1, '2014-10-10 16:02:02', NULL),
-	(205, 52, '52_980618151.jpg', 0, 1, '2014-10-10 16:02:02', NULL),
-	(206, 52, '52_-935020389.jpg', 0, 1, '2014-10-10 16:02:02', NULL);
+	(202, 52, '52_1241689904.jpg', 1, 1, '2014-10-10 16:02:02', ''),
+	(203, 52, '52_978314008.jpg', 0, 1, '2014-10-10 16:02:02', ''),
+	(204, 52, '52_423837957.jpg', 0, 1, '2014-10-10 16:02:02', ''),
+	(205, 52, '52_980618151.jpg', 0, 1, '2014-10-10 16:02:02', ''),
+	(206, 52, '52_-935020389.jpg', 0, 1, '2014-10-10 16:02:02', '');
 /*!40000 ALTER TABLE `StoreProductImage` ENABLE KEYS */;
 
 
@@ -2487,7 +2523,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `created_at`, `last_login`, `login_ip`, `recovery_key`, `recovery_password`, `discount`, `banned`) VALUES
-	(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@admin.ru', '2014-09-29 16:07:43', '2014-10-13 14:35:06', '192.168.0.111', NULL, NULL, NULL, 0),
+	(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@admin.ru', '2014-09-29 16:07:43', '2014-10-15 13:47:06', '192.168.0.111', NULL, NULL, NULL, 0),
 	(2, 'bahdall', 'b8dd5911c83337e30413cc005ff34577dc88125c', 'tyama92@mail.ru', '2014-10-13 12:47:29', '2014-10-13 12:47:29', '192.168.0.111', NULL, NULL, NULL, 0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 

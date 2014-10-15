@@ -49,6 +49,12 @@ return array(
 				'url'=>Yii::app()->createUrl('store/admin/currency'),
 				'position'=>8
 			),
+            
+            array(
+				'label'=>Yii::t('StoreModule.admin', 'Страны'),
+				'url'=>Yii::app()->createUrl('store/admin/country'),
+				'position'=>9
+			),
 		),
 	),
 );
