@@ -47,15 +47,28 @@ $activeAttributes = $this->getOwner()->activeAttributes;
 
 </div>
 
+<div class="form-group">
+    <label for="region"> <?=Yii::t('base','Регион')?>:</label>
+    <?=CHtml::dropDownList('region',explode(',',$_GET['region']),CHtml::listData(StoreRegion::model()->findAll(), 'id', 'name'),array(
+        'id' => 'region',
+        'multiple' => true,
+        'class' => 'form-control',
+        'data-placeholder' => Yii::t('base','Выберите регион'),
+    ))?>
+    <?php $this->widget( 'ext.EChosen.EChosen', array(
+      'target' => '#region',
+    )); ?>
+</div>
+
 
 
 <?if( !empty($attributes) ):?>
 	<?foreach($attributes as $attrData):?>
         <?if($attrData['type'] == StoreAttribute::TYPE_DROPDOWN):?>
             <div class="form-group">
-              <label for="country"><?=$attrData['title']?>:</label>
+              <label for="<?=$attrData['queryKey']?>"><?=$attrData['title']?>:</label>
               <select id="<?=$attrData['queryKey']?>" name="<?=$attrData['queryKey']?>" class='select-styled form-control'>
-                <option value=""> <?=Yii::t('core','Выберите состояние')?></option>
+                <option value=""></option>
                 <?foreach($attrData['filters'] as $filter):?>
                 <option value="<?=$filter['queryParam']?>" <?=(in_array($filter['queryParam'],$activeAttributes[$attrData['queryKey']]['values'])) ? "selected='selected'" : ""?> ><?=$filter['title']?></option>        
                 <?endforeach;?>

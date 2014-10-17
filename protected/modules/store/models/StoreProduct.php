@@ -132,16 +132,16 @@ class StoreProduct extends BaseModel
 	{
 		return array(
 			array('price', 'commaToDot'),
-			array('price, type_id, manufacturer_id, main_category_id', 'numerical'),
+			array('price, type_id, manufacturer_id, region_id, user_id, main_category_id', 'numerical'),
 			array('is_active', 'boolean'),
 			array('use_configurations', 'boolean', 'on'=>'insert'),
-			array('quantity, availability, manufacturer_id', 'numerical', 'integerOnly'=>true),
+			array('quantity, availability, manufacturer_id, region_id, user_id', 'numerical', 'integerOnly'=>true),
 			array('name, price', 'required'),
 			array('url', 'LocalUrlValidator'),
 			array('name, url, meta_title, meta_keywords, meta_description, layout, view, sku, auto_decrease_quantity', 'length', 'max'=>255),
 			array('short_description, full_description, discount', 'type', 'type'=>'string'),
 			// Search
-			array('id, name, url, price, short_description, full_description, created, updated, manufacturer_id', 'safe', 'on'=>'search'),
+			array('id, name, url, price, short_description, full_description, created, updated, manufacturer_id, region_id, user_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -155,6 +155,8 @@ class StoreProduct extends BaseModel
 			'mainImage'       => array(self::HAS_ONE, 'StoreProductImage', 'product_id', 'condition'=>'is_main=1'),
 			'imagesNoMain'    => array(self::HAS_MANY, 'StoreProductImage', 'product_id', 'condition'=>'is_main=0'),
 			'manufacturer'    => array(self::BELONGS_TO, 'StoreManufacturer', 'manufacturer_id', 'scopes'=>'applyTranslateCriteria'),
+            'region'          => array(self::BELONGS_TO, 'StoreRegion', 'region_id', 'scopes'=>'applyTranslateCriteria'),
+            'user'            => array(self::BELONGS_TO, 'User', 'user_id'),
 			//'productsCount'   => array(self::STAT, 'StoreProduct', 'manufacturer_id', 'select'=>'count(t.id)'),
 			'type'            => array(self::BELONGS_TO, 'StoreProductType', 'type_id'),
 			'related'         => array(self::HAS_MANY, 'StoreRelatedProduct', 'product_id'),
@@ -275,6 +277,21 @@ class StoreProduct extends BaseModel
 		}
 		return $this;
 	}
+    
+    public function applyRegions($value)
+    {
+        if( !is_array($value))$value = array($value);
+        foreach($value as $key => $val)
+            $value[$key] = (int)$val;
+         
+        if($value)
+        {
+            $criteria = new CDbCriteria;
+			$criteria->addCondition('t.region_id IN ('.implode(',',$value).')');
+			$this->getDbCriteria()->mergeWith($criteria);
+        }
+        return $this;
+    }
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -284,6 +301,7 @@ class StoreProduct extends BaseModel
 		return array(
 			'id'                     => 'ID',
 			'manufacturer_id'        => Yii::t('StoreModule.core', 'Производитель'),
+            'region_id'              => Yii::t('StoreModule.core', 'Регион'),
 			'type_id'                => Yii::t('StoreModule.core', 'Тип'),
 			'use_configurations'     => Yii::t('StoreModule.core', 'Использовать конфигурации'),
 			'name'                   => Yii::t('StoreModule.core', 'Название'),
@@ -354,6 +372,8 @@ class StoreProduct extends BaseModel
 		$criteria->compare('t.updated',$this->updated,true);
 		$criteria->compare('type_id', $this->type_id);
 		$criteria->compare('manufacturer_id', $this->manufacturer_id);
+        $criteria->compare('region_id', $this->region_id);
+        $criteria->compare('user_id', $this->user_id);
         
         
 		if (isset($params['category']) && $params['category'])
@@ -509,6 +529,11 @@ class StoreProduct extends BaseModel
 					$this->updatePrices($model);
 			}
 		}
+        
+        if($this->isNewRecord)
+        {
+            $this->user_id = Yii::app()->user->id;
+        }
 
 		$this->updated = date('Y-m-d H:i:s');
 

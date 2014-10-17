@@ -1,24 +1,22 @@
 <?php
-Yii::import('application.modules.store.models.StoreCountryTranslate');
+
 /**
- * This is the model class for table "StoreCountry".
+ * This is the model class for table "StoreRegionTranslate".
  *
- * The followings are the available columns in table 'StoreCountry':
+ * The followings are the available columns in table 'StoreRegionTranslate':
  * @property integer $id
+ * @property integer $object_id
+ * @property integer $language_id
+ * @property string $name
  */
-class StoreCountry extends BaseModel
+class StoreRegionTranslate extends CActiveRecord
 {
-    public $translateModelName = 'StoreCountryTranslate';
-    
-    public $name;
-    
-    
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'StoreCountry';
+		return 'StoreRegionTranslate';
 	}
 
 	/**
@@ -29,11 +27,12 @@ class StoreCountry extends BaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('object_id, language_id, name', 'required'),
+			array('object_id, language_id', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>150),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-            array('name', 'required'),
-            array('name', 'length', 'max'=>150),
-			array('id, name', 'safe', 'on'=>'search'),
+			array('id, object_id, language_id, name', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,7 +44,6 @@ class StoreCountry extends BaseModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
 		);
 	}
 
@@ -56,28 +54,11 @@ class StoreCountry extends BaseModel
 	{
 		return array(
 			'id' => 'ID',
-            'name' => Yii::t('StoreModule.admin','Название'),
+			'object_id' => 'Object',
+			'language_id' => 'Language',
+			'name' => 'Name',
 		);
 	}
-    
-    
-    /**
-	 * @return array
-	 */
-	public function behaviors()
-	{
-		return array(
-			'STranslateBehavior'=>array(
-				'class'=>'ext.behaviors.STranslateBehavior',
-				'relationName'=>'translate',
-				'translateAttributes'=>array(
-					'name',
-				),
-			),
-		);
-	}
-    
-    
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
@@ -96,10 +77,11 @@ class StoreCountry extends BaseModel
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-        $criteria->with = array('translate');
 
 		$criteria->compare('id',$this->id);
-        $criteria->compare('translate.name',$this->name,true);
+		$criteria->compare('object_id',$this->object_id);
+		$criteria->compare('language_id',$this->language_id);
+		$criteria->compare('name',$this->name,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -110,29 +92,10 @@ class StoreCountry extends BaseModel
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return StoreCountry the static model class
+	 * @return StoreRegionTranslate the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-    
-    
-    
-    public static function getList()
-    {
-        $criteria=new CDbCriteria;
-        $criteria->with = array('translate');
-        $countries = new StoreCountry('search');
-        $countries = $countries->findAll($criteria);
-        $result = array();
-        foreach($countries as $country)
-        {
-            $result[$country->id] = $country->name;
-        }
-        
-        return $result;
-    }
-    
-    
 }

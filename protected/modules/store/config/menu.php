@@ -55,6 +55,12 @@ return array(
 				'url'=>Yii::app()->createUrl('store/admin/country'),
 				'position'=>9
 			),
+            
+            array(
+				'label'=>Yii::t('StoreModule.admin', 'Регионы'),
+				'url'=>Yii::app()->createUrl('store/admin/region'),
+				'position'=>10
+			),
 		),
 	),
 );

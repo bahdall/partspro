@@ -36,6 +36,13 @@ return array(
 					'items'=>CHtml::listData(StoreManufacturer::model()->findAll(), 'id', 'name'),
 					'empty'=>Yii::t('StoreModule.admin', 'Выберите производителя'),
 				),
+                
+                'region_id'=>array(
+					'type'=>'dropdownlist',
+					'items'=>CHtml::listData(StoreRegion::model()->findAll(), 'id', 'name'),
+					'empty'=>Yii::t('StoreModule.admin', 'Выберите Регион'),
+				),
+                
 				'short_description'=>array(
 					'type'=>'SRichTextarea',
 				),

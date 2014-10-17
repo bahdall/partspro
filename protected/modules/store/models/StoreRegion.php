@@ -1,14 +1,14 @@
 <?php
-Yii::import('application.modules.store.models.StoreCountryTranslate');
+Yii::import('application.modules.store.models.StoreRegionTranslate');
 /**
- * This is the model class for table "StoreCountry".
+ * This is the model class for table "StoreRegion".
  *
- * The followings are the available columns in table 'StoreCountry':
+ * The followings are the available columns in table 'StoreRegion':
  * @property integer $id
  */
-class StoreCountry extends BaseModel
+class StoreRegion extends BaseModel
 {
-    public $translateModelName = 'StoreCountryTranslate';
+    public $translateModelName = 'StoreRegionTranslate';
     
     public $name;
     
@@ -18,7 +18,7 @@ class StoreCountry extends BaseModel
 	 */
 	public function tableName()
 	{
-		return 'StoreCountry';
+		return 'StoreRegion';
 	}
 
 	/**
@@ -31,9 +31,9 @@ class StoreCountry extends BaseModel
 		return array(
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-            array('name', 'required'),
+            array('name, country_id', 'required'),
             array('name', 'length', 'max'=>150),
-			array('id, name', 'safe', 'on'=>'search'),
+			array('id, name, country_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,6 +46,7 @@ class StoreCountry extends BaseModel
 		// class name for the relations automatically generated below.
 		return array(
 			'translate'=>array(self::HAS_ONE, $this->translateModelName, 'object_id'),
+            'country'=>array(self::BELONGS_TO, 'Country', 'country_id'),
 		);
 	}
 
@@ -57,6 +58,7 @@ class StoreCountry extends BaseModel
 		return array(
 			'id' => 'ID',
             'name' => Yii::t('StoreModule.admin','Название'),
+            'country_id' => Yii::t('StoreModule.admin','Страна'),
 		);
 	}
     
@@ -100,6 +102,7 @@ class StoreCountry extends BaseModel
 
 		$criteria->compare('id',$this->id);
         $criteria->compare('translate.name',$this->name,true);
+        $criteria->compare('country_id',$this->country_id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -110,29 +113,10 @@ class StoreCountry extends BaseModel
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return StoreCountry the static model class
+	 * @return StoreRegion the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-    
-    
-    
-    public static function getList()
-    {
-        $criteria=new CDbCriteria;
-        $criteria->with = array('translate');
-        $countries = new StoreCountry('search');
-        $countries = $countries->findAll($criteria);
-        $result = array();
-        foreach($countries as $country)
-        {
-            $result[$country->id] = $country->name;
-        }
-        
-        return $result;
-    }
-    
-    
 }

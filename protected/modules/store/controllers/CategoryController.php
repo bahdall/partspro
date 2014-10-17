@@ -73,6 +73,18 @@ class CategoryController extends Controller
         
         if($_POST)
         {
+            if(Yii::app()->request->getPost('region') && is_array(Yii::app()->request->getPost('region')))
+            {
+                $regions = implode(',',Yii::app()->request->getPost('region'));
+                
+                $data['region'] = $regions;
+                
+            }
+            else
+            {
+                $data['region'] = false;
+            }
+            
             foreach($attributes as $attr)
             {
                 if($attr->type != StoreAttribute::TYPE_NUMBER )
@@ -195,6 +207,14 @@ class CategoryController extends Controller
 		{
 			$manufacturers = explode(';', Yii::app()->request->getParam('manufacturer', ''));
 			$this->query->applyManufacturers($manufacturers);
+		}
+        
+        // Filter by regions
+		if(Yii::app()->request->getQuery('region'))
+		{
+			$regions = explode(',', Yii::app()->request->getParam('region', ''));
+            $this->query->applyRegions($regions);
+			
 		}
 
 		// Create clone of the current query to use later to get min and max prices.
