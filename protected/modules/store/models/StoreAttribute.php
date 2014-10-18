@@ -174,41 +174,41 @@ class StoreAttribute extends BaseModel
 	/**
 	 * @return string html field based on attribute type
 	 */
-	public function renderField($value = null)
+	public function renderField($value = null,$htmlOptions = array())
 	{
 		$name = 'StoreAttribute['.$this->name.']';
 		switch ($this->type):
 			case self::TYPE_TEXT:
-				return CHtml::textField($name, $value);
+				return CHtml::textField($name, $value,$htmlOptions);
 			break;
             case self::TYPE_NUMBER:
-				return CHtml::textField($name, $value);
+				return CHtml::textField($name, $value,$htmlOptions);
 			break;
 			case self::TYPE_TEXTAREA:
-				return CHtml::textArea($name, $value);
+				return CHtml::textArea($name, $value,$htmlOptions);
 			break;
 			case self::TYPE_DROPDOWN:
 				$data = CHtml::listData($this->options, 'id', 'value');
-				return CHtml::dropDownList($name, $value, $data, array('empty'=>'---'));
+				return CHtml::dropDownList($name, $value, $data, array_merge($htmlOptions,array('empty'=>'---') ) );
 			break;
 			case self::TYPE_SELECT_MANY:
 				$data = CHtml::listData($this->options, 'id', 'value');
-				return CHtml::dropDownList($name.'[]', $value, $data, array('multiple'=>'multiple'));
+				return CHtml::dropDownList($name.'[]', $value, $data, array_merge($htmlOptions,array('multiple'=>'multiple')));
 			break;
 			case self::TYPE_RADIO_LIST:
 				$data = CHtml::listData($this->options, 'id', 'value');
-				return CHtml::radioButtonList($name, (string)$value, $data);
+				return CHtml::radioButtonList($name, (string)$value, $data,$htmlOptions);
 			break;
 			case self::TYPE_CHECKBOX_LIST:
 				$data = CHtml::listData($this->options, 'id', 'value');
-				return CHtml::checkBoxList($name.'[]', $value, $data);
+				return CHtml::checkBoxList($name.'[]', $value, $data,$htmlOptions);
 			break;
 			case self::TYPE_YESNO:
 				$data = array(
 					1=>Yii::t('StoreModule.core', 'Да'),
 					2=>Yii::t('StoreModule.core', 'Нет')
 				);
-				return CHtml::dropDownList($name, $value, $data, array('empty'=>'---'));
+				return CHtml::dropDownList($name, $value, $data, array_merge($htmlOptions,array('empty'=>'---') ) );
 			break;
 		endswitch;
 	}

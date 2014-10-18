@@ -7,5 +7,7 @@ return array(
 	'users/profile'=>'users/profile/index',
 	'users/profile/orders'=>'users/profile/orders',
 	'users/logout'=>'users/login/logout',
+    'users/products/<action:\w+>' => 'users/products/<action>',
+    'users/products/<action:\w+>/<id:\d+>' => 'users/products/<action>',
 	'users/remind/activatePassword/<key>'=>array('users/remind/activatePassword'),
 );

@@ -68,7 +68,7 @@ $this->breadcrumbs[] = Yii::t('UsersModule.core', 'Персональный ка
           </li>
             
           <li>
-            <a href="#classifieds" role="tab" data-toggle="tab" class="btn">Мои объявления</a>
+            <a href="<?=Yii::app()->createUrl('users/products') ?>" class="btn">Мои объявления</a>
             <span class="round-caret">
               <span class="caret"></span>
             </span>
