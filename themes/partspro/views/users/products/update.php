@@ -9,18 +9,27 @@
 
 $this->pageTitle=Yii::t('UsersModule.core', 'Новое объявление');
 
-$this->breadcrumbs[] = Yii::t('UsersModule.core', 'Новое объявление');
+$this->breadcrumbs[Yii::t('UsersModule.core', 'Мои объявления')] = Yii::app()->createUrl('users/products/index');
+
+if($model->isNewRecord)
+    $this->breadcrumbs[] = Yii::t('UsersModule.core', 'Новое объявление');
+else
+    $this->breadcrumbs[] = $model->name;
 
 ?>
 <div class='row block'>
 
-  <div class='col-xs-12'>                   
+  <div class='col-xs-12'>    
+    <?if($model->isNewRecord):?>               
     <h3><strong><?php echo Yii::t('UsersModule.core', 'Новое объявление'); ?></strong></h3>
+    <?else:?>
+    <h3><strong><?php echo $model->name; ?></strong></h3>
+    <?endif;?>
   </div>
 </div>
 
 <div class="row b_tab b_cabinet-tab _bg-gray _border-bottom-dashed">
-               
+  <?if($model->isNewRecord):?>              
   <ul id="myTab" class="nav nav-tabs" role="tablist">
 
     <li class="active">
@@ -52,7 +61,7 @@ $this->breadcrumbs[] = Yii::t('UsersModule.core', 'Новое объявлени
     </li>
 
   </ul>
-
+  <?endif;?>  
   <div id="cabinet-tab-content" class="tab-content">
 
     <div class="tab-pane fade active in" id="autoparts">
@@ -254,7 +263,7 @@ $this->breadcrumbs[] = Yii::t('UsersModule.core', 'Новое объявлени
         <!-- <cabinet-row> -->
         <div class='row block b_cabinet-tab-row'>
           <div class='col-xs-12'>
-            <button class='btn btn-black'>Добавить</button>
+            <button class='btn btn-black'><?=$model->isNewRecord ? Yii::t('core','Добавить') : Yii::t('core','Сохранить')?>  </button>
           </div>
         </div>  
         <!-- </cabinet-row> -->

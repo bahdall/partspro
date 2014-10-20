@@ -33,6 +33,12 @@ $this->breadcrumbs[] = Yii::t('UsersModule.core', 'Мои Объявления')
         </span>
       </li>
       <li>
+        <a href="<?=Yii::app()->createUrl('users/products/add') ?>" class="btn">Добавить объявление</a>
+        <span class="round-caret">
+          <span class="caret"></span>
+        </span>
+      </li>
+      <li>
         <a href="<?=Yii::app()->createUrl('users/profile') ?>" class="btn">Мои данные</a>
         <span class="round-caret">
           <span class="caret"></span>
@@ -53,7 +59,28 @@ $this->breadcrumbs[] = Yii::t('UsersModule.core', 'Мои Объявления')
     		),
     	));
      ?>
+     <div class='row'>
 
+        <div class='text-center b_pagination'>
+          <?php
+                $pages = $products->getPagination();
+                $this->widget('CLinkPager', array(
+                    'pages' => $pages,
+                    'htmlOptions' => array(
+                        'class' => 'list-inline',
+                    ),
+                    'firstPageLabel'    => '',
+                    'lastPageLabel'    => '',
+                    'footer'    => '',
+                    'header'    => '',
+                    'prevPageLabel' => '<span href="#" class="btn btn-left"></span>',
+                    'nextPageLabel' => '<span href="#" class="btn btn-right"></span>',
+                    'selectedPageCssClass'  => 'active',
+                )); 
+    		?>
+        </div>
+        
+      </div>   
     </div>
     
   </div> 

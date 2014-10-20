@@ -24,11 +24,9 @@
 		?>
 		<?php echo $data->priceRange() ?>
 	</div>
-	
-	<div class="desc">
-		<?php echo $data->short_description ?>
-	</div>
-	<div class="actions">
+	<div style="margin-left: 50px; float: right;" class="actions">
+        <a href="<?=Yii::app()->createUrl('users/products/update?id='.$data->id)?>" class="btn btn-default">Редактировать</a>
+        <a href="<?=Yii::app()->createUrl('users/products/delete?id='.$data->id)?>" class="btn btn-danger" onclick="if( confirm('Вы уверены?') )return true;else return false;" >Удалить</a>
 	</div>
 </div>
 

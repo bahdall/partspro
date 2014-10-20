@@ -64,11 +64,12 @@ class ProductsController extends Controller
 		else
 			$model = StoreProduct::model()->language($_GET)->findByPk($_GET['id']);
 
-		if (!$model)
+		if (!$model || ($model->user_id &&$model->user_id != Yii::app()->user->id) )
 			throw new CHttpException(404, Yii::t('StoreModule.admin', 'Продукт не найден.'));
 
 		// Apply use_configurations, configurable_attributes, type_id
-		$model->attributes = array('type_id'=>7,'use_configurations'=>0);
+        if( ! $model->type)        
+		  $model->attributes = array('type_id'=>7,'use_configurations'=>0);
 
 		
 		// Set main category id to have categories drop-down selected value
@@ -146,19 +147,16 @@ class ProductsController extends Controller
 	 */
 	public function actionDelete($id = array())
 	{
-		if (Yii::app()->request->isPostRequest)
+		$model = StoreProduct::model()->findAllByPk($_REQUEST['id']);
+
+		if (!empty($model))
 		{
-			$model = StoreProduct::model()->findAllByPk($_REQUEST['id']);
-
-			if (!empty($model))
-			{
-				foreach($model as $page)
-					$page->delete();
-			}
-
-			if (!Yii::app()->request->isAjaxRequest)
-				$this->redirect('index');
+			foreach($model as $page)
+				$page->delete();
 		}
+
+		if (!Yii::app()->request->isAjaxRequest)
+			$this->redirect('index');
 	}
 
 	/**
