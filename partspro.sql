@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `ActionLog` (
   KEY `event` (`event`),
   KEY `datetime` (`datetime`),
   KEY `model_name` (`model_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=120 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.ActionLog: 73 rows
+-- Дамп данных таблицы partspro.ActionLog: 75 rows
 DELETE FROM `ActionLog`;
 /*!40000 ALTER TABLE `ActionLog` DISABLE KEYS */;
 INSERT INTO `ActionLog` (`id`, `username`, `event`, `model_name`, `model_title`, `datetime`) VALUES
@@ -118,7 +118,53 @@ INSERT INTO `ActionLog` (`id`, `username`, `event`, `model_name`, `model_title`,
 	(70, 'admin', 2, 'Page', 'Наши контакты', '2014-10-13 14:46:40'),
 	(71, 'admin', 2, 'Page', 'Наши контакты', '2014-10-13 14:51:00'),
 	(72, 'admin', 2, 'Page', 'Наши контакты', '2014-10-13 14:52:43'),
-	(73, 'admin', 2, 'StoreProduct', 'Mercedes Benz (Грузовые) Axor 1843LS', '2014-10-15 14:02:08');
+	(73, 'admin', 2, 'StoreProduct', 'Mercedes Benz (Грузовые) Axor 1843LS', '2014-10-15 14:02:08'),
+	(74, 'admin', 2, 'StoreProduct', 'Mercedes Benz (Грузовые) Axor 1843LS', '2014-10-16 12:38:01'),
+	(75, 'admin', 1, 'StoreProduct', 'Mitsubishi Pajero Sport', '2014-10-16 12:59:40'),
+	(76, 'admin', 2, 'StoreProduct', 'test', '2014-10-20 12:43:55'),
+	(77, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(78, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(79, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(80, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(81, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(82, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(83, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(84, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(85, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(86, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 13:02:09'),
+	(87, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(88, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(89, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(90, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(91, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(92, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(93, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(94, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(95, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(96, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(97, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(98, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(99, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(100, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(101, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(102, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:32'),
+	(103, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(104, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(105, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(106, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(107, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(108, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(109, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(110, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(111, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(112, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(113, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(114, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(115, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(116, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:33'),
+	(117, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:44'),
+	(118, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:09:44'),
+	(119, 'admin', 3, 'StoreProduct', 'test', '2014-10-20 15:19:04');
 /*!40000 ALTER TABLE `ActionLog` ENABLE KEYS */;
 
 
@@ -131,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `AuthAssignment` (
   PRIMARY KEY (`itemname`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.AuthAssignment: 9 rows
+-- Дамп данных таблицы partspro.AuthAssignment: 10 rows
 DELETE FROM `AuthAssignment`;
 /*!40000 ALTER TABLE `AuthAssignment` DISABLE KEYS */;
 INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
@@ -143,7 +189,8 @@ INSERT INTO `AuthAssignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 	('Authenticated', '56', NULL, 'N;'),
 	('Authenticated', '62', NULL, 'N;'),
 	('Authenticated', '63', NULL, 'N;'),
-	('Authenticated', '2', NULL, 'N;');
+	('Authenticated', '2', NULL, 'N;'),
+	('Customers', '2', NULL, 'N;');
 /*!40000 ALTER TABLE `AuthAssignment` ENABLE KEYS */;
 
 
@@ -157,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `AuthItem` (
   PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.AuthItem: 18 rows
+-- Дамп данных таблицы partspro.AuthItem: 19 rows
 DELETE FROM `AuthItem`;
 /*!40000 ALTER TABLE `AuthItem` DISABLE KEYS */;
 INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
@@ -178,7 +225,8 @@ INSERT INTO `AuthItem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 	('Orders.Statuses.Index', 0, NULL, NULL, 'N;'),
 	('Orders.Statuses.Create', 0, NULL, NULL, 'N;'),
 	('Orders.Statuses.Update', 0, NULL, NULL, 'N;'),
-	('Orders.Statuses.Delete', 0, NULL, NULL, 'N;');
+	('Orders.Statuses.Delete', 0, NULL, NULL, 'N;'),
+	('Customers', 2, 'Продавцы сайта', NULL, 'N;');
 /*!40000 ALTER TABLE `AuthItem` ENABLE KEYS */;
 
 
@@ -1209,11 +1257,13 @@ CREATE TABLE IF NOT EXISTS `StoreCountry` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreCountry: ~0 rows (приблизительно)
+-- Дамп данных таблицы partspro.StoreCountry: ~3 rows (приблизительно)
 DELETE FROM `StoreCountry`;
 /*!40000 ALTER TABLE `StoreCountry` DISABLE KEYS */;
 INSERT INTO `StoreCountry` (`id`) VALUES
-	(1);
+	(1),
+	(2),
+	(3);
 /*!40000 ALTER TABLE `StoreCountry` ENABLE KEYS */;
 
 
@@ -1228,13 +1278,19 @@ CREATE TABLE IF NOT EXISTS `StoreCountryTranslate` (
   KEY `language_id` (`language_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreCountryTranslate: ~0 rows (приблизительно)
+-- Дамп данных таблицы partspro.StoreCountryTranslate: ~9 rows (приблизительно)
 DELETE FROM `StoreCountryTranslate`;
 /*!40000 ALTER TABLE `StoreCountryTranslate` DISABLE KEYS */;
 INSERT INTO `StoreCountryTranslate` (`id`, `object_id`, `language_id`, `name`) VALUES
 	(1, 1, 1, 'Россия'),
 	(2, 1, 9, 'Russia'),
-	(3, 1, 10, 'Россия');
+	(3, 1, 10, 'Россия'),
+	(4, 2, 1, 'Белоруссия'),
+	(5, 2, 9, 'Belarus'),
+	(6, 2, 10, 'Белорусия'),
+	(7, 3, 1, 'Казахстан'),
+	(8, 3, 9, 'Kazakhstan'),
+	(9, 3, 10, 'Казахстан');
 /*!40000 ALTER TABLE `StoreCountryTranslate` ENABLE KEYS */;
 
 
@@ -1510,6 +1566,7 @@ CREATE TABLE IF NOT EXISTS `StoreProduct` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `manufacturer_id` int(11) DEFAULT NULL,
   `type_id` int(11) DEFAULT NULL,
+  `region_id` int(11) DEFAULT NULL,
   `use_configurations` tinyint(1) NOT NULL DEFAULT '0',
   `url` varchar(255) NOT NULL,
   `price` float(10,2) DEFAULT NULL,
@@ -1529,6 +1586,7 @@ CREATE TABLE IF NOT EXISTS `StoreProduct` (
   `rating` int(11) DEFAULT NULL,
   `discount` varchar(255) DEFAULT NULL,
   `video` text,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `manufacturer_id` (`manufacturer_id`),
   KEY `type_id` (`type_id`),
@@ -1540,63 +1598,66 @@ CREATE TABLE IF NOT EXISTS `StoreProduct` (
   KEY `updated` (`updated`),
   KEY `added_to_cart_count` (`added_to_cart_count`),
   KEY `views_count` (`views_count`)
-) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProduct: 51 rows
+-- Дамп данных таблицы partspro.StoreProduct: 52 rows
 DELETE FROM `StoreProduct`;
 /*!40000 ALTER TABLE `StoreProduct` DISABLE KEYS */;
-INSERT INTO `StoreProduct` (`id`, `manufacturer_id`, `type_id`, `use_configurations`, `url`, `price`, `max_price`, `is_active`, `layout`, `view`, `sku`, `quantity`, `availability`, `auto_decrease_quantity`, `views_count`, `created`, `updated`, `added_to_cart_count`, `votes`, `rating`, `discount`, `video`) VALUES
-	(1, 1, 2, 0, 'lenovo-b570', 345.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:52', NULL, NULL, NULL, NULL, 'Intel GMA HD'),
-	(2, 1, 2, 0, 'lenovo-g570', 360.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel GMA HD'),
-	(3, 2, 2, 0, 'asus-k53u', 375.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel GMA HD'),
-	(4, 2, 2, 0, 'asus-x54c', 370.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel HD Graphics 3000'),
-	(5, 3, 2, 0, 'dell-inspiron-n5050', 380.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel HD Graphics 3000'),
-	(6, 4, 2, 0, 'fujitsu-lifebook-ah531', 395.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel HD Graphics 3000'),
-	(7, 5, 2, 0, 'hp-elitebook-8560w', 3150.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'NVIDIA Quadro 2000M'),
-	(8, 3, 2, 0, 'dell-alienware-m17x', 2850.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'AMD Radeon HD 6990M'),
-	(9, 6, 2, 0, 'apple-macbook-pro-15-late-2011', 2600.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, 5, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'ATI Radeon HD 6770М'),
-	(10, 1, 2, 0, 'lenovo-thinkpad-w520', 2450.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'NVIDIA Quadro 2000M'),
-	(11, 7, 2, 0, 'sony-vaio-vpc-f13s8r', 1950.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'NVIDIA GeForce GT 425M'),
-	(12, 8, 2, 0, 'acer-aspire-5943g-7748g75twiss', 2350.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'ATI Mobility Radeon HD 5850'),
-	(13, 9, 3, 0, 'logitech-x-530', 99.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, NULL),
-	(14, 10, 3, 0, 'microlab-m-860', 89.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL),
-	(15, 11, 3, 0, 'edifier-m3700', 115.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL),
-	(16, 9, 3, 0, 'logitech-z-313', 84.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL),
-	(17, 12, 3, 0, 'sven-sps-820', 55.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL),
-	(18, 11, 3, 0, 'edifier-m1385', 67.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL),
-	(19, 11, 3, 0, 'edifier-x600', 45.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL),
-	(20, 10, 3, 0, 'microlab-fc-362', 85.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL),
-	(21, 3, 4, 0, 'dell-u2412m', 240.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL),
-	(22, 3, 4, 0, 'dell-u2312hm', 180.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL),
-	(23, 13, 4, 0, 'lg-flatron-m2250d', 210.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL),
-	(24, 13, 4, 0, 'lg-flatron-ips226v', 175.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL),
-	(25, 14, 4, 0, 'samsung-syncmaster-s22a350n', 150.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL),
-	(26, 15, 4, 0, 'philips-237e3qphsu', 160.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL),
-	(27, 15, 4, 0, 'philips-227e3lsu', 190.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL),
-	(28, 5, 4, 0, 'hp-zr2740w', 460.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL),
-	(29, 5, 4, 0, 'hp-zr2440w', 380.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL),
-	(30, 14, 5, 0, 'samsung-galaxy-ace-ii', 390.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL),
-	(31, 16, 5, 0, 'htc-one-xl', 425.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, 6, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL),
-	(32, 16, 5, 0, 'htc-sensation-xl', 480.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL),
-	(33, 6, 5, 0, 'apple-iphone-4s-16gb', 675.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL),
-	(34, 6, 5, 0, 'apple-iphone-3gs-8gb', 425.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL),
-	(35, 6, 5, 0, 'apple-iphone-4-16gb', 550.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL),
-	(36, 17, 5, 0, 'nokia-n9', 425.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, 8, '2014-09-29 16:06:58', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL),
-	(37, 18, 5, 0, 'blackberry-bold-9900', 445.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL),
-	(38, 18, 5, 0, 'blackberry-bold-9780', 379.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL),
-	(39, 6, 6, 0, 'apple-ipad-2-16gb-wi-fi--3g', 430.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, 8, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL),
-	(40, 6, 6, 0, 'apple-ipad-2-64gb-wi-fi--3g', 560.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL),
-	(41, 14, 6, 0, 'samsung-galaxy-tab-70-plus-p6200-16gb', 350.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL),
-	(42, 8, 6, 0, 'acer-iconia-tab-a100-8gb', 365.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL),
-	(43, 2, 6, 0, 'asus-transformer-pad-prime-201-64gb', 495.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:59', '2014-09-29 16:06:59', NULL, NULL, NULL, NULL, NULL),
-	(44, 14, 6, 0, 'samsung-galaxy-tab-101-p7500-16gb', 475.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-09-29 16:06:59', '2014-10-03 16:45:21', NULL, NULL, NULL, '', NULL),
-	(46, NULL, 7, 0, 'test', 10000.00, 0.00, 1, '', '', '', 10, 1, 1, NULL, '2014-10-03 16:51:37', '2014-10-10 14:37:53', NULL, NULL, NULL, '', NULL),
-	(47, NULL, 7, 0, 'acura', 11000.00, 0.00, 1, '', '', '', 10, 1, 1, NULL, '2014-10-08 10:14:57', '2014-10-10 14:37:17', NULL, NULL, NULL, '', NULL),
-	(48, NULL, 7, 0, 'skoda-octavia', 10000000.00, 0.00, 1, '', '', '', 1, 1, 1, NULL, '2014-10-10 14:49:32', '2014-10-10 14:49:32', NULL, NULL, NULL, '', NULL),
-	(49, NULL, 7, 0, 'toyota-highlander', 300000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:33:26', '2014-10-11 11:52:21', NULL, NULL, NULL, '', NULL),
-	(50, NULL, 7, 0, 'man-gruzovie-tgs-19360', 70000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:56:01', '2014-10-10 15:57:19', NULL, NULL, NULL, '', NULL),
-	(51, NULL, 7, 0, 'scania-gruzovie-p340', 8000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:58:56', '2014-10-10 15:58:56', NULL, NULL, NULL, '', NULL),
-	(52, NULL, 7, 0, 'mercedes-benz-gruzovie-axor-1843ls', 50000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 16:02:02', '2014-10-15 14:02:08', NULL, NULL, NULL, '', NULL);
+INSERT INTO `StoreProduct` (`id`, `manufacturer_id`, `type_id`, `region_id`, `use_configurations`, `url`, `price`, `max_price`, `is_active`, `layout`, `view`, `sku`, `quantity`, `availability`, `auto_decrease_quantity`, `views_count`, `created`, `updated`, `added_to_cart_count`, `votes`, `rating`, `discount`, `video`, `user_id`) VALUES
+	(1, 1, 2, NULL, 0, 'lenovo-b570', 345.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:52', NULL, NULL, NULL, NULL, 'Intel GMA HD', 1),
+	(2, 1, 2, NULL, 0, 'lenovo-g570', 360.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel GMA HD', 1),
+	(3, 2, 2, NULL, 0, 'asus-k53u', 375.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel GMA HD', 1),
+	(4, 2, 2, NULL, 0, 'asus-x54c', 370.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel HD Graphics 3000', 1),
+	(5, 3, 2, NULL, 0, 'dell-inspiron-n5050', 380.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel HD Graphics 3000', 1),
+	(6, 4, 2, NULL, 0, 'fujitsu-lifebook-ah531', 395.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:53', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'Intel HD Graphics 3000', 1),
+	(7, 5, 2, NULL, 0, 'hp-elitebook-8560w', 3150.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:53', NULL, NULL, NULL, NULL, 'NVIDIA Quadro 2000M', 1),
+	(8, 3, 2, NULL, 0, 'dell-alienware-m17x', 2850.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'AMD Radeon HD 6990M', 1),
+	(9, 6, 2, NULL, 0, 'apple-macbook-pro-15-late-2011', 2600.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, 5, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'ATI Radeon HD 6770М', 1),
+	(10, 1, 2, NULL, 0, 'lenovo-thinkpad-w520', 2450.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'NVIDIA Quadro 2000M', 1),
+	(11, 7, 2, NULL, 0, 'sony-vaio-vpc-f13s8r', 1950.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'NVIDIA GeForce GT 425M', 1),
+	(12, 8, 2, NULL, 0, 'acer-aspire-5943g-7748g75twiss', 2350.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:54', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, 'ATI Mobility Radeon HD 5850', 1),
+	(13, 9, 3, NULL, 0, 'logitech-x-530', 99.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:54', NULL, NULL, NULL, NULL, NULL, 1),
+	(14, 10, 3, NULL, 0, 'microlab-m-860', 89.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL, 1),
+	(15, 11, 3, NULL, 0, 'edifier-m3700', 115.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL, 1),
+	(16, 9, 3, NULL, 0, 'logitech-z-313', 84.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL, 1),
+	(17, 12, 3, NULL, 0, 'sven-sps-820', 55.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL, 1),
+	(18, 11, 3, NULL, 0, 'edifier-m1385', 67.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL, 1),
+	(19, 11, 3, NULL, 0, 'edifier-x600', 45.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL, 1),
+	(20, 10, 3, NULL, 0, 'microlab-fc-362', 85.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:55', '2014-09-29 16:06:55', NULL, NULL, NULL, NULL, NULL, 1),
+	(21, 3, 4, NULL, 0, 'dell-u2412m', 240.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL, 1),
+	(22, 3, 4, NULL, 0, 'dell-u2312hm', 180.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL, 1),
+	(23, 13, 4, NULL, 0, 'lg-flatron-m2250d', 210.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL, 1),
+	(24, 13, 4, NULL, 0, 'lg-flatron-ips226v', 175.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL, 1),
+	(25, 14, 4, NULL, 0, 'samsung-syncmaster-s22a350n', 150.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL, 1),
+	(26, 15, 4, NULL, 0, 'philips-237e3qphsu', 160.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL, 1),
+	(27, 15, 4, NULL, 0, 'philips-227e3lsu', 190.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL, 1),
+	(28, 5, 4, NULL, 0, 'hp-zr2740w', 460.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:56', '2014-09-29 16:06:56', NULL, NULL, NULL, NULL, NULL, 1),
+	(29, 5, 4, NULL, 0, 'hp-zr2440w', 380.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL, 1),
+	(30, 14, 5, NULL, 0, 'samsung-galaxy-ace-ii', 390.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL, 1),
+	(31, 16, 5, NULL, 0, 'htc-one-xl', 425.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, 6, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL, 1),
+	(32, 16, 5, NULL, 0, 'htc-sensation-xl', 480.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL, 1),
+	(33, 6, 5, NULL, 0, 'apple-iphone-4s-16gb', 675.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL, 1),
+	(34, 6, 5, NULL, 0, 'apple-iphone-3gs-8gb', 425.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL, 1),
+	(35, 6, 5, NULL, 0, 'apple-iphone-4-16gb', 550.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:57', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL, 1),
+	(36, 17, 5, NULL, 0, 'nokia-n9', 425.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, 8, '2014-09-29 16:06:58', '2014-09-29 16:06:57', NULL, NULL, NULL, NULL, NULL, 1),
+	(37, 18, 5, NULL, 0, 'blackberry-bold-9900', 445.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL, 1),
+	(38, 18, 5, NULL, 0, 'blackberry-bold-9780', 379.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL, 1),
+	(39, 6, 6, NULL, 0, 'apple-ipad-2-16gb-wi-fi--3g', 430.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, 8, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL, 1),
+	(40, 6, 6, NULL, 0, 'apple-ipad-2-64gb-wi-fi--3g', 560.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL, 1),
+	(41, 14, 6, NULL, 0, 'samsung-galaxy-tab-70-plus-p6200-16gb', 350.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL, 1),
+	(42, 8, 6, NULL, 0, 'acer-iconia-tab-a100-8gb', 365.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:58', '2014-09-29 16:06:58', NULL, NULL, NULL, NULL, NULL, 1),
+	(43, 2, 6, NULL, 0, 'asus-transformer-pad-prime-201-64gb', 495.00, 0.00, 1, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-09-29 16:06:59', '2014-09-29 16:06:59', NULL, NULL, NULL, NULL, NULL, 1),
+	(44, 14, 6, NULL, 0, 'samsung-galaxy-tab-101-p7500-16gb', 475.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-09-29 16:06:59', '2014-10-03 16:45:21', NULL, NULL, NULL, '', NULL, 1),
+	(46, NULL, 7, NULL, 0, 'test', 10000.00, 0.00, 1, '', '', '', 10, 1, 1, NULL, '2014-10-03 16:51:37', '2014-10-10 14:37:53', NULL, NULL, NULL, '', NULL, 1),
+	(47, NULL, 7, 24, 0, 'acura', 11000.00, 0.00, 1, '', '', '', 10, 1, 1, NULL, '2014-10-08 10:14:57', '2014-10-10 14:37:17', NULL, NULL, NULL, '', NULL, 1),
+	(48, NULL, 7, 1, 0, 'skoda-octavia', 10000000.00, 0.00, 1, '', '', '', 1, 1, 1, NULL, '2014-10-10 14:49:32', '2014-10-10 14:49:32', NULL, NULL, NULL, '', NULL, 1),
+	(49, NULL, 7, NULL, 0, 'toyota-highlander', 300000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:33:26', '2014-10-11 11:52:21', NULL, NULL, NULL, '', NULL, 2),
+	(50, NULL, 7, NULL, 0, 'man-gruzovie-tgs-19360', 70000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:56:01', '2014-10-10 15:57:19', NULL, NULL, NULL, '', NULL, 1),
+	(51, NULL, 7, NULL, 0, 'scania-gruzovie-p340', 8000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 15:58:56', '2014-10-10 15:58:56', NULL, NULL, NULL, '', NULL, 2),
+	(52, NULL, 7, 1, 0, 'mercedes-benz-gruzovie-axor-1843ls', 50000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-10 16:02:02', '2014-10-16 12:38:01', NULL, NULL, NULL, '', NULL, 2),
+	(53, NULL, 7, 24, 0, 'mitsubishi-pajero-sport', 40000.00, 0.00, 1, '', '', '', 0, 1, 1, NULL, '2014-10-16 12:59:40', '2014-10-16 12:59:40', NULL, NULL, NULL, '', NULL, 1),
+	(97, NULL, 7, 1, 0, 'test-20141020152053', 10000.00, 0.00, NULL, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-10-20 15:20:53', '2014-10-20 15:20:53', NULL, NULL, NULL, NULL, NULL, 1),
+	(98, NULL, 7, 1, 0, 'test-20141020172307', 10000.00, 0.00, NULL, NULL, NULL, NULL, 0, 1, 1, NULL, '2014-10-20 17:23:07', '2014-10-20 17:23:07', NULL, NULL, NULL, NULL, NULL, 1);
 /*!40000 ALTER TABLE `StoreProduct` ENABLE KEYS */;
 
 
@@ -1610,7 +1671,7 @@ CREATE TABLE IF NOT EXISTS `StoreProductAttributeEAV` (
   KEY `value` (`value`(50))
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductAttributeEAV: 225 rows
+-- Дамп данных таблицы partspro.StoreProductAttributeEAV: 231 rows
 DELETE FROM `StoreProductAttributeEAV`;
 /*!40000 ALTER TABLE `StoreProductAttributeEAV` DISABLE KEYS */;
 INSERT INTO `StoreProductAttributeEAV` (`entity`, `attribute`, `value`) VALUES
@@ -1838,7 +1899,25 @@ INSERT INTO `StoreProductAttributeEAV` (`entity`, `attribute`, `value`) VALUES
 	(52, 'state', '177'),
 	(52, 'kpp_type', '167'),
 	(52, 'mark', '173'),
-	(52, 'uroven_sostoyaniya', '2');
+	(52, 'uroven_sostoyaniya', '2'),
+	(53, 'mark', '175'),
+	(53, 'type_cuzov', '163'),
+	(53, 'kpp_type', '166'),
+	(53, 'state', '169'),
+	(53, 'odometer', '90000'),
+	(53, 'uroven_sostoyaniya', '3'),
+	(97, 'odometer', '10'),
+	(97, 'state', '168'),
+	(97, 'kpp_type', '167'),
+	(97, 'type_cuzov', '164'),
+	(97, 'year_create', '2000'),
+	(97, 'mark', '170'),
+	(98, 'state', '177'),
+	(98, 'kpp_type', '166'),
+	(98, 'type_cuzov', '164'),
+	(98, 'mark', '162'),
+	(98, 'year_create', '1999'),
+	(98, 'odometer', '2');
 /*!40000 ALTER TABLE `StoreProductAttributeEAV` ENABLE KEYS */;
 
 
@@ -1852,9 +1931,9 @@ CREATE TABLE IF NOT EXISTS `StoreProductCategoryRef` (
   KEY `category` (`category`),
   KEY `product` (`product`),
   KEY `is_main` (`is_main`)
-) ENGINE=MyISAM AUTO_INCREMENT=240 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=289 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductCategoryRef: 77 rows
+-- Дамп данных таблицы partspro.StoreProductCategoryRef: 80 rows
 DELETE FROM `StoreProductCategoryRef`;
 /*!40000 ALTER TABLE `StoreProductCategoryRef` DISABLE KEYS */;
 INSERT INTO `StoreProductCategoryRef` (`id`, `product`, `category`, `is_main`) VALUES
@@ -1934,7 +2013,12 @@ INSERT INTO `StoreProductCategoryRef` (`id`, `product`, `category`, `is_main`) V
 	(236, 49, 240, 1),
 	(237, 50, 239, 1),
 	(238, 51, 239, 1),
-	(239, 52, 239, 1);
+	(239, 52, 239, 1),
+	(240, 53, 238, 0),
+	(241, 53, 240, 1),
+	(242, 53, 239, 0),
+	(287, 97, 240, 1),
+	(288, 98, 240, 1);
 /*!40000 ALTER TABLE `StoreProductCategoryRef` ENABLE KEYS */;
 
 
@@ -1974,9 +2058,9 @@ CREATE TABLE IF NOT EXISTS `StoreProductImage` (
   `date_uploaded` datetime DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=207 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=220 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductImage: 66 rows
+-- Дамп данных таблицы partspro.StoreProductImage: 70 rows
 DELETE FROM `StoreProductImage`;
 /*!40000 ALTER TABLE `StoreProductImage` DISABLE KEYS */;
 INSERT INTO `StoreProductImage` (`id`, `product_id`, `name`, `is_main`, `uploaded_by`, `date_uploaded`, `title`) VALUES
@@ -2045,7 +2129,17 @@ INSERT INTO `StoreProductImage` (`id`, `product_id`, `name`, `is_main`, `uploade
 	(203, 52, '52_978314008.jpg', 0, 1, '2014-10-10 16:02:02', ''),
 	(204, 52, '52_423837957.jpg', 0, 1, '2014-10-10 16:02:02', ''),
 	(205, 52, '52_980618151.jpg', 0, 1, '2014-10-10 16:02:02', ''),
-	(206, 52, '52_-935020389.jpg', 0, 1, '2014-10-10 16:02:02', '');
+	(206, 52, '52_-935020389.jpg', 0, 1, '2014-10-10 16:02:02', ''),
+	(207, 53, '53_-2142086434.jpg', 1, 1, '2014-10-16 12:59:40', NULL),
+	(208, 53, '53_2087810381.jpg', 0, 1, '2014-10-16 12:59:40', NULL),
+	(209, 53, '53_-269097316.jpg', 0, 1, '2014-10-16 12:59:40', NULL),
+	(210, 53, '53_-56308007.jpg', 0, 1, '2014-10-16 12:59:40', NULL),
+	(216, 97, '97_803880102.png', 0, 1, '2014-10-20 15:20:53', NULL),
+	(215, 97, '97_344201856.png', 0, 1, '2014-10-20 15:20:53', NULL),
+	(214, 97, '97_634199817.png', 1, 1, '2014-10-20 15:20:53', NULL),
+	(217, 98, '98_-217673931.png', 1, 1, '2014-10-20 17:23:07', NULL),
+	(218, 98, '98_-1192970656.png', 0, 1, '2014-10-20 17:23:07', NULL),
+	(219, 98, '98_1062771657.png', 0, 1, '2014-10-20 17:23:07', NULL);
 /*!40000 ALTER TABLE `StoreProductImage` ENABLE KEYS */;
 
 
@@ -2063,9 +2157,9 @@ CREATE TABLE IF NOT EXISTS `StoreProductTranslate` (
   PRIMARY KEY (`id`),
   KEY `object_id` (`object_id`),
   KEY `language_id` (`language_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=421 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=559 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы partspro.StoreProductTranslate: 153 rows
+-- Дамп данных таблицы partspro.StoreProductTranslate: 156 rows
 DELETE FROM `StoreProductTranslate`;
 /*!40000 ALTER TABLE `StoreProductTranslate` DISABLE KEYS */;
 INSERT INTO `StoreProductTranslate` (`id`, `object_id`, `language_id`, `name`, `short_description`, `full_description`, `meta_title`, `meta_keywords`, `meta_description`) VALUES
@@ -2221,7 +2315,16 @@ INSERT INTO `StoreProductTranslate` (`id`, `object_id`, `language_id`, `name`, `
 	(417, 51, 10, 'Scania (Грузовые) P340', '', '', '', '', ''),
 	(418, 52, 1, 'Mercedes Benz (Грузовые) Axor 1843LS', '', '', '', '', ''),
 	(419, 52, 9, 'Mercedes Benz (Грузовые) Axor 1843LS', '', '', '', '', ''),
-	(420, 52, 10, 'Mercedes Benz (Грузовые) Axor 1843LS', '', '', '', '', '');
+	(420, 52, 10, 'Mercedes Benz (Грузовые) Axor 1843LS', '', '', '', '', ''),
+	(421, 53, 1, 'Mitsubishi Pajero Sport', '', '', '', '', ''),
+	(422, 53, 9, 'Mitsubishi Pajero Sport', '', '', '', '', ''),
+	(423, 53, 10, 'Mitsubishi Pajero Sport', '', '', '', '', ''),
+	(558, 98, 10, 'test', NULL, NULL, NULL, NULL, NULL),
+	(553, 97, 1, 'test', NULL, NULL, NULL, NULL, NULL),
+	(554, 97, 9, 'test', NULL, NULL, NULL, NULL, NULL),
+	(555, 97, 10, 'test', NULL, NULL, NULL, NULL, NULL),
+	(556, 98, 1, 'test', NULL, NULL, NULL, NULL, NULL),
+	(557, 98, 9, 'test', NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `StoreProductTranslate` ENABLE KEYS */;
 
 
@@ -2267,6 +2370,146 @@ CREATE TABLE IF NOT EXISTS `StoreProductVariant` (
 DELETE FROM `StoreProductVariant`;
 /*!40000 ALTER TABLE `StoreProductVariant` DISABLE KEYS */;
 /*!40000 ALTER TABLE `StoreProductVariant` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица partspro.StoreRegion
+CREATE TABLE IF NOT EXISTS `StoreRegion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы partspro.StoreRegion: ~27 rows (приблизительно)
+DELETE FROM `StoreRegion`;
+/*!40000 ALTER TABLE `StoreRegion` DISABLE KEYS */;
+INSERT INTO `StoreRegion` (`id`, `country_id`) VALUES
+	(1, 1),
+	(2, 1),
+	(3, 1),
+	(4, 1),
+	(5, 1),
+	(6, 1),
+	(7, 1),
+	(8, 2),
+	(9, 2),
+	(10, 2),
+	(11, 2),
+	(12, 2),
+	(13, 2),
+	(14, 3),
+	(15, 3),
+	(16, 3),
+	(17, 3),
+	(18, 3),
+	(19, 3),
+	(20, 3),
+	(21, 3),
+	(22, 3),
+	(23, 3),
+	(24, 3),
+	(25, 3),
+	(26, 3),
+	(27, 3);
+/*!40000 ALTER TABLE `StoreRegion` ENABLE KEYS */;
+
+
+-- Дамп структуры для таблица partspro.StoreRegionTranslate
+CREATE TABLE IF NOT EXISTS `StoreRegionTranslate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `object_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `object_id` (`object_id`),
+  KEY `language_id` (`language_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы partspro.StoreRegionTranslate: ~81 rows (приблизительно)
+DELETE FROM `StoreRegionTranslate`;
+/*!40000 ALTER TABLE `StoreRegionTranslate` DISABLE KEYS */;
+INSERT INTO `StoreRegionTranslate` (`id`, `object_id`, `language_id`, `name`) VALUES
+	(1, 1, 1, 'Центральный округ'),
+	(2, 1, 9, 'Central District'),
+	(3, 1, 10, 'Центральный округ'),
+	(4, 2, 1, 'Южный округ'),
+	(5, 2, 9, 'Southern District'),
+	(6, 2, 10, 'Южный округ'),
+	(7, 3, 1, 'Приволжский округ'),
+	(8, 3, 9, 'Приволжский округ'),
+	(9, 3, 10, 'Приволжский округ'),
+	(10, 4, 1, 'Северо-Западный округ'),
+	(11, 4, 9, 'Северо-Западный округ'),
+	(12, 4, 10, 'Северо-Западный округ'),
+	(13, 5, 1, 'Дальневосточный округ'),
+	(14, 5, 9, 'Дальневосточный округ'),
+	(15, 5, 10, 'Дальневосточный округ'),
+	(16, 6, 1, 'Уральский округ'),
+	(17, 6, 9, 'Уральский округ'),
+	(18, 6, 10, 'Уральский округ'),
+	(19, 7, 1, 'Сибирский округ'),
+	(20, 7, 9, 'Сибирский округ'),
+	(21, 7, 10, 'Сибирский округ'),
+	(22, 8, 1, 'Брест'),
+	(23, 8, 9, 'Брест'),
+	(24, 8, 10, 'Брест'),
+	(25, 9, 1, 'Грондо'),
+	(26, 9, 9, 'Грондо'),
+	(27, 9, 10, 'Грондо'),
+	(28, 10, 1, 'Минск'),
+	(29, 10, 9, 'Минск'),
+	(30, 10, 10, 'Минск'),
+	(31, 11, 1, 'Витебск'),
+	(32, 11, 9, 'Витебск'),
+	(33, 11, 10, 'Витебск'),
+	(34, 12, 1, 'Могилев'),
+	(35, 12, 9, 'Могилев'),
+	(36, 12, 10, 'Могилев'),
+	(37, 13, 1, 'Гомель'),
+	(38, 13, 9, 'Гомель'),
+	(39, 13, 10, 'Гомель'),
+	(40, 14, 1, 'Уральск'),
+	(41, 14, 9, 'Уральск'),
+	(42, 14, 10, 'Уральск'),
+	(43, 15, 1, 'Атырау'),
+	(44, 15, 9, 'Атырау'),
+	(45, 15, 10, 'Атырау'),
+	(46, 16, 1, 'Актау'),
+	(47, 16, 9, 'Актау'),
+	(48, 16, 10, 'Актау'),
+	(49, 17, 1, 'Актюбинск'),
+	(50, 17, 9, 'Актюбинск'),
+	(51, 17, 10, 'Актюбинск'),
+	(52, 18, 1, 'Костанай'),
+	(53, 18, 9, 'Костанай'),
+	(54, 18, 10, 'Костанай'),
+	(55, 19, 1, 'Кизилорда'),
+	(56, 19, 9, 'Кизилорда'),
+	(57, 19, 10, 'Кизилорда'),
+	(58, 20, 1, 'Петропавловск'),
+	(59, 20, 9, 'Петропавловск'),
+	(60, 20, 10, 'Петропавловск'),
+	(61, 21, 1, 'Астана'),
+	(62, 21, 9, 'Астана'),
+	(63, 21, 10, 'Астана'),
+	(64, 22, 1, 'Караганда'),
+	(65, 22, 9, 'Караганда'),
+	(66, 22, 10, 'Караганда'),
+	(67, 23, 1, 'Павлодар'),
+	(68, 23, 9, 'Павлодар'),
+	(69, 23, 10, 'Павлодар'),
+	(70, 24, 1, 'Шимкент'),
+	(71, 24, 9, 'Шимкент'),
+	(72, 24, 10, 'Шимкент'),
+	(73, 25, 1, 'Тараз'),
+	(74, 25, 9, 'Тараз'),
+	(75, 25, 10, 'Тараз'),
+	(76, 26, 1, 'Алматы'),
+	(77, 26, 9, 'Алматы'),
+	(78, 26, 10, 'Алматы'),
+	(79, 27, 1, 'Семипалатинск'),
+	(80, 27, 9, 'Семипалатинск'),
+	(81, 27, 10, 'Семипалатинск');
+/*!40000 ALTER TABLE `StoreRegionTranslate` ENABLE KEYS */;
 
 
 -- Дамп структуры для таблица partspro.StoreRelatedProduct
@@ -2523,8 +2766,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `created_at`, `last_login`, `login_ip`, `recovery_key`, `recovery_password`, `discount`, `banned`) VALUES
-	(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@admin.ru', '2014-09-29 16:07:43', '2014-10-15 13:47:06', '192.168.0.111', NULL, NULL, NULL, 0),
-	(2, 'bahdall', 'b8dd5911c83337e30413cc005ff34577dc88125c', 'tyama92@mail.ru', '2014-10-13 12:47:29', '2014-10-13 12:47:29', '192.168.0.111', NULL, NULL, NULL, 0);
+	(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@admin.ru', '2014-09-29 16:07:43', '2014-10-20 10:15:53', '192.168.0.95', NULL, NULL, NULL, 0),
+	(2, 'bahdall', 'b8dd5911c83337e30413cc005ff34577dc88125c', 'tyama92@mail.ru', '2014-10-13 12:47:29', '2014-10-18 10:35:25', '192.168.0.95', NULL, NULL, NULL, 0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 

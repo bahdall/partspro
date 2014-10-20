@@ -259,7 +259,7 @@
           $(this).css({ position:'absolute', top: '-3000px' });
           
           // Add new element to the form
-          slave.after(newEle);
+          slave.before(newEle);
           
           // Update list
           MultiFile.addToList( this, slave_count );
